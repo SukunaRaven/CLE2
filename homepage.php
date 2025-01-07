@@ -37,7 +37,7 @@
                 Ons Aanbod
             </a>
 
-            <a href="menu.php" class="navbar-item">
+            <a href="menu.php" class="navbar-item ">
                 Ons Menu
             </a>
 
@@ -56,18 +56,22 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a href="register.php" class="button is-primary">
+                        <a href="register.php" class="button is-link is-outlined"">
                             <strong>Registreren</strong>
                         </a>
-                        <a href="login.php" class="button is-light">
-                            Log in
+
+                        <a href="login.php" class="button is-link is-outlined"">
+                            Log In
+                        </a>
+
+                        <a href="logout.php" class="button is-primary is-outlined"">
+                            Log Uit
                         </a>
                     </div>
                 </div>
             </div>
         </div>
         </div>
-    </div>
 </nav>
 
 </body>
