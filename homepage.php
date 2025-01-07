@@ -14,12 +14,14 @@
     <link rel="stylesheet" href="CSS/style.css">
     <title>Broers Smaakmakers</title>
 </head>
+
 <body>
-<nav class="navbar has-background-black" role="navigation" aria-label="main navigation">
+
+<nav class="navbar has-background-info" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item">
             <figure class="image is-32x32">
-                <a href="homepage.php" target="_blank"></a> <img class="is-rounded" src="https://bulma.io/assets/images/placeholders/128x128.png" alt="Logo" />
+                <a href="homepage.php" target="_self"><img class="is-rounded" src="Images/Broers%20Logo.png" alt="Logo" /></a>
             </figure>
         </a>
 
@@ -72,6 +74,7 @@
             </div>
         </div>
         </div>
+
 </nav>
 
 </body>
