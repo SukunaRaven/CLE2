@@ -87,26 +87,26 @@
 <main class="container">
 
     <section>
-        <h2 class="title is-3 has-text-centered">Menu</h2>
+        <h2 class="title is-3 has-text-centered has-text-weight-bold">Menu</h2>
         <div class="columns">
             <div class="column">
                 <article>
-                    <p class="has-text-centered">Lunch</p>
+                    <h3 class="has-text-centered has-text-weight-bold">Lunch</h3>
                 </article>
             </div>
             <div class="column">
                 <article>
-                    <p class="has-text-centered">Diner</p>
+                    <h3 class="has-text-centered has-text-weight-bold">Diner</h3>
                 </article>
             </div>
             <div class="column">
                 <article>
-                    <p class="has-text-centered">Drank</p>
+                    <h3 class="has-text-centered has-text-weight-bold">Drank</h3>
                 </article>
             </div>
             <div class="column">
                 <article>
-                    <p class="has-text-centered">Borrel</p>
+                    <h3 class="has-text-centered has-text-weight-bold">Borrel</h3>
                 </article>
             </div>
         </div>

@@ -64,7 +64,14 @@ main {
     display: flex;
     flex-direction: row;
     gap: 20px;
-    padding: 50px 180px 80px 180px;}
-                                                                                                                                                                                                                                    justify-content: space-evenly;}.detailsFooter {    display: flex;    flex-direction: column;}.broersLogo {    padding-bottom: 5px;    width: 50px;    height: 50px;}
+    padding: 50px 180px 80px 180px;
+    justify-content: space-evenly;}
 
+.detailsFooter {
+    display: flex;
+    flex-direction: column;}
 
+.broersLogo {
+    padding-bottom: 5px;
+    width: 50px;
+    height: 50px;}
