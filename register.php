@@ -89,7 +89,7 @@ if (isset($_POST['submit'])) {
     <div class="navbar-brand">
         <a class="navbar-item">
             <figure class="image is-32x32">
-                <a href="homepage.php" target="_self"><img class="is-rounded" src="Images/Broers%20Logo.png" alt="Logo" /></a>
+                <a href="homepage.php" target="_self"><img class="is-rounded" src="Images/BroersLogo.png" alt="Logo" /></a>
             </figure>
         </a>
 
@@ -119,10 +119,6 @@ if (isset($_POST['submit'])) {
                 Contact
             </a>
 
-            <a href="reviewspage.php" class="navbar-item is-link">
-                Onze Reviews
-            </a>
-
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
@@ -144,6 +140,16 @@ if (isset($_POST['submit'])) {
     </div>
 
 </nav>
+
+<header class="background-image is-primary is-medium">
+    <section class="hero is-halfheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title is-1 shadow has-text-link">Eetcafé Broers</h1>
+            </div>
+        </div>
+    </section>
+</header>
 
 
 </body>

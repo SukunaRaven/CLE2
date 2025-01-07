@@ -51,10 +51,6 @@
                 Contact
             </a>
 
-            <a href="reviewspage.php" class="navbar-item is-link">
-                Onze Reviews
-            </a>
-
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
@@ -81,11 +77,41 @@
     <section class="hero is-halfheight">
         <div class="hero-body">
             <div class="container has-text-centered">
-                <h1 class="title is-1 shadow has-text-link is-italic">Eetcafé Broers</h1>
+                <h1 class="title is-1 shadow has-text-link">Eetcafé Broers</h1>
             </div>
         </div>
     </section>
 </header>
+
+<main class="container">
+
+    <section>
+        <h2 class="title is-3 has-text-centered">Menu</h2>
+        <div class="columns">
+            <div class="column">
+                <article>
+                    <p class="has-text-centered">Lunch</p>
+                </article>
+            </div>
+            <div class="column">
+                <article>
+                    <p class="has-text-centered">Diner</p>
+                </article>
+            </div>
+            <div class="column">
+                <article>
+                    <p class="has-text-centered">Drank</p>
+                </article>
+            </div>
+            <div class="column">
+                <article>
+                    <p class="has-text-centered">Borrel</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+</main>
 
 </body>
 </html>
