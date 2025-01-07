@@ -4,27 +4,32 @@ if (isset($_POST['submit'])) {
     require_once "connection/connection.php";
 
     // Get form data
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
     $email = $_POST['email'];
+    $phonenumber = $_POST['phoneNumber'];
+    $name = $_POST['name'];
     $password = $_POST['password'];
+    $surname = $_POST ['surname'];
 
     // Server-side validation
 
     $errors = [];
-    if ($firstName === '') {
-        $errors['firstName'] = 'First name cannot be empty';
+    if ($name === '') {
+        $errors['name'] = 'Voornaam mag leeg zijn';
     }
 
-    if ($lastName === '') {
-        $errors['lastName'] = 'Last name cannot be empty';
+    if ($phonenumber === '') {
+        $errors['phoneNumber'] = 'Telefoonnummer mag niet leeg zijn';
+    }
+
+    if ($surname === '') {
+        $errors['surname'] = 'Achternaam mag niet leeg zijn';
     }
 
     if ($email === '') {
-        $errors['email'] = 'E-mail cannot be empty';
+        $errors['email'] = 'E-mail mag niet leeg zijn';
     } else {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $errors['email'] = 'Email is not valid';
+            $errors['email'] = 'E-mail is niet geldig';
         } else {
             $query = "SELECT * FROM users WHERE email = '$email'";
 
@@ -32,16 +37,16 @@ if (isset($_POST['submit'])) {
             or die('Error ' . mysqli_error($db) . ' with query ' . $query);
 
             if (mysqli_fetch_assoc($result)) {
-                $errors['email'] = 'this user already exist';
+                $errors['email'] = 'Deze gebruiker bestaat al';
             }
         }
     }
 
     if ($password === '') {
-        $errors['password'] = 'Password cannot be empty';
+        $errors['password'] = 'Wachtwoord mag niet leeg zijn';
     } else {
         if (strlen($password) < 8) {
-            $errors['password'] = 'Password must be at least 8 characters';
+            $errors['password'] = 'Wachtwoord moet minimaal 8 tekens lang zijn';
         }
     }
 
@@ -51,7 +56,7 @@ if (isset($_POST['submit'])) {
         $securePassword = password_hash($password, PASSWORD_DEFAULT);
 
         // store the new user in the database.
-        $query = "INSERT INTO `users`(`email`,`password`, `first_name`, `last_name`) VALUES ('$email','$securePassword','$firstName','$lastName')";
+        $query = "INSERT INTO `users`(`email`,`phonenumber`, `name`, `password`, `surname`) VALUES ('$email','$phonenumber','$name','$securePassword','$surname')";
 
         $result = mysqli_query($db, $query)
         or exit('Error ' . mysqli_error($db) . ' with query ' . $query);
@@ -151,6 +156,118 @@ if (isset($_POST['submit'])) {
     </section>
 </header>
 
+<section class="section">
+    <div class="container content">
+        <h2 class="title">Registreer</h2>
+
+        <section class="columns">
+            <form class="column is-6" action="" method="post">
+
+                <!--email -->
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label" for="email">E-mail</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <input class="input" id="email" type="text" name="email"
+                                       value="<?= $email ?? '' ?>"/>
+                                <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
+                            </div>
+                            <p class="help is-danger">
+                                <?= $errors['email'] ?? '' ?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- phonenumber -->
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label" for="phoneNumber">Telefoonnummer</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <input class="input" id="phoneNumber" type="text" name="phoneNumber"
+                                       value="<?= $phonenumber ?? '' ?>"/>
+                                <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
+                            </div>
+                            <p class="help is-danger">
+                                <?= $errors['phoneNumber'] ?? '' ?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- name -->
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label" for="email">Voornaam</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <label for="name"></label><input class="input" id="name" type="text" name="name" value="<?= $name ?? '' ?>"/>
+                                <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
+                            </div>
+                            <p class="help is-danger">
+                                <?= $errors['name'] ?? '' ?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- surname -->
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label" for="password">Achternaam</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <label for="surname"></label><input class="input" id="surname" type="text" name="surname"/>
+                                <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+                            </div>
+                            <p class="help is-danger">
+                                <?= $errors['surname'] ?? '' ?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label" for="password">Wachtwoord</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <input class="input" id="password" type="password" name="password"/>
+                                <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+                            </div>
+                            <p class="help is-danger">
+                                <?= $errors['password'] ?? '' ?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal"></div>
+                    <div class="field-body">
+                        <button class="button is-link is-fullwidth" type="submit" name="submit">Register</button>
+                    </div>
+                </div>
+
+            </form>
+        </section>
+
+    </div>
+</section>
 
 </body>
 </html>
