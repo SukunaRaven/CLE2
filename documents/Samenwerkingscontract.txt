@@ -1,0 +1,19 @@
+Taakverdeling
+1.	Amber doet advanced PHP
+2.	Lisa, Raven en Madya doen simpel PHP en HTML
+3.	Amber en Madya doen Database
+4.	Lisa en Raven doen de style
+
+Waar onze documenten staan
+1.	Github
+2.	Teams
+
+Communicatie
+1.	Teams
+2.	Eventueel Discord
+
+Consequenties wanneer niet nakomen afspraken
+1.	1 waarschuwing
+2.	Gesprek met coach
+3.	Daarna JOEHOE
+
