@@ -15,6 +15,60 @@
     <title>Broers Smaakmakers</title>
 </head>
 <body>
+<nav class="navbar has-background-black" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item">
+            <figure class="image is-32x32">
+                <a href="homepage.php" target="_blank"></a> <img class="is-rounded" src="https://bulma.io/assets/images/placeholders/128x128.png" />
+            </figure>
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div class="navbar-menu">
+        <div class="navbar-end">
+            <a href="aanbod.php" class="navbar-item">
+                Ons Aanbod
+            </a>
+
+            <a href="menu.php" class="navbar-item">
+                Ons Menu
+            </a>
+
+            <a href="reserveringen.php" class="navbar-item">
+                Reserveer
+            </a>
+
+            <a href="contact.php" class="navbar-item">
+                Contact
+            </a>
+
+            <a href="reviewspage.php" class="navbar-item">
+                Onze Reviews
+            </a>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a href="register.php" class="button is-primary">
+                            <strong>Registreren</strong>
+                        </a>
+                        <a href="login.php" class="button is-light">
+                            Log in
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</nav>
 
 </body>
 </html>
