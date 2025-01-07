@@ -1,4 +1,73 @@
-<?php ?>
+<?php
+if (isset($_POST['submit'])) {
+    /** @var mysqli $db */
+    require_once "connection/connection.php";
+
+    // Get form data
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Server-side validation
+
+    $errors = [];
+    if ($firstName === '') {
+        $errors['firstName'] = 'First name cannot be empty';
+    }
+
+    if ($lastName === '') {
+        $errors['lastName'] = 'Last name cannot be empty';
+    }
+
+    if ($email === '') {
+        $errors['email'] = 'E-mail cannot be empty';
+    } else {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors['email'] = 'Email is not valid';
+        } else {
+            $query = "SELECT * FROM users WHERE email = '$email'";
+
+            $result = mysqli_query($db, $query)
+            or die('Error ' . mysqli_error($db) . ' with query ' . $query);
+
+            if (mysqli_fetch_assoc($result)) {
+                $errors['email'] = 'this user already exist';
+            }
+        }
+    }
+
+    if ($password === '') {
+        $errors['password'] = 'Password cannot be empty';
+    } else {
+        if (strlen($password) < 8) {
+            $errors['password'] = 'Password must be at least 8 characters';
+        }
+    }
+
+    if (empty($errors)) {
+
+        // create a secure password, with the PHP function password_hash()
+        $securePassword = password_hash($password, PASSWORD_DEFAULT);
+
+        // store the new user in the database.
+        $query = "INSERT INTO `users`(`email`,`password`, `first_name`, `last_name`) VALUES ('$email','$securePassword','$firstName','$lastName')";
+
+        $result = mysqli_query($db, $query)
+        or exit('Error ' . mysqli_error($db) . ' with query ' . $query);
+
+        mysqli_close($db);
+        // If query succeeded
+        if ($result) {
+
+            // Redirect to login page
+            header('location: login.php');
+            // Exit the code
+            exit;
+        }
+    }
+}
+?>
 
 <!doctype html>
 <html lang="en">
