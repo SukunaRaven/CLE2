@@ -85,39 +85,61 @@
     </section>
 </header>
 
-<main class="container">
+<main class="has-background-info">
 
-    <section>
-        <h2 class="title is-3 has-text-centered has-text-weight-bold">Menu</h2>
+    <section class="container">
+        <h2 class="title is-3 has-text-centered has-text-link has-text-weight-bold">Menu</h2>
         <div class="columns">
+
             <div class="column">
                 <article>
-                    <h3 class="has-text-centered has-text-weight-bold">Lunch</h3>
+                    <div class="has-text-centered">
+                        <img class="image is-3by4" src="Images/LunchFoto.jpg" alt="Lunch"/>
+                        <h3 class="has-button-centered button is-link is-outlined is-fullwidth">Lunch</h3>
+                    </div>
                 </article>
             </div>
+
             <div class="column">
                 <article>
-                    <h3 class="has-text-centered has-text-weight-bold">Diner</h3>
+                    <div class="has-text-centered">
+                        <img class="image is-3by4" src="Images/DinerFoto.jpg" alt="Diner"/>
+                        <h3 class="has-button-centered button is-link is-outlined is-fullwidth">Diner</h3>
+                    </div>
                 </article>
             </div>
+
             <div class="column">
                 <article>
-                    <h3 class="has-text-centered has-text-weight-bold">Drank</h3>
+                    <div class="has-text-centered">
+                        <img class="image is-3by4" src="Images/BorrelFoto.jpg" alt="Drank"/>
+                        <h3 class="has-button-centered button is-link is-outlined is-fullwidth">Drank</h3>
+                    </div>
                 </article>
             </div>
+
             <div class="column">
                 <article>
-                    <h3 class="has-text-centered has-text-weight-bold">Borrel</h3>
+                    <div class="has-text-centered">
+                        <img class="image is-3by4" src="Images/Drankfoto.jpg" alt="Borrel"/>
+                        <h3 class="has-button-centered button is-link is-outlined is-fullwidth">Borrel</h3>
+                    </div>
                 </article>
             </div>
         </div>
     </section>
 
+    <section class="has-background-warning">
+        <h2 class="title is-3 has-text-centered has-text-link has-text-weight-bold">Over Ons</h2>
+        <p class="has-text-centered has-text-link">
+            Lorem
+        </p>
+    </section>
 </main>
 
 </body>
 
-<footer>
+<footer class="has-background-info">
     <div class="footerRow">
         <div><p>Follow Us!</p>
             <i class="fa fa-instagram" style="font-size:24px"></i>
