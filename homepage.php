@@ -19,7 +19,7 @@
     <div class="navbar-brand">
         <a class="navbar-item">
             <figure class="image is-32x32">
-                <a href="homepage.php" target="_blank"></a> <img class="is-rounded" src="https://bulma.io/assets/images/placeholders/128x128.png" />
+                <a href="homepage.php" target="_blank"></a> <img class="is-rounded" src="https://bulma.io/assets/images/placeholders/128x128.png" alt="Logo" />
             </figure>
         </a>
 
@@ -33,38 +33,38 @@
 
     <div class="navbar-menu">
         <div class="navbar-end">
-            <a href="aanbod.php" class="navbar-item">
+            <a id="button" href="aanbod.php" class="navbar-item is-link">
                 Ons Aanbod
             </a>
 
-            <a href="menu.php" class="navbar-item ">
+            <a href="menu.php" class="navbar-item is-link">
                 Ons Menu
             </a>
 
-            <a href="reserveringen.php" class="navbar-item">
+            <a href="reserveringen.php" class="navbar-item is-link">
                 Reserveer
             </a>
 
-            <a href="contact.php" class="navbar-item">
+            <a href="contact.php" class="navbar-item is-link">
                 Contact
             </a>
 
-            <a href="reviewspage.php" class="navbar-item">
+            <a href="reviewspage.php" class="navbar-item is-link">
                 Onze Reviews
             </a>
 
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a href="register.php" class="button is-link is-outlined"">
+                        <a href="register.php" class="button is-link is-outlined">
                             <strong>Registreren</strong>
                         </a>
 
-                        <a href="login.php" class="button is-link is-outlined"">
+                        <a href="login.php" class="button is-link is-outlined">
                             Log In
                         </a>
 
-                        <a href="logout.php" class="button is-primary is-outlined"">
+                        <a href="logout.php" class="button is-primary is-outlined">
                             Log Uit
                         </a>
                     </div>

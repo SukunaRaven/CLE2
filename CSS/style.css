@@ -16,7 +16,8 @@
     --bulma-danger-l: 72%;
 }
 
-
-
+.button {
+    text-decoration-line: underline;
+}
 
 
