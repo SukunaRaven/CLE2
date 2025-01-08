@@ -259,7 +259,7 @@ if (isset($_POST['submit'])) {
                 <div class="field is-horizontal">
                     <div class="field-label is-normal"></div>
                     <div class="field-body">
-                        <button class="button is-link is-fullwidth" type="submit" name="submit">Register</button>
+                        <button class="button is-primary is-fullwidth" type="submit" name="submit">Register</button>
                     </div>
                 </div>
 
