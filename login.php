@@ -137,73 +137,80 @@ if (isset($_POST['submit'])) {
 </nav>
 
 <main>
+
+    <header class="background-image is-primary is-medium">
+        <section class="hero is-halfheight">
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <h1 class="title is-1 shadow has-text-link">Log in</h1>
+                </div>
+            </div>
+        </section>
+    </header>
+
     <section class="section">
         <div class="container content">
-            <h2 class="title">Log in</h2>
 
             <?php if ($login) { ?>
                 <p>Je bent al ingelogd!</p>
                 <p><a href="logout.php">Uitloggen</a></p>
             <?php } ?>
 
-                <section class="columns">
-                    <form class="column is-6" action="" method="post">
+            <section class="columns is-centered">
+                <form class="column is-6" action="" method="post">
 
-                        <div class="field is-horizontal">
-                            <div class="field-label is-normal">
-                                <label class="label" for="email">Email</label>
-                            </div>
-                            <div class="field-body">
-                                <div class="field">
-                                    <div class="control has-icons-left">
-                                        <input class="input" id="email" type="text" name="email"
-                                               value="<?= $email ?? '' ?>"/>
-                                        <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
-                                    </div>
-                                    <p class="help is-danger">
-                                        <?= $errors['email'] ?? '' ?>
-                                    </p>
+                    <div class="field-label is-normal">
+                        <label class="label has-text-centered" for="email">Email</label>
+                    </div>
+                    <div class="field is-horizontal">
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-link" id="email" type="text" name="email" placeholder="Email"
+                                           value="<?= $email ?? '' ?>"/>
                                 </div>
+                                <p class="help is-danger">
+                                    <?= $errors['email'] ?? '' ?>
+                                </p>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="field is-horizontal">
-                            <div class="field-label is-normal">
-                                <label class="label" for="password">Password</label>
-                            </div>
-                            <div class="field-body">
-                                <div class="field">
-                                    <div class="control has-icons-left">
-                                        <input class="input" id="password" type="password" name="password"/>
-                                        <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+                    <div class="field-label is-normal">
+                        <label class="label has-text-centered" for="password">Wachtwoord</label>
+                    </div>
+                    <div class="field is-horizontal">
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-link is" id="password" type="password" name="password" placeholder="Wachtwoord"/>
+                                    <?php if (isset($errors['loginFailed'])) { ?>
+                                        <div class="notification is-danger">
+                                            <button class="delete"></button>
+                                            <?= $errors['loginFailed'] ?>
+                                        </div>
+                                    <?php } ?>
 
-                                        <?php if (isset($errors['loginFailed'])) { ?>
-                                            <div class="notification is-danger">
-                                                <button class="delete"></button>
-                                                <?= $errors['loginFailed'] ?>
-                                            </div>
-                                        <?php } ?>
-
-                                    </div>
-                                    <p class="help is-danger">
-                                        <?= $errors['password'] ?? '' ?>
-                                    </p>
                                 </div>
+                                <p class="help is-danger">
+                                    <?= $errors['password'] ?? '' ?>
+                                </p>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="field is-horizontal">
-                            <div class="field-label is-normal"></div>
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
                             <div class="field-body">
-                                <button class="button is-link is-fullwidth" type="submit" name="submit">Log in With
-                                    Email
+                                <button class="button is-link is-outlined" type="submit" name="submit">
+                                    Log in
                                 </button>
                             </div>
                         </div>
+                    </div>
 
-                    </form>
-                </section>
-
+                </form>
+            </section>
 
         </div>
     </section>
