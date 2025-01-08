@@ -83,8 +83,8 @@ if (isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Broers Smaakmakers</title>
     <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
     >
     <link rel="stylesheet" href="CSS/style.css">
 </head>
@@ -94,7 +94,8 @@ if (isset($_POST['submit'])) {
     <div class="navbar-brand">
         <a class="navbar-item">
             <figure class="image is-32x32">
-                <a href="homepage.php" target="_self"><img class="is-rounded" src="Images/BroersLogo.png" alt="Logo" /></a>
+                <a href="homepage.php" target="_self"><img class="is-rounded" src="Images/BroersLogo.png"
+                                                           alt="Logo"/></a>
             </figure>
         </a>
 
@@ -147,7 +148,7 @@ if (isset($_POST['submit'])) {
 </nav>
 
 <header class="background-image is-primary is-medium">
-    <section class="hero is-halfheight">
+    <section class="hero is-height">
         <div class="hero-body">
             <div class="container has-text-centered">
                 <h1 class="title is-1 shadow has-text-link">Eetcafé Broers</h1>
@@ -158,116 +159,161 @@ if (isset($_POST['submit'])) {
 
 <section class="section">
     <div class="container content">
-        <h2 class="title">Registreer</h2>
 
-        <section class="columns">
-            <form class="column is-6" action="" method="post">
+            <form class="column is-6 container" action="" method="post">
+                <h2>Registreren</h2>
+                <p> Vul dit formulier in om een account aan te maken</p>
+                <br>
+                <!-- name -->
+                <div>
+                    <label class="label" for="name">Voornaam</label>
+
+                    <div>
+                        <input class="input" id="name" type="text" name="name" value="<?= $name ?? '' ?>"/>
+
+                        <p class="help is-danger">
+                            <?= $errors['name'] ?? '' ?>
+                        </p>
+                    </div>
+                </div>
+                <!-- surname -->
+
+                <label class="label" for="surname">Achternaam</label>
+
+                <input class="input" id="surname" type="text" name="surname"/>
+
+                <p class="help is-danger">
+                    <?= $errors['surname'] ?? '' ?>
+                </p>
 
                 <!--email -->
-                <div class="field is-horizontal">
-                    <div class="field-label is-normal">
-                        <label class="label" for="email">E-mail</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field">
-                            <div class="control has-icons-left">
-                                <input class="input" id="email" type="text" name="email"
-                                       value="<?= $email ?? '' ?>"/>
-                                <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
-                            </div>
-                            <p class="help is-danger">
-                                <?= $errors['email'] ?? '' ?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+
+                <label class="label" for="email">E-mail</label>
+
+                <input class="input" id="email" type="text" name="email"
+                       value="<?= $email ?? '' ?>"/>
+
+                <p class="help is-danger">
+                    <?= $errors['email'] ?? '' ?>
+                </p>
+
 
                 <!-- phonenumber -->
-                <div class="field is-horizontal">
-                    <div class="field-label is-normal">
-                        <label class="label" for="phoneNumber">Telefoonnummer</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field">
-                            <div class="control has-icons-left">
-                                <input class="input" id="phoneNumber" type="text" name="phoneNumber"
-                                       value="<?= $phonenumber ?? '' ?>"/>
-                                <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
-                            </div>
-                            <p class="help is-danger">
-                                <?= $errors['phoneNumber'] ?? '' ?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- name -->
-                <div class="field is-horizontal">
-                    <div class="field-label is-normal">
-                        <label class="label" for="email">Voornaam</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field">
-                            <div class="control has-icons-left">
-                                <label for="name"></label><input class="input" id="name" type="text" name="name" value="<?= $name ?? '' ?>"/>
-                                <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
-                            </div>
-                            <p class="help is-danger">
-                                <?= $errors['name'] ?? '' ?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                <label class="label" for="phoneNumber">Telefoonnummer</label>
 
-                <!-- surname -->
-                <div class="field is-horizontal">
-                    <div class="field-label is-normal">
-                        <label class="label" for="password">Achternaam</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field">
-                            <div class="control has-icons-left">
-                                <label for="surname"></label><input class="input" id="surname" type="text" name="surname"/>
-                                <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
-                            </div>
-                            <p class="help is-danger">
-                                <?= $errors['surname'] ?? '' ?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+
+                <input class="input" id="phoneNumber" type="number" name="phoneNumber"
+                       value="<?= $phonenumber ?? '' ?>"/>
+
+                <p class="help is-danger">
+                    <?= $errors['phoneNumber'] ?? '' ?>
+                </p>
+
 
                 <!-- Password -->
-                <div class="field is-horizontal">
-                    <div class="field-label is-normal">
-                        <label class="label" for="password">Wachtwoord</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field">
-                            <div class="control has-icons-left">
-                                <input class="input" id="password" type="password" name="password"/>
-                                <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
-                            </div>
-                            <p class="help is-danger">
-                                <?= $errors['password'] ?? '' ?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
 
+                <label class="label" for="password">Wachtwoord</label>
+
+                <input class="input" id="password" type="password" name="password"/>
+
+                <p class="help is-danger">
+                    <?= $errors['password'] ?? '' ?>
+                </p>
+
+                <!-- Repeat password -->
+
+                <label class="label" for="repeat-password">Wachtwoord herhalen</label>
+
+                <input class="input" id="repeat-password" type="password" name="repeat-password"/>
+
+                <p class="help is-danger">
+                    <?= $errors['repeat-password'] ?? '' ?>
+                </p>
+                <div class="privacyCheckBox">
+                    <input class="checkbox" type="checkbox"/>
+                    <p class="privacyText">Bij het aanmaken van een account geef je toestemming voor de <a class="linkPrivacy" href="#">Algemene Voorwaarden en
+                            Privacyverklaring</a></p>
+                    <p class="help is-danger">
+                        <?= $errors['privacy-verklaring'] ?? '' ?>
+                    </p>
+                </div>
                 <!-- Submit -->
-                <div class="field is-horizontal">
-                    <div class="field-label is-normal"></div>
-                    <div class="field-body">
-                        <button class="button is-primary is-fullwidth" type="submit" name="submit">Register</button>
-                    </div>
-                </div>
 
+                        <button class="button is-primary is-outlined is-fullwidth" type="submit" name="submit">Registreren</button>
+    <div class="pt-3">
+                <p class="is-flex is-justify-content-center"> Heb je al een account? <a class="pl-2 linkPrivacy"  href="login.php"> Log in</a> </p>
+    </div>
             </form>
-        </section>
 
     </div>
 </section>
+<style>
+
+    .privacyCheckBox {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        padding-bottom: 18px;
+    }
+
+    .linkPrivacy {
+        color: #DF5F2C;
+    }
+
+    .privacyText {
+        padding: 0;
+        font-size: smaller;
+    }
+
+    .checkbox {
+        display: flex;
+        transform: scale(1);
+        align-content: center;
+
+    }
+
+
+</style>
 
 </body>
+
+
+<footer class="has-background-info">
+    <div class="footerRow">
+        <div><p>Follow Us!</p>
+            <a href="https://www.instagram.com/broers.ridderkerk">
+                <i class="fa fa-instagram" style="font-size:24px"></i>
+            </a>
+            <a href="https://www.tiktok.com/@broers.ridderkerk">
+                <i class="fa-brands fa-tiktok" style="font-size:24px"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61562490741128">
+                <i class="fa fa-facebook-square" style="font-size:24px"></i>
+            </a>
+        </div>
+        <div>
+            <div class="openingstijdenOnder"><h3>Openingstijden</h3>
+                <div class="openingstijdenSamen">
+                    <div class="openingstijden"><p>Woensdag</p>
+                        <p>Donderdag</p>
+                        <p>Vrijdag</p>
+                        <p>Zaterdag</p>
+                        <p>Zondag</p></div>
+                    <div class="openingstijden"><p>11:00-23:00</p>
+                        <p>11:00-23:00</p>
+                        <p>11:00-23:00</p>
+                        <p>11:00-23:00</p>
+                        <p>12:00-22:00</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="detailsFooter"><img class="broersLogo" src="Images/BroersLogo.png" alt="logo">
+            <p>Eetcafé BROERS</p>
+            <p>Koningsplein 44</p>
+            <p>2981 EA Ridderkerk</p>
+            <p>info@broersridderkerk.nl</p>
+            <p>06 - 48 18 54 03</p></div>
+    </div>
+</footer>
 </html>
