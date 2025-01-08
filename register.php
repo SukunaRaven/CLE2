@@ -152,20 +152,19 @@ if (isset($_POST['submit'])) {
     <section class="hero is-height">
         <div class="hero-body">
             <div class="container has-text-centered">
-                <h1 class="title is-1 shadow has-text-link">Eetcafé Broers</h1>
+                <h1 class="title is-1 shadow has-text-link">Registreren</h1>
             </div>
         </div>
     </section>
 </header>
 
-<main class="has-background-info">
+<main class="has-background-info pt-0">
     <section class="section">
         <div class="container content">
 
             <form class="column is-6 container" action="" method="post">
-                <h2>Registreren</h2>
-                <p> Vul dit formulier in om een account aan te maken</p>
-                <br>
+
+                <p style="color: #DF5F2C"    > Vul dit formulier in om een account aan te maken</p>
                 <!-- name -->
                 <div>
                     <label class="label" for="name">Voornaam</label>

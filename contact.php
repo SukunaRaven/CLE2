@@ -77,14 +77,18 @@
 </nav>
 
 <header class="background-image is-primary is-medium">
-    <section class="hero is-halfheight">
+    <section class="hero is-height">
         <div class="hero-body">
             <div class="container has-text-centered">
-                <h1 class="title is-1 shadow has-text-link">Eetcafé Broers</h1>
+                <h1 class="title is-1 shadow has-text-link">Contact</h1>
             </div>
         </div>
     </section>
 </header>
+
+<main>
+
+</main>
 
 <footer class="has-background-info">
     <div class="footerRow">
