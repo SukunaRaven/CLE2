@@ -87,6 +87,7 @@ if (isset($_POST['submit'])) {
             href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
     >
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -157,8 +158,9 @@ if (isset($_POST['submit'])) {
     </section>
 </header>
 
-<section class="section">
-    <div class="container content">
+<main class="has-background-info">
+    <section class="section">
+        <div class="container content">
 
             <form class="column is-6 container" action="" method="post">
                 <h2>Registreren</h2>
@@ -169,7 +171,8 @@ if (isset($_POST['submit'])) {
                     <label class="label" for="name">Voornaam</label>
 
                     <div>
-                        <input class="input" id="name" type="text" name="name" value="<?= $name ?? '' ?>"/>
+                        <input class="input" placeholder="Sire" id="name" type="text" name="name"
+                               value="<?= $name ?? '' ?>"/>
 
                         <p class="help is-danger">
                             <?= $errors['name'] ?? '' ?>
@@ -180,7 +183,7 @@ if (isset($_POST['submit'])) {
 
                 <label class="label" for="surname">Achternaam</label>
 
-                <input class="input" id="surname" type="text" name="surname"/>
+                <input class="input" placeholder="Wooferson" id="surname" type="text" name="surname"/>
 
                 <p class="help is-danger">
                     <?= $errors['surname'] ?? '' ?>
@@ -190,7 +193,7 @@ if (isset($_POST['submit'])) {
 
                 <label class="label" for="email">E-mail</label>
 
-                <input class="input" id="email" type="text" name="email"
+                <input class="input" placeholder="SireWoofers@gmail.com" id="email" type="text" name="email"
                        value="<?= $email ?? '' ?>"/>
 
                 <p class="help is-danger">
@@ -203,7 +206,7 @@ if (isset($_POST['submit'])) {
                 <label class="label" for="phoneNumber">Telefoonnummer</label>
 
 
-                <input class="input" id="phoneNumber" type="number" name="phoneNumber"
+                <input class="input" placeholder="06xxxxxxxx" id="phoneNumber" type="text" name="phoneNumber"
                        value="<?= $phonenumber ?? '' ?>"/>
 
                 <p class="help is-danger">
@@ -215,7 +218,7 @@ if (isset($_POST['submit'])) {
 
                 <label class="label" for="password">Wachtwoord</label>
 
-                <input class="input" id="password" type="password" name="password"/>
+                <input class="input" placeholder="woof1234" id="password" type="password" name="password"/>
 
                 <p class="help is-danger">
                     <?= $errors['password'] ?? '' ?>
@@ -225,14 +228,16 @@ if (isset($_POST['submit'])) {
 
                 <label class="label" for="repeat-password">Wachtwoord herhalen</label>
 
-                <input class="input" id="repeat-password" type="password" name="repeat-password"/>
+                <input class="input" placeholder="woof1234" id="repeat-password" type="password"
+                       name="repeat-password"/>
 
                 <p class="help is-danger">
                     <?= $errors['repeat-password'] ?? '' ?>
                 </p>
                 <div class="privacyCheckBox">
                     <input class="checkbox" type="checkbox"/>
-                    <p class="privacyText">Bij het aanmaken van een account geef je toestemming voor de <a class="linkPrivacy" href="#">Algemene Voorwaarden en
+                    <p class="privacyText is-flex is-align-content-center">Bij het aanmaken van een account geef je
+                        toestemming voor de <a class="linkPrivacy" href="#">Algemene Voorwaarden en
                             Privacyverklaring</a></p>
                     <p class="help is-danger">
                         <?= $errors['privacy-verklaring'] ?? '' ?>
@@ -240,14 +245,18 @@ if (isset($_POST['submit'])) {
                 </div>
                 <!-- Submit -->
 
-                        <button class="button is-primary is-outlined is-fullwidth" type="submit" name="submit">Registreren</button>
-    <div class="pt-3">
-                <p class="is-flex is-justify-content-center"> Heb je al een account? <a class="pl-2 linkPrivacy"  href="login.php"> Log in</a> </p>
-    </div>
+                <button class="button is-primary is-outlined is-fullwidth" type="submit" name="submit">Registreren
+                </button>
+                <div class="pt-3">
+                    <p class="is-flex is-justify-content-center"> Heb je al een account? <a class="pl-2 linkPrivacy"
+                                                                                            href="login.php"> Log in</a>
+                    </p>
+                </div>
             </form>
 
-    </div>
-</section>
+        </div>
+    </section>
+</main>
 <style>
 
     .privacyCheckBox {
@@ -283,13 +292,11 @@ if (isset($_POST['submit'])) {
     <div class="footerRow">
         <div><p>Follow Us!</p>
             <a href="https://www.instagram.com/broers.ridderkerk">
-                <i class="fa fa-instagram" style="font-size:24px"></i>
+                <i class="fa fa-instagram" style="font-size:30px"></i>
             </a>
-            <a href="https://www.tiktok.com/@broers.ridderkerk">
-                <i class="fa-brands fa-tiktok" style="font-size:24px"></i>
-            </a>
+
             <a href="https://www.facebook.com/profile.php?id=61562490741128">
-                <i class="fa fa-facebook-square" style="font-size:24px"></i>
+                <i class="fa fa-facebook-square" style="font-size:30px" ></i>
             </a>
         </div>
         <div>
