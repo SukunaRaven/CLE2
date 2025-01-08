@@ -78,17 +78,17 @@
 
 </nav>
 
-<main>
-    <header class="background-image is-primary is-medium">
-        <section class="hero is-halfheight">
-            <div class="hero-body">
-                <div class="container has-text-centered">
-                    <h1 class="title is-1 shadow has-text-link">Eetcafé Broers</h1>
-                </div>
+<header class="background-image is-primary is-medium">
+    <section class="hero is-halfheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title is-1 shadow has-text-link">Eetcafé Broers</h1>
             </div>
-        </section>
-    </header>
+        </div>
+    </section>
+</header>
 
+<main class="has-background-info">
 
     <footer class="has-background-info">
         <div class="footerRow">
