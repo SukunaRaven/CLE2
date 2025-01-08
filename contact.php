@@ -8,10 +8,11 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
     >
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Broers Smaakmakers</title>
 </head>
 
@@ -20,7 +21,8 @@
     <div class="navbar-brand">
         <a class="navbar-item">
             <figure class="image is-32x32">
-                <a href="homepage.php" target="_self"><img class="is-rounded" src="Images/BroersLogo.png" alt="Logo" /></a>
+                <a href="homepage.php" target="_self"><img class="is-rounded" src="Images/BroersLogo.png"
+                                                           alt="Logo"/></a>
             </figure>
         </a>
 
@@ -86,21 +88,146 @@
     </section>
 </header>
 
-<main>
+<main class="has-background-info pt-0">
+    <section class="section">
+        <div class="container content is-flex is-flex-row contactRow">
 
+
+            <div class="m-0 p-0" >
+                <p class="m-0 p-0 pr-4" style="color: #DF5F2C"> Heb je een vraag? Stuur ons dan een bericht of bel ons! </p>
+                <br>
+                <div class="pb-2">
+                <p class="m-0 p-0 pr-4" >Eetcafé BROERS</p>
+                <p class="m-0 p-0 pr-4">Koningsplein 44</p>
+                <p class="m-0 p-0 pr-4" > 2981 EA Ridderkerk</p>
+                <p class="m-0 p-0 pr-4"  > info@broersridderkerk.nl</p>
+                <p class="m-0 p-0 pr-4" >06 - 48 18 54 03</p>
+                </div>
+            </div>
+
+            <div >
+                <form class="column is-fullwidth container" action="" method="post">
+                    <!-- name -->
+                    <div>
+                        <label class="label" for="name">Voornaam</label>
+
+                        <div>
+                            <input class="input is-link is-half-width" placeholder="Sire" id="name" type="text"
+                                   name="name"
+                                   value="<?= $name ?? '' ?>"/>
+
+                            <p class="help is-danger">
+                                <?= $errors['name'] ?? '' ?>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- surname -->
+
+                    <label class="label" for="surname">Achternaam</label>
+
+                    <input class="input is-link" placeholder="Wooferson" id="surname" type="text" name="surname"/>
+
+                    <p class="help is-danger">
+                        <?= $errors['surname'] ?? '' ?>
+                    </p>
+
+                    <!--email -->
+
+                    <label class="label" for="email">E-mail</label>
+
+                    <input class="input is-link" placeholder="SireWoofers@gmail.com" id="email" type="text" name="email"
+                           value="<?= $email ?? '' ?>"/>
+
+                    <p class="help is-danger">
+                        <?= $errors['email'] ?? '' ?>
+                    </p>
+
+
+                    <!-- phonenumber -->
+
+                    <label class="label" for="phoneNumber">Telefoonnummer</label>
+
+
+                    <input class="input is-link" placeholder="06xxxxxxxx" id="phoneNumber" type="text"
+                           name="phoneNumber"
+                           value="<?= $phonenumber ?? '' ?>"/>
+
+                    <p class="help is-danger">
+                        <?= $errors['phoneNumber'] ?? '' ?>
+                    </p>
+
+
+                    <label class="label" for="textArea">Inhoud</label>
+                    <textarea cols="100" rows="6" class="textArea" placeholder="Stel uw vraag hier" id="textArea" name="textarea"></textarea>
+                    <!-- Submit -->
+<div class="pb-4">
+
+</div>
+                    <button class="button is-warning is-outlined is-fullwidth" type="submit" name="submit">Verzenden
+                    </button>
+
+
+                </form>
+
+            </div>
+    </section>
 </main>
+<style>
+
+    .privacyCheckBox {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        padding-bottom: 18px;
+    }
+
+    .linkPrivacy {
+        color: #DF5F2C;
+    }
+
+    .privacyText {
+        padding: 0;
+        font-size: smaller;
+    }
+
+    .privacyText& Link {
+        display: flex;
+        align-content: center;
+    }
+
+    .checkbox {
+        display: flex;
+        transform: scale(1);
+        align-content: center;
+
+    }
+
+    .textArea {
+        resize: none;
+        display: inline-block;
+        max-width: 488.66px;
+        overflow: hidden;
+        border-radius: 5px ;
+    }
+
+    .contactRow {
+        display: flex;
+        justify-content: center;
+
+    }
+
+</style>
+
 
 <footer class="has-background-info">
     <div class="footerRow">
         <div><p>Follow Us!</p>
             <a href="https://www.instagram.com/broers.ridderkerk">
-                <i class="fa fa-instagram" style="font-size:24px"></i>
+                <i class="fa fa-instagram" style="font-size:30px"></i>
             </a>
-            <a href="https://www.tiktok.com/@broers.ridderkerk">
-                <i class="fa-brands fa-tiktok" style="font-size:24px"></i>
-            </a>
+
             <a href="https://www.facebook.com/profile.php?id=61562490741128">
-                <i class="fa fa-facebook-square" style="font-size:24px"></i>
+                <i class="fa fa-facebook-square" style="font-size:30px"></i>
             </a>
         </div>
         <div>
