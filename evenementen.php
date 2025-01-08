@@ -79,10 +79,10 @@
 </nav>
 
 <header class="background-image is-primary is-medium">
-    <section class="hero is-halfheight">
+    <section class="hero">
         <div class="hero-body">
             <div class="container has-text-centered">
-                <h1 class="title is-1 shadow has-text-link">Eetcafé Broers</h1>
+                <h1 class="title is-1 shadow has-text-link">Evenementen</h1>
             </div>
         </div>
     </section>
@@ -90,6 +90,45 @@
 
 <main class="has-background-info">
 
+    <section class="container">
+        <h2 class="has-text-centered is-size-3 has-text-link">
+            Onze Evenementen worden tijdig geüpdatet.
+        </h2>
+        <div class="columns">
+            <div class="column">
+                <h3 class="has-text-centered is-size-4 has-text-link">
+                    Valentijnsdag
+                </h3>
+                <h4 class="has-text-centered">
+                    Vier Valentijnsdag bij Broers!
+                </h4>
+                <p>
+                    Op Valentijnsdag hebben wij iets heel bijzonders voor jou en je geliefde in petto!
+                    Kom gezellig langs en geniet van een speciale Valentijns High-Tea met heerlijke zoete en hartige lekkernijen, perfect om samen te delen.
+                    Of verras je Valentijn met ons exclusieve Valentijnsmenu, samengesteld met de fijnste ingrediënten voor een onvergetelijke culinaire ervaring.
+                </p>
+                <p>
+                    High Tea: Proef een romantische selectie van finger sandwiches, scones met jam en clotted cream,
+                    delicate gebakjes en andere verwennerijen – alles met een vleugje liefde.
+                </p>
+                <p>
+                    Valentijnsmenu: Geniet van een 4-gangen menu met verfijnde smaken, speciaal voor deze dag.
+                    Perfect om samen te delen en het moment te vieren.
+                </p>
+                <p>
+                    Kom de liefde proeven en maak van deze dag een romantisch feest bij Eetcafé Broers!
+                </p>
+            </div>
+            <div class="column">
+                <h3 class="has-text-centered is-size-4 has-text-link">
+                    Zondag Familiedag
+                </h3>
+                <h4 class="has-text-centered">
+                    Voor groot en klein bij Broers!
+                </h4>
+            </div>
+        </div>
+    </section>
     <footer class="has-background-info">
         <div class="footerRow">
             <div><p>Follow Us!</p>

@@ -170,7 +170,7 @@ if (isset($_POST['submit'])) {
                     <label class="label" for="name">Voornaam</label>
 
                     <div>
-                        <input class="input" placeholder="Sire" id="name" type="text" name="name"
+                        <input class="input is-link" placeholder="Sire" id="name" type="text" name="name"
                                value="<?= $name ?? '' ?>"/>
 
                         <p class="help is-danger">
@@ -182,7 +182,7 @@ if (isset($_POST['submit'])) {
 
                 <label class="label" for="surname">Achternaam</label>
 
-                <input class="input" placeholder="Wooferson" id="surname" type="text" name="surname"/>
+                <input class="input is-link" placeholder="Wooferson" id="surname" type="text" name="surname"/>
 
                 <p class="help is-danger">
                     <?= $errors['surname'] ?? '' ?>
@@ -192,7 +192,7 @@ if (isset($_POST['submit'])) {
 
                 <label class="label" for="email">E-mail</label>
 
-                <input class="input" placeholder="SireWoofers@gmail.com" id="email" type="text" name="email"
+                <input class="input is-link" placeholder="SireWoofers@gmail.com" id="email" type="text" name="email"
                        value="<?= $email ?? '' ?>"/>
 
                 <p class="help is-danger">
@@ -205,7 +205,7 @@ if (isset($_POST['submit'])) {
                 <label class="label" for="phoneNumber">Telefoonnummer</label>
 
 
-                <input class="input" placeholder="06xxxxxxxx" id="phoneNumber" type="text" name="phoneNumber"
+                <input class="input is-link" placeholder="06xxxxxxxx" id="phoneNumber" type="text" name="phoneNumber"
                        value="<?= $phonenumber ?? '' ?>"/>
 
                 <p class="help is-danger">
@@ -217,7 +217,7 @@ if (isset($_POST['submit'])) {
 
                 <label class="label" for="password">Wachtwoord</label>
 
-                <input class="input" placeholder="woof1234" id="password" type="password" name="password"/>
+                <input class="input is-link" placeholder="woof1234" id="password" type="password" name="password"/>
 
                 <p class="help is-danger">
                     <?= $errors['password'] ?? '' ?>
@@ -227,7 +227,7 @@ if (isset($_POST['submit'])) {
 
                 <label class="label" for="repeat-password">Wachtwoord herhalen</label>
 
-                <input class="input" placeholder="woof1234" id="repeat-password" type="password"
+                <input class="input is-link" placeholder="woof1234" id="repeat-password" type="password"
                        name="repeat-password"/>
 
                 <p class="help is-danger">
@@ -246,7 +246,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <!-- Submit -->
 
-                <button class="button is-primary is-outlined is-fullwidth" type="submit" name="submit">Registreren
+                <button class="button is-link is-outlined is-fullwidth" type="submit" name="submit">Registreren
                 </button>
                 <div class="pt-3">
                     <p class="is-flex is-justify-content-center"> Heb je al een account? <a class="pl-2 linkPrivacy"
