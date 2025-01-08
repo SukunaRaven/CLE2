@@ -137,8 +137,6 @@
     </section>
 </main>
 
-</body>
-
 <footer class="has-background-info">
     <div class="footerRow">
         <div><p>Follow Us!</p>
@@ -170,4 +168,6 @@
             <p>06 - 48 18 54 03</p></div>
     </div>
 </footer>
+
+</body>
 </html>
