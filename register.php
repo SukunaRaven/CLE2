@@ -236,9 +236,11 @@ if (isset($_POST['submit'])) {
                 </p>
                 <div class="privacyCheckBox">
                     <input class="checkbox" type="checkbox"/>
-                    <p class="privacyText is-flex is-align-content-center">Bij het aanmaken van een account geef je
+                    <div class="privacyText&Link">
+                    <p class="privacyText">Bij het aanmaken van een account geef je
                         toestemming voor de <a class="linkPrivacy" href="#">Algemene Voorwaarden en
                             Privacyverklaring</a></p>
+                    </div>
                     <p class="help is-danger">
                         <?= $errors['privacy-verklaring'] ?? '' ?>
                     </p>
@@ -275,6 +277,10 @@ if (isset($_POST['submit'])) {
         font-size: smaller;
     }
 
+    .privacyText&Link {
+        display: flex;
+        align-content: center;
+    }
     .checkbox {
         display: flex;
         transform: scale(1);
