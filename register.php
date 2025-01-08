@@ -118,6 +118,10 @@ if (isset($_POST['submit'])) {
                 Ons Menu
             </a>
 
+            <a href="evenementen.php" class="navbar-item is-link">
+                Onze Evenementen
+            </a>
+
             <a href="reserveringen.php" class="navbar-item is-link">
                 Reserveer
             </a>
