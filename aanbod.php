@@ -12,6 +12,7 @@
         href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
     >
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Broers Smaakmakers</title>
 </head>
 
@@ -86,6 +87,92 @@
         </div>
     </section>
 </header>
+
+<main>
+
+    <section class="container">
+        <h2 class="has-text-centered is-size-3 has-text-link padding3">
+            Wat kunt u nu allemaal daadwerkelijk bij ons boeken?
+        </h2>
+        <div class="columns is-justify-content-space-evenly">
+            <div class="column">
+                <article class="card">
+                    <h3 class="has-text-centered is-size-3 has-text-link">
+                        <i class="fa fa-heart-o" style="font-size:24px">
+                            Trouwen
+                        </i>
+                    </h3>
+                    <h4 class="has-text-centered is-size-5 has-text-weight-bold">
+                        Jullie Grote Dag, Onze Perfecte Locatie!
+                    </h4>
+                    <p>
+                        Wat wij bieden:
+                    </p>
+                    <p>
+                        Prachtige locatie: Een sfeervolle en romantische omgeving. Wij hebben de ruimte die bij jullie visie past.
+                        Op maat gemaakte menu’s: Van een elegant diner tot een uitgebreid buffet of een informele borrel, we stellen samen met jullie het perfecte menu samen, rekening houdend met dieetwensen en voorkeuren.
+                        Catering voor grote en kleine groepen: Of je nu een klein en intiem huwelijk plant of een groot feest met veel gasten, wij kunnen groepen van vele omvang verzorgen.
+                        Professionele service: Ons team zorgt voor een vlekkeloze uitvoering van jullie bruiloft, van de ontvangst van de gasten tot het afscheid.
+                    </p>
+                </article>
+            </div>
+
+            <div class="column">
+                <article class="card">
+                    <h3 class="has-text-centered is-size-3 has-text-link">
+                        <i class="fa fa-diamond" style="font-size:24px">
+                            Jubileum
+                        </i>
+                    </h3>
+                    <h4 class="has-text-centered is-size-5 has-text-weight-bold">
+                        Bij BROERS begrijpen we hoe bijzonder het is om een jubileum te vieren.
+                    </h4>
+                    <p>
+                        Of het nu gaat om een huwelijksjubileum, een bedrijfsjubileum of een andere belangrijke mijlpaal,
+                        wij bieden de perfecte locatie en service om deze speciale dag te markeren.
+                        Laat ons jullie helpen een feest te organiseren dat past bij de betekenis van het moment.
+                    </p>
+                </article>
+            </div>
+
+            <div class="column">
+                <article class="card">
+                    <h3 class="has-text-centered is-size-3 has-text-link">
+                        <i class="fa fa-birthday-cake" style="font-size:24px">
+                            Verjaardag
+                        </i>
+                    </h3>
+                    <h4 class="has-text-centered is-size-5 has-text-weight-bold">
+                        Voor groot en klein bij Broers!
+                    </h4>
+                    <p>
+                        Bij Eetcafé Broers weten we hoe belangrijk quality time met de familie is.
+                        Daarom zetten we elke zondagmiddag in het teken van gezelligheid voor het hele gezin!
+                        Van 16.00 tot 18.00 eten de kleintjes t/m 6 jaar gratis mee terwijl de volwassenen genieten van
+                        heerlijke gerechten die we met liefde uit de keuken toveren.
+                    </p>
+                    <p>
+                        De perfecte gelegenheid om samen te genieten, te lachen en lekker te smullen zonder je druk te
+                        maken
+                        over het koken.
+                        Wij zorgen voor het eten, jullie voor de gezelligheid!
+                    </p>
+                    <p>
+                        Wanneer: Elke zondagmiddag van 16.00 – 18.00 uur
+                    </p>
+                    <p>
+                        Waar: Eetcafé Broers
+                    </p>
+                    <p>
+                        Reserveer snel je tafel en maak er een heerlijke middag van met je gezin!
+                    </p>
+                </article>
+            </div>
+
+        </div>
+    </section>
+
+</main>
 
 <footer class="has-background-info">
     <div class="footerRow">
