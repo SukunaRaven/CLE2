@@ -12,6 +12,7 @@
             href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
     >
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Broers Smaakmakers</title>
 </head>
 
@@ -91,83 +92,111 @@
 <main class="has-background-info">
 
     <section class="container">
-        <h2 class="has-text-centered is-size-3 has-text-link">
+        <h2 class="has-text-centered is-size-3 has-text-link padding3">
             Onze Evenementen worden tijdig geüpdatet.
         </h2>
-        <div class="columns">
+        <div class="columns is-justify-content-space-evenly">
             <div class="column">
-                <h3 class="has-text-centered is-size-4 has-text-link">
-                    Valentijnsdag
-                </h3>
-                <h4 class="has-text-centered">
-                    Vier Valentijnsdag bij Broers!
-                </h4>
-                <p>
-                    Op Valentijnsdag hebben wij iets heel bijzonders voor jou en je geliefde in petto!
-                    Kom gezellig langs en geniet van een speciale Valentijns High-Tea met heerlijke zoete en hartige lekkernijen, perfect om samen te delen.
-                    Of verras je Valentijn met ons exclusieve Valentijnsmenu, samengesteld met de fijnste ingrediënten voor een onvergetelijke culinaire ervaring.
-                </p>
-                <p>
-                    High Tea: Proef een romantische selectie van finger sandwiches, scones met jam en clotted cream,
-                    delicate gebakjes en andere verwennerijen – alles met een vleugje liefde.
-                </p>
-                <p>
-                    Valentijnsmenu: Geniet van een 4-gangen menu met verfijnde smaken, speciaal voor deze dag.
-                    Perfect om samen te delen en het moment te vieren.
-                </p>
-                <p>
-                    Kom de liefde proeven en maak van deze dag een romantisch feest bij Eetcafé Broers!
-                </p>
+                <article class="card">
+                    <h3 class="has-text-centered is-size-3 has-text-link">
+                        Valentijnsdag
+                    </h3>
+                    <h4 class="has-text-centered is-size-5 has-text-weight-bold">
+                        Vier Valentijnsdag bij Broers!
+                    </h4>
+                    <p>
+                        Op Valentijnsdag hebben wij iets heel bijzonders voor jou en je geliefde in petto!
+                        Kom gezellig langs en geniet van een speciale Valentijns High-Tea met heerlijke zoete en hartige
+                        lekkernijen, perfect om samen te delen.
+                        Of verras je Valentijn met ons exclusieve Valentijnsmenu, samengesteld met de fijnste
+                        ingrediënten voor een onvergetelijke culinaire ervaring.
+                    </p>
+                    <p>
+                        High Tea: Proef een romantische selectie van finger sandwiches, scones met jam en clotted cream,
+                        delicate gebakjes en andere verwennerijen – alles met een vleugje liefde.
+                    </p>
+                    <p>
+                        Valentijnsmenu: Geniet van een 4-gangen menu met verfijnde smaken, speciaal voor deze dag.
+                        Perfect om samen te delen en het moment te vieren.
+                    </p>
+                    <p>
+                        Kom de liefde proeven en maak van deze dag een romantisch feest bij Eetcafé Broers!
+                    </p>
+                </article>
             </div>
             <div class="column">
-                <h3 class="has-text-centered is-size-4 has-text-link">
-                    Zondag Familiedag
-                </h3>
-                <h4 class="has-text-centered">
-                    Voor groot en klein bij Broers!
-                </h4>
+                <article class="card">
+                    <h3 class="has-text-centered is-size-3 has-text-link">
+                        Zondag Familiedag
+                    </h3>
+                    <h4 class="has-text-centered is-size-5 has-text-weight-bold">
+                        Voor groot en klein bij Broers!
+                    </h4>
+                    <p>
+                        Bij Eetcafé Broers weten we hoe belangrijk quality time met de familie is.
+                        Daarom zetten we elke zondagmiddag in het teken van gezelligheid voor het hele gezin!
+                        Van 16.00 tot 18.00 eten de kleintjes t/m 6 jaar gratis mee terwijl de volwassenen genieten van
+                        heerlijke gerechten die we met liefde uit de keuken toveren.
+                    </p>
+                    <p>
+                        De perfecte gelegenheid om samen te genieten, te lachen en lekker te smullen zonder je druk te
+                        maken
+                        over het koken.
+                        Wij zorgen voor het eten, jullie voor de gezelligheid!
+                    </p>
+                    <p>
+                        Wanneer: Elke zondagmiddag van 16.00 – 18.00 uur
+                    </p>
+                    <p>
+                        Waar: Eetcafé Broers
+                    </p>
+                    <p>
+                        Reserveer snel je tafel en maak er een heerlijke middag van met je gezin!
+                    </p>
+                </article>
             </div>
         </div>
     </section>
-    <footer class="has-background-info">
-        <div class="footerRow">
-            <div><p>Follow Us!</p>
-                <a href="https://www.instagram.com/broers.ridderkerk">
-                    <i class="fa fa-instagram" style="font-size:24px"></i>
-                </a>
-                <a href="https://www.tiktok.com/@broers.ridderkerk">
-                    <i class="fa-brands fa-tiktok" style="font-size:24px"></i>
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=61562490741128">
-                    <i class="fa fa-facebook-square" style="font-size:24px"></i>
-                </a>
-            </div>
-            <div>
-                <div class="openingstijdenOnder"><h3>Openingstijden</h3>
-                    <div class="openingstijdenSamen">
-                        <div class="openingstijden"><p>Woensdag</p>
-                            <p>Donderdag</p>
-                            <p>Vrijdag</p>
-                            <p>Zaterdag</p>
-                            <p>Zondag</p></div>
-                        <div class="openingstijden"><p>11:00-23:00</p>
-                            <p>11:00-23:00</p>
-                            <p>11:00-23:00</p>
-                            <p>11:00-23:00</p>
-                            <p>12:00-22:00</p></div>
-                    </div>
-                </div>
-            </div>
-            <div class="detailsFooter"><img class="broersLogo" src="Images/BroersLogo.png" alt="logo">
-                <p>Eetcafé BROERS</p>
-                <p>Koningsplein 44</p>
-                <p>2981 EA Ridderkerk</p>
-                <p>info@broersridderkerk.nl</p>
-                <p>06 - 48 18 54 03</p></div>
-        </div>
-    </footer>
 
 </main>
+
+<footer class="has-background-info">
+    <div class="footerRow">
+        <div><p>Follow Us!</p>
+            <a href="https://www.instagram.com/broers.ridderkerk">
+                <i class="fa fa-instagram" style="font-size:24px"></i>
+            </a>
+            <a href="https://www.tiktok.com/@broers.ridderkerk">
+                <i class="fa-brands fa-tiktok" style="font-size:24px"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61562490741128">
+                <i class="fa fa-facebook-square" style="font-size:24px"></i>
+            </a>
+        </div>
+        <div>
+            <div class="openingstijdenOnder"><h3>Openingstijden</h3>
+                <div class="openingstijdenSamen">
+                    <div class="openingstijden"><p>Woensdag</p>
+                        <p>Donderdag</p>
+                        <p>Vrijdag</p>
+                        <p>Zaterdag</p>
+                        <p>Zondag</p></div>
+                    <div class="openingstijden"><p>11:00-23:00</p>
+                        <p>11:00-23:00</p>
+                        <p>11:00-23:00</p>
+                        <p>11:00-23:00</p>
+                        <p>12:00-22:00</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="detailsFooter"><img class="broersLogo" src="Images/BroersLogo.png" alt="logo">
+            <p>Eetcafé BROERS</p>
+            <p>Koningsplein 44</p>
+            <p>2981 EA Ridderkerk</p>
+            <p>info@broersridderkerk.nl</p>
+            <p>06 - 48 18 54 03</p></div>
+    </div>
+</footer>
 
 </body>
 </html>
