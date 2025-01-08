@@ -90,9 +90,15 @@
 <footer class="has-background-info">
     <div class="footerRow">
         <div><p>Follow Us!</p>
-            <i class="fa fa-instagram" style="font-size:24px"></i>
-            <i class="fa-brands fa-tiktok" style="font-size:24px"></i>
-            <i class="fa fa-facebook-square" style="font-size:24px"></i>
+            <a href="https://www.instagram.com/broers.ridderkerk">
+                <i class="fa fa-instagram" style="font-size:24px"></i>
+            </a>
+            <a href="https://www.tiktok.com/@broers.ridderkerk">
+                <i class="fa-brands fa-tiktok" style="font-size:24px"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61562490741128">
+                <i class="fa fa-facebook-square" style="font-size:24px"></i>
+            </a>
         </div>
         <div>
             <div class="openingstijdenOnder"><h3>Openingstijden</h3>
