@@ -45,7 +45,6 @@ if (isset($_POST['submit'])) {
     }
 
 
-
     if (empty($errors)) {
 
         // store the new user in the database.
@@ -81,6 +80,7 @@ if (isset($_POST['submit'])) {
             href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
     >
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Broers Smaakmakers</title>
 </head>
 
@@ -144,165 +144,108 @@ if (isset($_POST['submit'])) {
 </nav>
 
 <header class="background-image is-primary is-medium">
-    <section class="hero is-halfheight">
+    <section class="hero is-height">
         <div class="hero-body">
             <div class="container has-text-centered">
-                <h1 class="title is-1 shadow has-text-link">Eetcafé Broers</h1>
+                <h1 class="title is-1 shadow has-text-link">Reserveren</h1>
             </div>
         </div>
     </section>
 </header>
 
-<section class="section">
-    <div class="container content">
-        <h2 class="title">Reserveren</h2>
+<main class="has-background-info pt-0">
 
+    <div class="container content is-flex is-justify-content-center">
         <section class="columns">
-            <form class="column is-6" action="" method="post">
-
+            <form class="column is-full" action="" method="post">
+<div class="pt-5"></div>
                 <!--email -->
-                <div class="field is-horizontal">
-                    <div class="field-label is-normal">
-                        <label class="label" for="email">E-mail</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field">
-                            <div class="control has-icons-left">
-                                <input class="input" id="email" type="text" name="email"
-                                       value="<?= $email ?? '' ?>"/>
-                                <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
-                            </div>
-                            <p class="help is-danger">
-                                <?= $errors['email'] ?? '' ?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
+                <label class="label" for="email">E-mail</label>
+                <input class="input is-link" id="email" type="text" name="email"
+                       value="<?= $email ?? '' ?>"/>
+                <p class="help is-danger">
+                    <?= $errors['email'] ?? '' ?>
+                </p>
                 <!-- phonenumber -->
-                <div class="field is-horizontal">
-                    <div class="field-label is-normal">
-                        <label class="label" for="phonenumber">Telefoonnummer</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field">
-                            <div class="control has-icons-left">
-                                <input class="input" id="phonenumber" type="text" name="phonenumber"
-                                       value="<?= $phonenumber ?? '' ?>"/>
-                                <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
-                            </div>
-                            <p class="help is-danger">
-                                <?= $errors['phonenumber'] ?? '' ?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+
+                <label class="label" for="phonenumber">Telefoonnummer</label>
+                <input class="input is-link" id="phonenumber" type="text" name="phonenumber"
+                       value="<?= $phonenumber ?? '' ?>"/>
+                <p class="help is-danger">
+                    <?= $errors['phonenumber'] ?? '' ?>
+                </p>
 
                 <!-- name -->
-                <div class="field is-horizontal">
-                    <div class="field-label is-normal">
-                        <label class="label" for="name">Naam</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field">
-                            <div class="control has-icons-left">
-                                <label for="name"></label><input class="input" id="name" type="text" name="name"
-                                                                 value="<?= $name ?? '' ?>"/>
-                                <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
-                            </div>
-                            <p class="help is-danger">
-                                <?= $errors['name'] ?? '' ?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+
+                <label class="label" for="name">Naam</label>
+                <label for="name"></label>
+                <input class="input is-link" id="name" type="text" name="name"
+                       value="<?= $name ?? '' ?>"/>
+                <p class="help is-danger">
+                    <?= $errors['name'] ?? '' ?>
+                </p>
 
                 <!-- Guests -->
-                <div class="field is-horizontal">
-                    <div class="field-label is-normal">
-                        <label class="label" for="guests">Gasten</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field">
-                            <div class="control has-icons-left">
-                                <input class="input" id="guests" type="text" name="guests"/>
-                                <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
-                            </div>
-                            <p class="help is-danger">
-                                <?= $errors['guests'] ?? '' ?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+
+                <label class="label" for="guests">Aantal Gasten</label>
+                <input class="input is-link" id="guests" type="text" name="guests"/>
+                <p class="help is-danger">
+                    <?= $errors['guests'] ?? '' ?>
+                </p>
 
                 <!-- Date -->
-                <div class="field is-horizontal">
-                    <div class="field-label is-normal">
-                        <label class="label" for="date">Datum</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field">
-                            <div class="control has-icons-left">
-                                <input class="input" id="date" type="date" name="date"/>
-                                <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
-                            </div>
-                            <p class="help is-danger">
-                                <?= $errors['date'] ?? '' ?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                <label class="label" for="date">Datum</label>
+                <input class="input is-link" id="date" type="date" name="date"/>
+
+                <p class="help is-danger">
+                    <?= $errors['date'] ?? '' ?>
+                </p>
 
                 <!-- time -->
-                <div class="field is-horizontal">
-                    <div class="field-label is-normal">
-                        <label class="label" for="time">Tijdstip</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field">
-                            <div class="control has-icons-left">
-                                <input class="input" id="time" type="time" name="time"/>
-                                <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
-                            </div>
-                            <p class="help is-danger">
-                                <?= $errors['time'] ?? '' ?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- comments -->
-                <div class="field is-horizontal">
-                    <div class="field-label is-normal">
-                        <label class="label" for="comments">Commentaar</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field">
-                            <div class="control has-icons-left">
-                                <input class="input" id="comments" type="text" name="comments"/>
-                                <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
-                            </div>
-                            <p class="help is-danger">
-                                <?= $errors['comments'] ?? '' ?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                <label class="label" for="time">Tijdstip</label>
+                <input class="input is-link" id="time" type="time" name="time"/>
 
+                <p class="help is-danger">
+                    <?= $errors['time'] ?? '' ?>
+                </p>
+
+                <!-- Extra informatie -->
+
+                <label class="label" for="comments">Extra informatie</label>
+
+                <textarea class="is-normal textArea" cols="89" rows="6" name="extra-information"></textarea>
+
+                <p class="help is-danger">
+                    <?= $errors['extra-information'] ?? '' ?>
+                </p>
 
                 <!-- Submit -->
-                <div class="field is-horizontal">
-                    <div class="field-label is-normal"></div>
-                    <div class="field-body">
-                        <button class="button is-primary is-fullwidth" type="submit" name="submit">Reserveer</button>
-                    </div>
-                </div>
 
-            </form>
+                        <button class="button is-link is-outlined is-fullwidth" type="submit" name="submit">Reserveren
+                        </button>
+                  
+
         </section>
-
     </div>
+
+
+</main>
 </section>
+
+<style>
+    .textArea {
+        border: antiquewhite solid 1px;
+        border-radius: 5px;
+        max-width: 656.73px;
+        background-color: #1C1512;
+        resize: none;
+    }
+
+    .inputDesign {
+
+    }
+</style>
 
 <footer class="has-background-info">
     <div class="footerRow">
@@ -310,9 +253,7 @@ if (isset($_POST['submit'])) {
             <a href="https://www.instagram.com/broers.ridderkerk">
                 <i class="fa fa-instagram" style="font-size:24px"></i>
             </a>
-            <a href="https://www.tiktok.com/@broers.ridderkerk">
-                <i class="fa-brands fa-tiktok" style="font-size:24px"></i>
-            </a>
+
             <a href="https://www.facebook.com/profile.php?id=61562490741128">
                 <i class="fa fa-facebook-square" style="font-size:24px"></i>
             </a>
