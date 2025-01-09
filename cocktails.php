@@ -104,7 +104,12 @@
         </section>
 
         <section class="container">
-
+            <section class="container">
+                <p class="has-text-centered is-size-3 has-text-link padding3">
+                    Bekijk hier onze Cocktails!
+                </p>
+                <img class="is-centered" src="Images/menu.png" alt="Menu">
+            </section>
         </section>
 
     </main>
