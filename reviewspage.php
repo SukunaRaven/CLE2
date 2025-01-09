@@ -1,4 +1,33 @@
-<?php ?>
+<?php
+
+if (isset($_POST['submit'])) {
+    /** @var mysqli $db */
+    require_once "connection/connection.php";
+
+    $review = $_POST['review'];
+    $user_id = $_SESSION['loggedInUser'];
+    echo $user_id;
+
+    $query = "INSERT INTO `reviews`(`review`,`user_id`) 
+              VALUES ('$review', '$user_id')";
+
+    $result = mysqli_query($db, $query)
+    or exit('Error ' . mysqli_error($db) . ' with query ' . $query);
+
+    mysqli_close($db);
+    // If query succeeded
+    if ($result) {
+
+        // Redirect to login page
+        header('location: login.php');
+        // Exit the code
+        exit;
+    }
+
+}
+
+
+?>
 
 <!doctype html>
 <html lang="en">
@@ -8,8 +37,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
     >
     <link rel="stylesheet" href="CSS/style.css">
     <title>Broers Smaakmakers</title>
@@ -21,7 +50,8 @@
     <div class="navbar-brand">
         <a class="navbar-item">
             <figure class="image is-32x32">
-                <a href="homepage.php" target="_self"><img class="is-rounded" src="Images/BroersLogo.png" alt="Logo" /></a>
+                <a href="homepage.php" target="_self"><img class="is-rounded" src="Images/BroersLogo.png"
+                                                           alt="Logo"/></a>
             </figure>
         </a>
 
@@ -90,6 +120,63 @@
         </div>
     </section>
 </header>
+
+<section class="section">
+    <div class="container content">
+        <h2 class="title">Plaats een review!</h2>
+
+        <section class="columns">
+            <form class="column is-6" action="" method="post">
+
+                <!-- user id -->
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label" for="comments">User id</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <input class="input" id="comments" type="text" name="comments"/>
+                                <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- comments -->
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label" for="comments">Commentaar</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <input class="input" id="comments" type="text" name="comments"/>
+                                <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Submit -->
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal"></div>
+                    <div class="field-body">
+                        <button class="button is-primary is-fullwidth" type="submit" name="submit">Plaats review</button>
+                    </div>
+                </div>
+
+            </form>
+        </section>
+
+    </div>
+</section>
+
+<section>
+    <h1>Reviews</h1>
+<!--    <h2>--><?php //= $reviews['review'] ?><!--</h2>-->
+</section>
 
 <footer class="has-background-info">
     <div class="footerRow">

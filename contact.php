@@ -1,4 +1,58 @@
-<?php ?>
+<?php
+if (isset($_POST['submit'])) {
+    /** @var mysqli $db */
+    require_once "connection/connection.php";
+
+// Get form data
+    $email = $_POST['email'];
+    $phonenumber = $_POST['phonenumber'];
+    $name = $_POST['name'];
+    $surname = $_POST ['surname'];
+
+// Server-side validation
+
+    $errors = [];
+    if ($name === '') {
+        $errors['name'] = 'Voornaam mag leeg zijn';
+    }
+
+    if ($phonenumber === '') {
+        $errors['phonenumber'] = 'Telefoonnummer mag niet leeg zijn';
+    }
+
+    if ($surname === '') {
+        $errors['surname'] = 'Achternaam mag niet leeg zijn';
+    }
+
+    if ($email === '') {
+        $errors['email'] = 'E-mail mag niet leeg zijn';
+    } else {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors['email'] = 'E-mail is niet geldig';
+        }
+
+
+        if (empty($errors)) {
+
+            // store the new user in the database.
+            $query = "INSERT INTO `users`(`email`,`phonenumber`, `name`, `surname`) VALUES ('$email','$phonenumber','$name','$surname')";
+
+            $result = mysqli_query($db, $query)
+            or exit('Error ' . mysqli_error($db) . ' with query ' . $query);
+
+            mysqli_close($db);
+            // If query succeeded
+            if ($result) {
+
+                // Redirect to login page
+                header('location: login.php');
+                // Exit the code
+                exit;
+            }
+        }
+    }
+}
+?>
 
 <!doctype html>
 <html lang="en">
@@ -93,20 +147,22 @@
         <div class="container content is-flex is-flex-row contactRow">
 
 
-            <div class="m-0 p-0" >
-                <p class="m-0 p-0 pr-4" style="color: #DF5F2C"> Heb je een vraag? Stuur ons dan een bericht of bel ons! </p>
+            <div class="m-0 p-0">
+                <p class="m-0 p-0 pr-4" style="color: #DF5F2C"> Heb je een vraag? Stuur ons dan een bericht of bel
+                    ons! </p>
                 <br>
                 <div class="pb-2">
-                <p class="m-0 p-0 pr-4" >Eetcafé BROERS</p>
-                <p class="m-0 p-0 pr-4">Koningsplein 44</p>
-                <p class="m-0 p-0 pr-4" > 2981 EA Ridderkerk</p>
-                <p class="m-0 p-0 pr-4"  > info@broersridderkerk.nl</p>
-                <p class="m-0 p-0 pr-4" >06 - 48 18 54 03</p>
+                    <p class="m-0 p-0 pr-4">Eetcafé BROERS</p>
+                    <p class="m-0 p-0 pr-4">Koningsplein 44</p>
+                    <p class="m-0 p-0 pr-4"> 2981 EA Ridderkerk</p>
+                    <p class="m-0 p-0 pr-4"> info@broersridderkerk.nl</p>
+                    <p class="m-0 p-0 pr-4">06 - 48 18 54 03</p>
                 </div>
             </div>
 
-            <div >
+            <div>
                 <form class="column is-fullwidth container" action="" method="post">
+
                     <!-- name -->
                     <div>
                         <label class="label" for="name">Voornaam</label>
@@ -121,8 +177,8 @@
                             </p>
                         </div>
                     </div>
-                    <!-- surname -->
 
+                    <!-- surname -->
                     <label class="label" for="surname">Achternaam</label>
 
                     <input class="input is-link" placeholder="Wooferson" id="surname" type="text" name="surname"/>
@@ -144,25 +200,25 @@
 
 
                     <!-- phonenumber -->
+                    <label class="label" for="phonenumber">Telefoonnummer</label>
 
-                    <label class="label" for="phoneNumber">Telefoonnummer</label>
 
-
-                    <input class="input is-link" placeholder="06xxxxxxxx" id="phoneNumber" type="text"
-                           name="phoneNumber"
+                    <input class="input is-link" placeholder="06xxxxxxxx" id="phonenumber" type="text"
+                           name="phonenumber"
                            value="<?= $phonenumber ?? '' ?>"/>
 
                     <p class="help is-danger">
-                        <?= $errors['phoneNumber'] ?? '' ?>
+                        <?= $errors['phonenumber'] ?? '' ?>
                     </p>
 
 
                     <label class="label" for="textArea">Inhoud</label>
-                    <textarea cols="100" rows="6" class="textArea" placeholder="Stel uw vraag hier" id="textArea" name="textarea"></textarea>
+                    <textarea cols="100" rows="6" class="textArea" placeholder="Stel uw vraag hier" id="textArea"
+                              name="textarea"></textarea>
                     <!-- Submit -->
-<div class="pb-4">
+                    <div class="pb-4">
 
-</div>
+                    </div>
                     <button class="button is-warning is-outlined is-fullwidth" type="submit" name="submit">Verzenden
                     </button>
 
@@ -207,7 +263,7 @@
         display: inline-block;
         max-width: 488.66px;
         overflow: hidden;
-        border-radius: 5px ;
+        border-radius: 5px;
     }
 
     .contactRow {
