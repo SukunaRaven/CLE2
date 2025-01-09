@@ -37,7 +37,7 @@
 
                     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
-                    $navbarBurgers.forEach( el => {
+                    $navbarBurgers.forEach(el => {
                         el.addEventListener('click', () => {
 
                             const target = el.dataset.target;
@@ -113,28 +113,62 @@
     <section>
         <div class="tabs is-centered">
             <ul>
-                <li class="is-active"><a>Ons menu</a></li>
-                <li><a href="lunchenborrel.php">Lunch & Borrel</a></li>
-                <li><a href="diner.php">Diner</a></li>
-                <li><a href="drank.php">Drank</a></li>
-                <li><a href="cocktails.php">Cocktails</a></li>
+                <li id="menu" class="is-active"><a>Ons menu</a></li>
+                <li id="lunch"><a>Lunch & Borrel</a></li>
+                <li id="diner"><a>Diner</a></li>
+                <li id="drank"><a>Drank</a></li>
+                <li id="cocktails"><a>Cocktails</a></li>
             </ul>
         </div>
     </section>
 
-    <section class="container">
+    <section id="menu-section" class="menu-on">
         <p class="has-text-centered is-size-3 has-text-link padding3">
             Voor Iedere Smaak Wat Wils
         </p>
         <p class="has-text-centered">
-            Bij eetcafé BROERS kun je genieten van heerlijke gerechten, bereid met de beste ingrediënten en passie voor het vak.
-            Of je nu komt voor een gezellige lunch of een sfeervol diner, wij zorgen voor een culinaire ervaring die je niet snel zult vergeten.
+            Bij eetcafé BROERS kun je genieten van heerlijke gerechten, bereid met de beste ingrediënten en passie voor
+            het vak.
+            Of je nu komt voor een gezellige lunch of een sfeervol diner, wij zorgen voor een culinaire ervaring die je
+            niet snel zult vergeten.
         </p>
         <div class="columns">
             <div class="column has-text-centered">
                 <img class="is-centered" src="Images/menu.png" alt="Menu">
             </div>
         </div>
+    </section>
+    <section id="lunch-section" class="menu-off">
+        <p class="has-text-centered is-size-3 has-text-link padding3">
+            Bekijk hier ons Lunch en Borrel menu!
+        </p>
+        <div class="columns">
+            <div class="column has-text-centered">
+                <img class="is-centered" src="Images/lunch1.png" alt="Lunch kaart">
+            </div>
+            <div class="column has-text-centered">
+                <img class="is-centered" src="Images/lunch2.png" alt="Lunch en Borrel kaart">
+            </div>
+        </div>
+    </section>
+    <section id="diner-section" class="menu-off">
+        <p>Diner hier pls</p>
+    </section>
+    <section id="drank-section" class="menu-off">
+        <p class="has-text-centered is-size-3 has-text-link padding3">
+            Bekijk hier onze Dranken!
+        </p>
+        <div class="columns">
+            <div class="column has-text-centered">
+                <img class="is-centered" src="Images/drank1.png" alt="Dranken kaart">
+            </div>
+            <div class="column has-text-centered">
+                <img class="is-centered" src="Images/drank2.png" alt="Dranken kaart 2">
+            </div>
+        </div>
+    </section>
+    <section id="cocktails-section" class="menu-off">
+        <p>Cocktails hier pls</p>
     </section>
 
 </main>
@@ -174,6 +208,8 @@
             <p>06 - 48 18 54 03</p></div>
     </div>
 </footer>
+
+<script src="js/menu.js"></script>
 
 </body>
 </html>
