@@ -8,10 +8,11 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
     >
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Broers Smaakmakers</title>
 </head>
 
@@ -21,7 +22,8 @@
     <div class="navbar-brand">
         <a class="navbar-item">
             <figure class="image is-32x32">
-                <a href="homepage.php" target="_self"><img class="is-rounded" src="Images/BroersLogo.png" alt="Logo" /></a>
+                <a href="homepage.php" target="_self"><img class="is-rounded" src="Images/BroersLogo.png"
+                                                           alt="Logo"/></a>
             </figure>
         </a>
 
@@ -78,26 +80,51 @@
 </nav>
 
 <header class="background-image is-primary is-medium">
-    <section class="hero is-halfheight">
+    <section class="hero">
         <div class="hero-body">
             <div class="container has-text-centered">
-                <h1 class="title is-1 shadow has-text-link">Eetcafé Broers</h1>
+                <h1 class="title is-1 shadow has-text-link">Ons Menu</h1>
             </div>
         </div>
     </section>
 </header>
 
+<main class="has-background-info">
+
+    <section>
+        <div class="tabs is-centered">
+            <ul>
+                <li class="is-active"><a>Ons menu</a></li>
+                <li><a href="lunchenborrel.php">Lunch & Borrel</a></li>
+                <li><a href="diner.php">Diner</a></li>
+                <li><a href="drank.php">Drank</a></li>
+                <li><a href="cocktails.php">Cocktails</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="container">
+        <p class="has-text-centered is-size-3 has-text-link padding3">
+            Voor Iedere Smaak Wat Wils
+        </p>
+        <p class="has-text-centered">
+            Bij eetcafé BROERS kun je genieten van heerlijke gerechten, bereid met de beste ingrediënten en passie voor het vak.
+            Of je nu komt voor een gezellige lunch of een sfeervol diner, wij zorgen voor een culinaire ervaring die je niet snel zult vergeten.
+        </p>
+        <img class="is-centered" src="Images/menu.png" alt="Menu">
+    </section>
+
+</main>
+
 <footer class="has-background-info">
     <div class="footerRow">
         <div><p>Follow Us!</p>
             <a href="https://www.instagram.com/broers.ridderkerk">
-                <i class="fa fa-instagram" style="font-size:24px"></i>
+                <i class="fa fa-instagram" style="font-size:30px"></i>
             </a>
-            <a href="https://www.tiktok.com/@broers.ridderkerk">
-                <i class="fa-brands fa-tiktok" style="font-size:24px"></i>
-            </a>
+
             <a href="https://www.facebook.com/profile.php?id=61562490741128">
-                <i class="fa fa-facebook-square" style="font-size:24px"></i>
+                <i class="fa fa-facebook-square" style="font-size:30px"></i>
             </a>
         </div>
         <div>

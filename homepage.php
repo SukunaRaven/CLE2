@@ -99,7 +99,11 @@
                 <article>
                     <div class="has-text-centered">
                         <img class="image is-3by4" src="Images/LunchFoto.jpg" alt="Lunch"/>
-                        <h3 class="has-button-centered button is-link is-outlined is-fullwidth">Lunch</h3>
+                        <h3 class="has-button-centered button is-link is-outlined is-fullwidth">
+                            <a href="lunchenborrel.php">
+                                Lunch en Borrel
+                            </a>
+                        </h3>
                     </div>
                 </article>
             </div>
@@ -107,8 +111,12 @@
             <div class="column">
                 <article>
                     <div class="has-text-centered">
-                        <img class="image is-3by4" src="Images/DinerFoto.jpg" alt="Diner"/>
-                        <h3 class="has-button-centered button is-link is-outlined is-fullwidth">Diner</h3>
+                        <img class="image is-3by4" src="Images/vork.jpg" alt="Diner"/>
+                        <h3 class="has-button-centered button is-link is-outlined is-fullwidth">
+                            <a href="diner.php">
+                                Diner
+                            </a>
+                        </h3>
                     </div>
                 </article>
             </div>
@@ -117,7 +125,9 @@
                 <article>
                     <div class="has-text-centered">
                         <img class="image is-3by4" src="Images/BorrelFoto.jpg" alt="Drank"/>
-                        <h3 class="has-button-centered button is-link is-outlined is-fullwidth">Drank</h3>
+                        <h3 class="has-button-centered button is-link is-outlined is-fullwidth">
+                            <a href="drank.php">Drank</a>
+                        </h3>
                     </div>
                 </article>
             </div>
@@ -125,8 +135,10 @@
             <div class="column">
                 <article>
                     <div class="has-text-centered">
-                        <img class="image is-3by4" src="Images/Drankfoto.jpg" alt="Borrel"/>
-                        <h3 class="has-button-centered button is-link is-outlined is-fullwidth">Borrel</h3>
+                        <img class="image is-3by4" src="Images/Cocktails.jpg" alt="Borrel"/>
+                        <h3 class="has-button-centered button is-link is-outlined is-fullwidth">
+                            <a href="cocktails.php">Cocktails</a>
+                        </h3>
                     </div>
                 </article>
             </div>
