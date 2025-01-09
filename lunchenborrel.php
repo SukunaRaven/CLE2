@@ -104,7 +104,19 @@
     </section>
 
     <section class="container">
-
+        <section class="container">
+            <p class="has-text-centered is-size-3 has-text-link padding3">
+                Bekijk hier ons Lunch en Borrel menu!
+            </p>
+            <div class="columns">
+                <div class="column has-text-centered">
+                    <img class="is-centered" src="Images/lunch1.png" alt="Lunch kaart">
+                </div>
+                <div class="column has-text-centered">
+                    <img class="is-centered" src="Images/lunch2.png" alt="Lunch en Borrel kaart">
+                </div>
+            </div>
+        </section>
     </section>
 
 </main>

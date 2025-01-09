@@ -55,15 +55,34 @@ if (isset($_POST['submit'])) {
             </figure>
         </a>
 
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="nav-bar">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+
+                    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+                    $navbarBurgers.forEach( el => {
+                        el.addEventListener('click', () => {
+
+                            const target = el.dataset.target;
+                            const $target = document.getElementById(target);
+
+                            el.classList.toggle('is-active');
+                            $target.classList.toggle('is-active');
+
+                        });
+                    });
+
+                });
+            </script>
         </a>
     </div>
 
-    <div class="navbar-menu">
+    <div class="navbar-menu" id="nav-bar">
         <div class="navbar-end">
             <a id="button" href="aanbod.php" class="navbar-item is-link">
                 Ons Aanbod

@@ -8,8 +8,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
     >
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -104,7 +104,17 @@
     </section>
 
     <section class="container">
-
+        <p class="has-text-centered is-size-3 has-text-link padding3">
+            Bekijk hier onze Dranken!
+        </p>
+        <div class="columns">
+            <div class="column has-text-centered">
+                <img class="is-centered" src="Images/drank1.png" alt="Dranken kaart">
+            </div>
+            <div class="column has-text-centered">
+                <img class="is-centered" src="Images/drank2.png" alt="Dranken kaart 2">
+            </div>
+        </div>
     </section>
 
 </main>

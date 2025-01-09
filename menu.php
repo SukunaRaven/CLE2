@@ -27,15 +27,34 @@
             </figure>
         </a>
 
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="nav-bar">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+
+                    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+                    $navbarBurgers.forEach( el => {
+                        el.addEventListener('click', () => {
+
+                            const target = el.dataset.target;
+                            const $target = document.getElementById(target);
+
+                            el.classList.toggle('is-active');
+                            $target.classList.toggle('is-active');
+
+                        });
+                    });
+
+                });
+            </script>
         </a>
     </div>
 
-    <div class="navbar-menu">
+    <div class="navbar-menu" id="nav-bar">
         <div class="navbar-end">
             <a id="button" href="aanbod.php" class="navbar-item is-link">
                 Ons Aanbod
@@ -111,7 +130,11 @@
             Bij eetcafé BROERS kun je genieten van heerlijke gerechten, bereid met de beste ingrediënten en passie voor het vak.
             Of je nu komt voor een gezellige lunch of een sfeervol diner, wij zorgen voor een culinaire ervaring die je niet snel zult vergeten.
         </p>
-        <img class="is-centered" src="Images/menu.png" alt="Menu">
+        <div class="columns">
+            <div class="column has-text-centered">
+                <img class="is-centered" src="Images/menu.png" alt="Menu">
+            </div>
+        </div>
     </section>
 
 </main>
