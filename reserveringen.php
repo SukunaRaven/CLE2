@@ -251,11 +251,11 @@ if (isset($_POST['submit'])) {
     <div class="footerRow">
         <div><p>Follow Us!</p>
             <a href="https://www.instagram.com/broers.ridderkerk">
-                <i class="fa fa-instagram" style="font-size:24px"></i>
+                <i class="fa fa-instagram" style="font-size:30px"></i>
             </a>
 
             <a href="https://www.facebook.com/profile.php?id=61562490741128">
-                <i class="fa fa-facebook-square" style="font-size:24px"></i>
+                <i class="fa fa-facebook-square" style="font-size:30px"></i>
             </a>
         </div>
         <div>
