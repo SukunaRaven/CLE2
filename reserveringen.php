@@ -276,10 +276,10 @@ if (isset($_POST['submit'])) {
 
                 <label class="label" for="comments">Extra informatie</label>
 
-                <textarea class="is-normal textArea" cols="89" rows="6" name="extra-information"></textarea>
+                <textarea class="is-normal textArea" cols="89" rows="6" name="comments"></textarea>
 
                 <p class="help is-danger">
-                    <?= $errors['extra-information'] ?? '' ?>
+                    <?= $errors['comments'] ?? '' ?>
                 </p>
 
                 <!-- Submit -->
@@ -287,7 +287,7 @@ if (isset($_POST['submit'])) {
                 <button class="button is-link is-outlined is-fullwidth" type="submit" name="submit">Reserveren
                 </button>
 
-
+            </form>
         </section>
     </div>
 
@@ -300,12 +300,12 @@ if (isset($_POST['submit'])) {
         border: #1C1512 solid 1px;
         border-radius: 5px;
         max-width: 656.73px;
-        background-color: antiquewhite ;
+        background-color: antiquewhite;
         resize: none;
     }
 
     @media (max-width: 767px) {
-        .footerRow{
+        .footerRow {
             padding: 20px 20px;
             flex-direction: column;
             justify-content: center;
@@ -314,7 +314,7 @@ if (isset($_POST['submit'])) {
 
         .logoRows {
             display: flex;
-            flex-direction: row ;
+            flex-direction: row;
             gap: 10px;
         }
 
@@ -331,7 +331,7 @@ if (isset($_POST['submit'])) {
 
         }
 
-        .columns  {
+        .columns {
             display: flex;
             align-content: center;
             justify-content: center;
@@ -345,13 +345,13 @@ if (isset($_POST['submit'])) {
     <div class="footerRow">
         <div class="socialmediaFormat"><p>Follow Us!</p>
             <div class="logoRows">
-            <a href="https://www.instagram.com/broers.ridderkerk">
-                <i class="fa fa-instagram" style="font-size:30px"></i>
-            </a>
+                <a href="https://www.instagram.com/broers.ridderkerk">
+                    <i class="fa fa-instagram" style="font-size:30px"></i>
+                </a>
 
-            <a href="https://www.facebook.com/profile.php?id=61562490741128">
-                <i class="fa fa-facebook-square" style="font-size:30px"></i>
-            </a>
+                <a href="https://www.facebook.com/profile.php?id=61562490741128">
+                    <i class="fa fa-facebook-square" style="font-size:30px"></i>
+                </a>
             </div>
         </div>
         <div>

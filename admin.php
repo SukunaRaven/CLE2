@@ -3,7 +3,7 @@
 /** @var $db mysqli */
 require_once 'connection/connection.php';
 
-$query = "SELECT * FROM characters";
+$query = "SELECT * FROM reservations";
 
 $result = mysqli_query($db, $query)
 or exit('Error '.mysqli_error($db).' with query '.$query);

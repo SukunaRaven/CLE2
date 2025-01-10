@@ -25,12 +25,11 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    background-image:url(/Images/RestaurantFoto.jpg);
+    background-image: url(/Images/RestaurantFoto.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
-
 
 
 h2 {
@@ -55,50 +54,59 @@ main {
 
 .openingstijden {
     display: flex;
-    flex-direction: column;}
+    flex-direction: column;
+}
 
 .openingstijdenSamen {
     display: flex;
     flex-direction: row;
-    gap: 20px;}
+    gap: 20px;
+}
 
 .openingstijdenOnder {
     display: flex;
     flex-direction: column;
-    gap: 10px;}
+    gap: 10px;
+}
 
 .footerRow {
     display: flex;
     flex-direction: row;
     gap: 20px;
     padding: 50px 180px 80px 180px;
-    justify-content: space-evenly;}
+    justify-content: space-evenly;
+}
 
 .detailsFooter {
     display: flex;
-    flex-direction: column;}
+    flex-direction: column;
+}
 
 .broersLogo {
     padding-bottom: 5px;
     width: 50px;
-    height: 50px;}
+    height: 50px;
+}
 
 .card {
     padding: 20px;
-    background-color:#613300;
-    transform-origin:center;
-    transition: all 0.7s ease;}
+    background-color: #613300;
+    transform-origin: center;
+    transition: all 0.7s ease;
+}
 
 .card:hover {
     background-color: #8C3A18;
-    transform:scale(0.95)}
+    transform: scale(0.95)
+}
 
 .padding3 {
     padding-bottom: 5vh;
 }
 
 .menu-off {
-    display: none;}
+    display: none;
+}
 
 @media (max-width: 767px) {
     .footerRow {
