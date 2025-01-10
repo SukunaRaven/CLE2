@@ -282,6 +282,8 @@ if (isset($_POST['submit'])) {
         max-width: 488.66px;
         overflow: hidden;
         border-radius: 5px;
+        border: #1C1512 solid 1px;
+        background-color: antiquewhite;
     }
 
     .contactRow {

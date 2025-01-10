@@ -297,10 +297,10 @@ if (isset($_POST['submit'])) {
 
 <style>
     .textArea {
-        border: antiquewhite solid 1px;
+        border: #1C1512 solid 1px;
         border-radius: 5px;
         max-width: 656.73px;
-        background-color: #1C1512;
+        background-color: antiquewhite ;
         resize: none;
     }
 
