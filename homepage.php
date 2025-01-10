@@ -172,7 +172,6 @@
             </div>
             <div class="column">
                 <p class="has-text-centered has-text-link">
-                    Gevestigd op het prachtige Koningsplein zit een eetcafé met sfeer.
                     Sinds 9 oktober 2024 is dit eetcafé gevestigd op Koningsplein 44.
                 </p>
             </div>
