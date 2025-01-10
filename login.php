@@ -21,7 +21,7 @@ if ($email == '') {
     $errors['email'] = 'Vul a.u.b email in';
 } else {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors['email'] = 'Gebruikersnaam bestaat niet';
+        $errors['email'] = 'Combinatie van gebruikersnaam en wachtwoord klopt niet';
     } else {
         $query = "SELECT * FROM users WHERE email = '$email'";
 
@@ -39,13 +39,13 @@ if ($email == '') {
 
         // SELECT the user from the database, based on the email address.
         $query = "SELECT * FROM users WHERE email= '$email'";
-        //het resultaat van de query
+        //query result
         $result = mysqli_query($db, $query);
 
-        //aantal toegevoegde logins
+        //added logins
         $rows = mysqli_num_rows($result);
 
-        //ALS er 1 login is toegevoegd
+        //IF 1 login is added
         if ($rows === 1) {
             $user = mysqli_fetch_assoc($result);
 
@@ -66,7 +66,7 @@ if ($email == '') {
             }
 
         } else {
-            $errors['email'] = 'Gebruikersnaam bestaat niet';
+            $errors['email'] = 'Combinatie van gebruikersnaam en wachtwoord klopt niet';
         }
     }
 }
