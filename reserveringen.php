@@ -304,7 +304,39 @@ if (isset($_POST['submit'])) {
         resize: none;
     }
 
-    .inputDesign {
+    @media (max-width: 767px) {
+        .footerRow{
+            padding: 20px 20px;
+            flex-direction: column;
+            justify-content: center;
+
+        }
+
+        .logoRows {
+            display: flex;
+            flex-direction: row ;
+            gap: 10px;
+        }
+
+        .socialmediaFormat {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .inputField {
+            display: flex;
+            flex-direction: column;
+            max-width: 150vw;
+
+        }
+
+        .columns  {
+            display: flex;
+            align-content: center;
+            justify-content: center;
+        }
+
 
     }
 </style>

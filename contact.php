@@ -290,6 +290,27 @@ if (isset($_POST['submit'])) {
 
     }
 
+    @media (max-width: 767px) {
+
+        /* contact.php */
+
+        .inputfieldContact {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .contactRow {
+            flex-direction: column;
+
+        }
+
+        .textArea {
+            max-width: 150vw;
+
+        }
+    }
+
 </style>
 
 
