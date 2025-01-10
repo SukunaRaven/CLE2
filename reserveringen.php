@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
     if ($guests === '') {
         $errors['guests'] = 'Gasten mogen niet leeg zijn';
     } else {
-        if (strlen($guests) < 8) {
+        if (is_string($guests) < 8) {
             $errors['guests'] = 'Maximaal 8 gasten';
         }
     }
