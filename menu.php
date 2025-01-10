@@ -14,6 +14,23 @@
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Broers Smaakmakers</title>
+
+    <STYLE>
+        .click-zoom input[type=checkbox] {
+            display: none
+        }
+
+        .click-zoom img {
+            transition: transform 0.25s ease;
+            cursor: zoom-in
+        }
+
+        .click-zoom input[type=checkbox]:checked ~ img {
+            /* how to modify this to use exact image width instead of scaling?*/
+            transform: scale(1.5);
+            cursor: zoom-out
+        }
+    </STYLE>
 </head>
 
 <body>
@@ -138,36 +155,110 @@
             </div>
         </div>
     </section>
-    <section id="lunch-section" class="menu-off">
+
+    <section id="lunch-section" class="container menu-off">
         <p class="has-text-centered is-size-3 has-text-link padding3">
             Bekijk hier ons Lunch en Borrel menu!
         </p>
         <div class="columns">
             <div class="column has-text-centered">
-                <img class="is-centered" src="Images/lunch1.png" alt="Lunch kaart">
+                <div class='click-zoom'>
+                    <label>
+                        <input type='checkbox'/>
+                        <img class="is-centered" src="Images/lunch1.png" alt="Lunch kaart">
+                    </label>
+                </div>
             </div>
             <div class="column has-text-centered">
-                <img class="is-centered" src="Images/lunch2.png" alt="Lunch en Borrel kaart">
+                <div class='click-zoom'>
+                    <label>
+                        <input type='checkbox'/>
+                        <img class="is-centered" src="Images/lunch2.png" alt="Lunch en Borrel kaart">
+                    </label>
+                </div>
             </div>
         </div>
     </section>
-    <section id="diner-section" class="menu-off">
-        <p>Diner hier pls</p>
+
+    <section id="diner-section" class="container menu-off">
+        <p class="has-text-centered is-size-3 has-text-link padding3">
+            Bekijk hier ons Diner menu!
+        </p>
+        <div class="columns">
+            <div class="column has-text-centered">
+                <div class='click-zoom'>
+                    <label>
+                        <input type='checkbox'/>
+                        <img class="is-centered" src="Images/diner1.png" alt="Diner kaart">
+                    </label>
+                </div>
+            </div>
+            <div class="column has-text-centered">
+                <div class='click-zoom'>
+                    <label>
+                        <input type='checkbox'/>
+                        <img class="is-centered" src="Images/diner2.png" alt="Diner kaart 2">
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="columns">
+            <div class="column has-text-centered">
+                <div class='click-zoom'>
+                    <label>
+                        <input type='checkbox'/>
+                        <img class="is-centered" src="Images/diner3.png" alt="Diner kaart 3">
+                    </label>
+                </div>
+            </div>
+            <div class="column has-text-centered">
+                <div class='click-zoom'>
+                    <label>
+                        <input type='checkbox'/>
+                        <img class="is-centered" src="Images/diner4.png" alt="Diner kaart 4">
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="columns">
+            <div class="column has-text-centered">
+                <div class='click-zoom'>
+                    <label>
+                        <input type='checkbox'/>
+                        <img class="is-centered" src="Images/diner5.png" alt="Diner kaart 5">
+                    </label>
+                </div>
+            </div>
+        </div>
     </section>
-    <section id="drank-section" class="menu-off">
+
+    <section id="drank-section" class="container menu-off">
         <p class="has-text-centered is-size-3 has-text-link padding3">
             Bekijk hier onze Dranken!
         </p>
         <div class="columns">
             <div class="column has-text-centered">
-                <img class="is-centered" src="Images/drank1.png" alt="Dranken kaart">
+                <div class='click-zoom'>
+                    <label>
+                        <input type='checkbox'/>
+                        <img class="is-centered" src="Images/drank1.png" alt="Dranken kaart">
+                    </label>
+                </div>
             </div>
             <div class="column has-text-centered">
-                <img class="is-centered" src="Images/drank2.png" alt="Dranken kaart 2">
+                <div class='click-zoom'>
+                    <label>
+                        <input type='checkbox'/>
+                        <img class="is-centered" src="Images/drank2.png" alt="Dranken kaart 2">
+                    </label>
+                </div>
             </div>
         </div>
     </section>
-    <section id="cocktails-section" class="menu-off">
+
+    <section id="cocktails-section" class="container menu-off">
         <p>Cocktails hier pls</p>
     </section>
 

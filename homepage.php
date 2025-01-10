@@ -117,7 +117,7 @@
             <div class="column">
                 <article>
                     <div class="has-text-centered">
-                        <img class="image is-4by5" src="Images/LunchFoto.jpg" alt="Lunch"/>
+                        <img class="image is-5by4" src="Images/LunchFoto.jpg" alt="Lunch"/>
                         <h3 class="has-button-centered button is-link is-outlined is-fullwidth">
                             <a href="menu.php">
                                 Lunch en Borrel
@@ -130,7 +130,7 @@
             <div class="column">
                 <article>
                     <div class="has-text-centered">
-                        <img class="image is-4by5" src="Images/vork.jpg" alt="Diner"/>
+                        <img class="image is-5by4" src="Images/vork.jpg" alt="Diner"/>
                         <h3 class="has-button-centered button is-link is-outlined is-fullwidth">
                             <a href="menu.php">
                                 Diner
@@ -143,7 +143,7 @@
             <div class="column">
                 <article>
                     <div class="has-text-centered">
-                        <img class="image is-4by5" src="Images/BorrelFoto.jpg" alt="Drank"/>
+                        <img class="image is-5by4" src="Images/DrankFoto2.jpg" alt="Drank"/>
                         <h3 class="has-button-centered button is-link is-outlined is-fullwidth">
                             <a href="menu.php">Drank</a>
                         </h3>
@@ -154,7 +154,7 @@
             <div class="column">
                 <article>
                     <div class="has-text-centered">
-                        <img class="image is-4by5" src="Images/Cocktails.jpg" alt="Borrel"/>
+                        <img class="image is-5by4" src="Images/Cocktails.jpg" alt="Borrel"/>
                         <h3 class="has-button-centered button is-link is-outlined is-fullwidth">
                             <a href="menu.php">Cocktails</a>
                         </h3>
