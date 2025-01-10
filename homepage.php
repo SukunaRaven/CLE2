@@ -166,9 +166,17 @@
 
     <section class="has-background-warning">
         <h2 class="title is-3 has-text-centered has-text-link has-text-weight-bold">Over Ons</h2>
-        <p class="has-text-centered has-text-link">
-            Lorem
-        </p>
+        <div class="columns container">
+            <div class="column image is-3by2 has-text-centered">
+                <img src="Images/koningsplein.jpg" alt="Koningsplein">
+            </div>
+            <div class="column">
+                <p class="has-text-centered has-text-link">
+                    Gevestigd op het prachtige Koningsplein zit een eetcafé met sfeer.
+                    Sinds 9 oktober 2024 is dit eetcafé gevestigd op Koningsplein 44.
+                </p>
+            </div>
+        </div>
     </section>
 </main>
 
