@@ -105,7 +105,7 @@ if (isset($_POST['submit'])) {
 
                     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
-                    $navbarBurgers.forEach( el => {
+                    $navbarBurgers.forEach(el => {
                         el.addEventListener('click', () => {
 
                             const target = el.dataset.target;
@@ -181,7 +181,7 @@ if (isset($_POST['submit'])) {
     <div class="container content is-flex is-justify-content-center">
         <section class="columns">
             <form class="column is-full" action="" method="post">
-<div class="pt-5"></div>
+                <div class="pt-5"></div>
                 <!--email -->
                 <label class="label" for="email">E-mail</label>
                 <input class="input is-link" id="email" type="text" name="email"
@@ -225,9 +225,42 @@ if (isset($_POST['submit'])) {
                 </p>
 
                 <!-- time -->
+                <style>
 
+                    .time-picker {
+                        background-color: #8C3A18;
+                        max-width: 656px;
+                        max-height: 166px;
+                        cursor: pointer;
+                    }
+
+.special {
+    background-color: white;
+    color: #1C1512;
+}
+
+
+                </style>
                 <label class="label" for="time">Tijdstip</label>
-                <input class="input is-link" id="time" type="time" name="time"/>
+                <div class="time-picker">
+                    <!-- onclick triggers the toggleOn() function -->
+                    <button class="btn" type="button" name="time" value="false">
+                        11:00
+                    </button>
+                    <button class="btn"  type="button" name="time" value="false">
+                        11:15
+
+
+                    </button>
+                    <button class="btn"  type="button" name="time" value="false">
+                        11:30
+
+
+                    </button>
+
+                    <script src="js/timepicker.js"></script>
+
+                </div>
 
                 <p class="help is-danger">
                     <?= $errors['time'] ?? '' ?>
@@ -245,9 +278,9 @@ if (isset($_POST['submit'])) {
 
                 <!-- Submit -->
 
-                        <button class="button is-link is-outlined is-fullwidth" type="submit" name="submit">Reserveren
-                        </button>
-                  
+                <button class="button is-link is-outlined is-fullwidth" type="submit" name="submit">Reserveren
+                </button>
+
 
         </section>
     </div>
