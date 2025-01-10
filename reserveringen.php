@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
     if ($guests === '') {
         $errors['guests'] = 'Gasten mogen niet leeg zijn';
     } else {
-        if (strlen($guests) < 8) {
+        if (is_string($guests) < 8) {
             $errors['guests'] = 'Maximaal 8 gasten';
         }
     }
@@ -234,10 +234,10 @@ if (isset($_POST['submit'])) {
                         cursor: pointer;
                     }
 
-.special {
-    background-color: white;
-    color: #1C1512;
-}
+                    .special {
+                        background-color: white;
+                        color: #1C1512;
+                    }
 
 
                 </style>
@@ -247,12 +247,12 @@ if (isset($_POST['submit'])) {
                     <button class="btn" type="button" name="time" value="false">
                         11:00
                     </button>
-                    <button class="btn"  type="button" name="time" value="false">
+                    <button class="btn" type="button" name="time" value="false">
                         11:15
 
 
                     </button>
-                    <button class="btn"  type="button" name="time" value="false">
+                    <button class="btn" type="button" name="time" value="false">
                         11:30
 
 
