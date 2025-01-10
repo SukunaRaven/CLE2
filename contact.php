@@ -165,8 +165,7 @@ if (isset($_POST['submit'])) {
     <section class="section">
         <div class="container content is-flex is-flex-row contactRow">
 
-
-            <div class="m-0 p-0">
+            <div class="m-0 p-0 inputfieldContact">
                 <p class="m-0 p-0 pr-4" style="color: #DF5F2C"> Heb je een vraag? Stuur ons dan een bericht of bel
                     ons! </p>
                 <br>
@@ -232,7 +231,7 @@ if (isset($_POST['submit'])) {
 
 
                     <label class="label" for="textArea">Inhoud</label>
-                    <textarea cols="100" rows="6" class="textArea" placeholder="Stel uw vraag hier" id="textArea"
+                    <textarea cols="47" rows="6" class="textArea" placeholder="Stel uw vraag hier" id="textArea"
                               name="textarea"></textarea>
                     <!-- Submit -->
                     <div class="pb-4">

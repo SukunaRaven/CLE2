@@ -180,11 +180,11 @@ if (isset($_POST['submit'])) {
 
     <div class="container content is-flex is-justify-content-center">
         <section class="columns">
-            <form class="column is-full" action="" method="post">
+            <form class="column is-full is-half-mobile inputField" action="" method="post">
                 <div class="pt-5"></div>
                 <!--email -->
                 <label class="label" for="email">E-mail</label>
-                <input class="input is-link" id="email" type="text" name="email"
+                <input class="input is-link is-three-quarters-mobile" id="email" type="text" name="email"
                        value="<?= $email ?? '' ?>"/>
                 <p class="help is-danger">
                     <?= $errors['email'] ?? '' ?>
@@ -227,32 +227,38 @@ if (isset($_POST['submit'])) {
                 <!-- time -->
                 <style>
 
-                    .time-picker {
+                    .time-picker-button {
                         background-color: #8C3A18;
+                        color: #1C1512;
                         max-width: 656px;
                         max-height: 166px;
                         cursor: pointer;
                     }
 
-.special {
-    background-color: white;
-    color: #1C1512;
-}
+                    .special {
+                        background-color: #151515;
+                        color: #8C3A18;
+                    }
 
 
                 </style>
                 <label class="label" for="time">Tijdstip</label>
-                <div class="time-picker">
-                    <!-- onclick triggers the toggleOn() function -->
+
+                <!-- custom time picker -->
+
+
+                <div class="time-picker-button">
+
+
                     <button class="btn" type="button" name="time" value="false">
                         11:00
                     </button>
-                    <button class="btn"  type="button" name="time" value="false">
+                    <button class="btn" type="button" name="time" value="false">
                         11:15
 
 
                     </button>
-                    <button class="btn"  type="button" name="time" value="false">
+                    <button class="btn" type="button" name="time" value="false">
                         11:30
 
 
@@ -305,7 +311,8 @@ if (isset($_POST['submit'])) {
 
 <footer class="has-background-info">
     <div class="footerRow">
-        <div><p>Follow Us!</p>
+        <div class="socialmediaFormat"><p>Follow Us!</p>
+            <div class="logoRows">
             <a href="https://www.instagram.com/broers.ridderkerk">
                 <i class="fa fa-instagram" style="font-size:30px"></i>
             </a>
@@ -313,6 +320,7 @@ if (isset($_POST['submit'])) {
             <a href="https://www.facebook.com/profile.php?id=61562490741128">
                 <i class="fa fa-facebook-square" style="font-size:30px"></i>
             </a>
+            </div>
         </div>
         <div>
             <div class="openingstijdenOnder"><h3>Openingstijden</h3>
