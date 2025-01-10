@@ -12,14 +12,24 @@ if (isset($_POST['submit'])) {
 
 // Get form data
 
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+$email = $_POST['email'];
+$password = $_POST['password'];
 
 // Server-side validation
-    $errors = [];
-    if ($email == '') {
-        $errors['email'] = 'Vul a.u.b email in';
+$errors = [];
+if ($email == '') {
+    $errors['email'] = 'Vul a.u.b email in';
+} else {
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors['email'] = 'Gebruikersnaam bestaat niet';
+    } else {
+        $query = "SELECT * FROM users WHERE email = '$email'";
+
+        $result = mysqli_query($db, $query)
+        or die('Error ' . mysqli_error($db) . ' with query ' . $query);
     }
+
+
     if ($password == '') {
         $errors['password'] = 'Vul a.u.b wachtwoord in';
     }
@@ -56,9 +66,10 @@ if (isset($_POST['submit'])) {
             }
 
         } else {
-            echo "Login failed";
+            $errors['email'] = 'Gebruikersnaam bestaat niet';
         }
     }
+}
 }
 ?>
 
@@ -99,7 +110,7 @@ if (isset($_POST['submit'])) {
 
                     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
-                    $navbarBurgers.forEach( el => {
+                    $navbarBurgers.forEach(el => {
                         el.addEventListener('click', () => {
 
                             const target = el.dataset.target;
@@ -207,7 +218,8 @@ if (isset($_POST['submit'])) {
                         <div class="field-body">
                             <div class="field">
                                 <div class="control">
-                                    <input class="input is-link is" id="password" type="password" name="password" placeholder="Wachtwoord"/>
+                                    <input class="input is-link is" id="password" type="password" name="password"
+                                           placeholder="Wachtwoord"/>
                                     <?php if (isset($errors['loginFailed'])) { ?>
                                         <div class="notification is-danger">
                                             <button class="delete"></button>
