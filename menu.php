@@ -259,7 +259,17 @@
     </section>
 
     <section id="cocktails-section" class="container menu-off">
-        <p>Cocktails hier pls</p>
+        <p class="has-text-centered is-size-3 has-text-link padding3">
+            Bekijk hier onze Cocktails!
+        </p>
+        <div class="column has-text-centered">
+            <div class='click-zoom'>
+                <label>
+                    <input type='checkbox'/>
+                    <img class="is-centered" src="Images/CocktailsKaart.jpg" alt="Cocktail kaart">
+                </label>
+            </div>
+        </div>
     </section>
 
 </main>
