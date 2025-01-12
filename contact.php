@@ -71,85 +71,8 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-<nav class="navbar has-background-info" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-        <a class="navbar-item">
-            <figure class="image is-32x32">
-                <a href="homepage.php" target="_self"><img class="is-rounded" src="Images/BroersLogo.png"
-                                                           alt="Logo"/></a>
-            </figure>
-        </a>
 
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="nav-bar">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <script>
-                document.addEventListener('DOMContentLoaded', () => {
-
-                    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-                    $navbarBurgers.forEach( el => {
-                        el.addEventListener('click', () => {
-
-                            const target = el.dataset.target;
-                            const $target = document.getElementById(target);
-
-                            el.classList.toggle('is-active');
-                            $target.classList.toggle('is-active');
-
-                        });
-                    });
-
-                });
-            </script>
-        </a>
-    </div>
-
-    <div class="navbar-menu" id="nav-bar">
-        <div class="navbar-end">
-            <a id="button" href="aanbod.php" class="navbar-item is-link">
-                Ons Aanbod
-            </a>
-
-            <a href="menu.php" class="navbar-item is-link">
-                Ons Menu
-            </a>
-
-            <a href="evenementen.php" class="navbar-item is-link">
-                Onze Evenementen
-            </a>
-
-            <a href="reserveringen.php" class="navbar-item is-link">
-                Reserveer
-            </a>
-
-            <a href="contact.php" class="navbar-item is-link">
-                Contact
-            </a>
-
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a href="register.php" class="button is-link is-outlined">
-                            <strong>Registreren</strong>
-                        </a>
-
-                        <a href="login.php" class="button is-link is-outlined">
-                            Log In
-                        </a>
-
-                        <a href="logout.php" class="button is-primary is-outlined">
-                            Log Uit
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</nav>
+<?php include "./Nav/nav.php" ?>
 
 <header class="background-image is-primary is-medium">
     <section class="hero is-height">
@@ -186,7 +109,7 @@ if (isset($_POST['submit'])) {
                         <label class="label" for="name">Voornaam</label>
 
                         <div>
-                            <input class="input is-link is-half-width" placeholder="Sire" id="name" type="text"
+                            <input class="input is-link is-half-width" placeholder="Voornaam" id="name" type="text"
                                    name="name"
                                    value="<?= $name ?? '' ?>"/>
 
@@ -199,7 +122,7 @@ if (isset($_POST['submit'])) {
                     <!-- surname -->
                     <label class="label" for="surname">Achternaam</label>
 
-                    <input class="input is-link" placeholder="Wooferson" id="surname" type="text" name="surname"/>
+                    <input class="input is-link" placeholder="Achternaam" id="surname" type="text" name="surname"/>
 
                     <p class="help is-danger">
                         <?= $errors['surname'] ?? '' ?>
@@ -209,7 +132,7 @@ if (isset($_POST['submit'])) {
 
                     <label class="label" for="email">E-mail</label>
 
-                    <input class="input is-link" placeholder="SireWoofers@gmail.com" id="email" type="text" name="email"
+                    <input class="input is-link" placeholder="Email" id="email" type="text" name="email"
                            value="<?= $email ?? '' ?>"/>
 
                     <p class="help is-danger">
@@ -221,7 +144,7 @@ if (isset($_POST['submit'])) {
                     <label class="label" for="phonenumber">Telefoonnummer</label>
 
 
-                    <input class="input is-link" placeholder="06xxxxxxxx" id="phonenumber" type="text"
+                    <input class="input is-link" placeholder="Telefoonnummer" id="phonenumber" type="text"
                            name="phonenumber"
                            value="<?= $phonenumber ?? '' ?>"/>
 

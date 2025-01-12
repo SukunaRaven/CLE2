@@ -1,4 +1,4 @@
- <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,85 +16,7 @@
 
 <body>
 
-<nav class="navbar has-background-info" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-        <a class="navbar-item">
-            <figure class="image is-32x32">
-                <a href="homepage.php" target="_self"><img class="is-rounded" src="Images/BroersLogo.png"
-                                                           alt="Logo"/></a>
-            </figure>
-        </a>
-
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="nav-bar">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <script>
-                document.addEventListener('DOMContentLoaded', () => {
-
-                    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-                    $navbarBurgers.forEach( el => {
-                        el.addEventListener('click', () => {
-
-                            const target = el.dataset.target;
-                            const $target = document.getElementById(target);
-
-                            el.classList.toggle('is-active');
-                            $target.classList.toggle('is-active');
-
-                        });
-                    });
-
-                });
-            </script>
-        </a>
-    </div>
-
-    <div class="navbar-menu" id="nav-bar">
-        <div class="navbar-end">
-            <a id="button" href="aanbod.php" class="navbar-item is-link">
-                Ons Aanbod
-            </a>
-
-            <a href="menu.php" class="navbar-item is-link">
-                Ons Menu
-            </a>
-
-            <a href="evenementen.php" class="navbar-item is-link">
-                Onze Evenementen
-            </a>
-
-            <a href="reserveringen.php" class="navbar-item is-link">
-                Reserveer
-            </a>
-
-            <a href="contact.php" class="navbar-item is-link">
-                Contact
-            </a>
-
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a href="register.php" class="button is-link is-outlined">
-                            <strong>Registreren</strong>
-                        </a>
-
-                        <a href="login.php" class="button is-link is-outlined">
-                            Log In
-                        </a>
-
-                        <a href="logout.php" class="button is-primary is-outlined">
-                            Log Uit
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</nav>
+<?php include "./Nav/nav.php" ?>
 
 <header class="background-image is-primary is-medium">
     <section class="hero is-halfheight">
@@ -165,12 +87,16 @@
     <section class="has-background-warning">
         <h2 class="title is-3 has-text-centered has-text-link has-text-weight-bold">Over Ons</h2>
         <div class="columns container">
-            <div class="column image is-3by2 has-text-centered">
-                <img src="Images/koningsplein.jpg" alt="Koningsplein">
+            <div class="column has-text-centered">
+                <img class="" src="Images/BroersLogo.png" alt="Logo">
             </div>
             <div class="column">
                 <p class="has-text-centered has-text-link">
                     Sinds 9 oktober 2024 is dit eetcafé gevestigd op Koningsplein 44.
+
+                </p>
+                <p>
+
                 </p>
             </div>
         </div>
@@ -180,11 +106,11 @@
 <footer class="has-background-info">
     <div class="footerRow">
         <div><p>Follow Us!</p>
-            <a href="https://www.instagram.com/broers.ridderkerk">
+            <a target="_blank" href="https://www.instagram.com/broers.ridderkerk">
                 <i class="fa fa-instagram" style="font-size:30px"></i>
             </a>
 
-            <a href="https://www.facebook.com/profile.php?id=61562490741128">
+            <a target="_blank" href="https://www.facebook.com/profile.php?id=61562490741128">
                 <i class="fa fa-facebook-square" style="font-size:30px"></i>
             </a>
         </div>

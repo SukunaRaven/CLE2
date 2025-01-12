@@ -28,6 +28,9 @@ mysqli_close($db);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
+<?php include "./Nav/nav.php" ?>
+
 <body>
 
 </body>
