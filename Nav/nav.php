@@ -57,6 +57,9 @@
                     <a href="../aanbod.php" class="navbar-item">
                         Ons Aanbod
                     </a>
+                    <a href="../evenementen.php" class="navbar-item">
+                        Onze Evenementen
+                    </a>
                     <a href="../arrangementen.php" class="navbar-item">
                         Onze Arrangementen
                     </a>
