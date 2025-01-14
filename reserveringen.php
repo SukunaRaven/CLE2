@@ -81,6 +81,11 @@ if (isset($_POST['submit'])) {
     >
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.cdnfonts.com/css/imagination-station" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/open-sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
     <title>Broers Smaakmakers</title>
 </head>
 
@@ -139,8 +144,11 @@ if (isset($_POST['submit'])) {
                 </p>
 
                 <!-- Date -->
-                <label class="label" for="date">Datum</label>
-                <input class="input is-link" id="date" type="date" name="date"/>
+                <div class="wrapper">
+                    <label for="datepicker">Pick a Date
+                        <input type="text" id="datepicker" autocomplete="off">
+                    </label>
+                </div>
 
                 <p class="help is-danger">
                     <?= $errors['date'] ?? '' ?>
@@ -169,25 +177,48 @@ if (isset($_POST['submit'])) {
                 <!-- custom time picker -->
 
 
-                <div class="time-picker-button">
-
-
-                    <button class="btn" type="button" name="time" value="false">
-                        11:00
-                    </button>
-                    <button class="btn" type="button" name="time" value="false">
-                        11:15
-
-
-                    </button>
-                    <button class="btn" type="button" name="time" value="false">
-                        11:30
-
-
-                    </button>
-
-                    <script src="js/timepicker.js"></script>
-
+                <div class="stack">
+                    <label for="times-lunch">Tijden:*</label>
+                    <select id="times-lunch" name="times" required>
+                        <option value="" disabled selected>Tijdstip</option>
+                        <option value="lunch">11:00</option>
+                        <option value="lunch">11:15</option>
+                        <option value="lunch">11:30</option>
+                        <option value="lunch">11:45</option>
+                        <option value="lunch">12:00</option>
+                        <option value="lunch">12:15</option>
+                        <option value="lunch">12:30</option>
+                        <option value="lunch">12:45</option>
+                        <option value="lunch">13:00</option>
+                        <option value="lunch">13:15</option>
+                        <option value="lunch">13:30</option>
+                        <option value="lunch">13:45</option>
+                        <option value="lunch">14:00</option>
+                        <option value="lunch">14:15</option>
+                        <option value="lunch">14:30</option>
+                        <option value="lunch">14:45</option>
+                        <option value="lunch">15:00</option>
+                        <option value="lunch">15:15</option>
+                        <option value="lunch">15:30</option>
+                        <option value="lunch">15:45</option>
+                        <option value="diner">16:00</option>
+                        <option value="diner">16:15</option>
+                        <option value="diner">16:30</option>
+                        <option value="diner">16:45</option>
+                        <option value="diner">17:00</option>
+                        <option value="diner">17:15</option>
+                        <option value="diner">17:30</option>
+                        <option value="diner">17:45</option>
+                        <option value="diner">18:00</option>
+                        <option value="diner">18:15</option>
+                        <option value="diner">18:30</option>
+                        <option value="diner">18:45</option>
+                        <option value="diner">19:00</option>
+                        <option value="diner">19:15</option>
+                        <option value="diner">19:30</option>
+                        <option value="diner">19:45</option>
+                        <option value="diner">20:00</option>
+                    </select>
                 </div>
 
                 <p class="help is-danger">
