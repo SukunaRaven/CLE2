@@ -154,13 +154,14 @@ if (isset($_POST['submit'])) {
 
 
                     <label class="label" for="textArea">Inhoud</label>
-                    <textarea cols="47" rows="6" class="textArea" placeholder="Stel uw vraag hier" id="textArea"
-                              name="textarea"></textarea>
+                    <textarea cols="47" rows="6" class="textarea is-link" placeholder="Stel uw vraag hier" id="textArea"
+                              name="textarea">
+                    </textarea>
                     <!-- Submit -->
                     <div class="pb-4">
 
                     </div>
-                    <button class="button is-warning is-outlined is-fullwidth" type="submit" name="submit">Verzenden
+                    <button class="button is-link is-outlined is-fullwidth" type="submit" name="submit">Verzenden
                     </button>
 
 
