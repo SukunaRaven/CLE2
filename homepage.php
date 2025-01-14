@@ -16,6 +16,7 @@
 
 <body>
 
+<!-- SNAV -->
 <?php include "./Nav/nav.php" ?>
 
 <header class="background-image is-primary is-medium">

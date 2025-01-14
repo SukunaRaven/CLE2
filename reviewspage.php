@@ -60,46 +60,46 @@ if (isset($_POST['submit'])) {
 
 <section class="section">
     <div class="container content">
-        <h2 class="title">Plaats een review!</h2>
 
-        <section class="columns">
+        <section class="columns is-centered">
             <form class="column is-6" action="" method="post">
 
-                <!-- user id -->
+                <div class="field-label is-normal">
+                    <label class="label has-text-centered" for="name">Naam</label>
+                </div>
                 <div class="field is-horizontal">
-                    <div class="field-label is-normal">
-                        <label class="label" for="comments">User id</label>
-                    </div>
                     <div class="field-body">
                         <div class="field">
-                            <div class="control has-icons-left">
-                                <input class="input" id="comments" type="text" name="comments"/>
-                                <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+                            <div class="control">
+                                <input class="input is-link" id="firstname" type="text" placeholder="Naam" name="comments"/>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field-label is-normal">
+                    <label class="label has-text-centered" for="comments">
+                        Commentaar
+                    </label>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <textarea cols="47" rows="6" class="textarea is-link" placeholder="Schrijf hier uw review!" id="textArea" name="textarea"></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- comments -->
                 <div class="field is-horizontal">
                     <div class="field-label is-normal">
-                        <label class="label" for="comments">Commentaar</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field">
-                            <div class="control has-icons-left">
-                                <input class="input" id="comments" type="text" name="comments"/>
-                            </div>
+                        <div class="field-body">
+                            <button class="button is-outlined is-link " type="submit" name="submit">
+                                Plaats review
+                            </button>
                         </div>
-                    </div>
-                </div>
-
-
-                <!-- Submit -->
-                <div class="field is-horizontal">
-                    <div class="field-label is-normal"></div>
-                    <div class="field-body">
-                        <button class="button is-primary is-fullwidth" type="submit" name="submit">Plaats review</button>
                     </div>
                 </div>
 

@@ -198,7 +198,7 @@ if (isset($_POST['submit'])) {
 
                 <label class="label" for="comments">Extra informatie</label>
 
-                <textarea class="is-normal textArea" cols="89" rows="6" name="comments"></textarea>
+                <textarea class="is-link textarea" cols="89" rows="6" name="comments"></textarea>
 
                 <p class="help is-danger">
                     <?= $errors['comments'] ?? '' ?>
