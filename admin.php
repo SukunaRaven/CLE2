@@ -1,21 +1,27 @@
 <?php
 
-/** @var $db mysqli */
-require_once 'connection/connection.php';
+require_once "includes/functions.php";
 
-$query = "SELECT * FROM reservations";
+//Get the current week from the GET or default to 0 (current week)
+$selectedWeek = $_GET['week'] ?? 0;
 
-$result = mysqli_query($db, $query)
-or exit('Error ' . mysqli_error($db) . ' with query ' . $query);
+//Retrieve the timestamp that belongs to the week that is active
+$timestampWeek = strtotime("+$selectedWeek weeks");
 
-$reservations = [];
+//Get the weekdays that are part of the active week based on the timestamp
+$weekDays = getWeekDays($timestampWeek);
 
-while ($row = mysqli_fetch_assoc($result)) {
+//Get the month that belongs to the monday of that week
+$monthOfWeek = date('F', $weekDays[0]['timestamp']);
 
-    $reservations[] = $row;
-}
-$number = '';
-mysqli_close($db);
+//Get the year that belongs to the monday of that week
+$yearOfWeek = date('Y', $weekDays[0]['timestamp']);
+
+//The actual times visible in the calendar view
+$rosterTimes = getRosterTimes();
+
+//The events from the database that are in this week
+$events = getEvents($weekDays[0]['fullDate'], $weekDays[6]['fullDate']);
 ?>
 
 <!doctype html>
@@ -38,59 +44,184 @@ mysqli_close($db);
 
 <body>
 <main>
-    <section class="footerPadding">
-
-        <div class="m-3">
-            <a class="button is-warning is-outlined is-responsive" href="reserveringen.php">Reservering toevoegen </a>
+    <div class="container">
+        <div class="title">
+            <a href="?week=<?= $selectedWeek - 1 ?>"> <i class="fa fa-angle-left"></i> Vorige week</a>
+            <span><?= $monthOfWeek . ' ' . $yearOfWeek; ?></span>
+            <a href="?week=<?= $selectedWeek + 1 ?>">  Volgende week <i class="fa fa-angle-right"></i></a>
         </div>
-
-        <table class="table table is-striped is-hoverable mx-auto" action="" method="post">
-
-            <div class="left">
-                <thead>
-
-                <tr>
-                    <td>#</td>
-                    <td>Name</td>
-                    <td>E-mail</td>
-                    <td>Telefoonnummer</td>
-                    <td>Aantal gasten</td>
-                    <td>Datum</td>
-                    <td>Tijd</td>
-                </tr>
-                </thead>
-
-                <tbody>
-
-
-                <?php foreach ($reservations as $number => $reservation) { ?>
-                    <tr>
-
-                            <td><?= $number + 1 ?> </td>
-                            <td> <?= $reservation['name'] ?> </td>
-                            <td> <?= $reservation['email'] ?> </td>
-                            <td> <?= $reservation['phone'] ?> </td>
-                            <td> <?= $reservation['guests'] ?> </td>
-                            <td> <?= $reservation['date'] ?></td>
-                            <td> <?= $reservation['time'] ?></td>
-                            <td><a href="details.php?id=<?= $reservation['id'] ?>">details</a></td>
-                            <td><a href="edit.php?id=<?= $reservation['id'] ?>">edit</a></td>
-                            <td><a href="#<?= $reservation['id'] ?>">delete</a></td>
-
-                    </tr>
-
-                <?php } ?>
-
-                </tbody>
-            </div>
-        </table>
-
-    </section>
+        <div class="days">
+            <div class="filler"></div>
+            <div class="filler"></div>
+            <?php foreach ($weekDays as $weekday) { ?>
+                <div class="day<?= $weekday['current'] ? ' current' : ''; ?>">
+                    <?= $weekday['day'] . ' ' . $weekday['dayNumber']; ?>
+                </div>
+            <?php } ?>
+        </div>
+        <div class="content">
+            <div class="filler-col"></div>
+            <div class="col monday"></div>
+            <div class="col tuesday"></div>
+            <div class="col wednesday"></div>
+            <div class="col thursday"></div>
+            <div class="col friday"></div>
+            <div class="col weekend saturday"></div>
+            <div class="col weekend sunday"></div>
+            <?php foreach ($rosterTimes as $index => $rosterTime) { ?>
+                <div class="time row-roster-<?= $index + 1; ?>"><?= $rosterTime; ?></div>
+                <div class="row row-roster-<?= $index + 1; ?>"></div>
+            <?php } ?>
+            <?php foreach ($events as $event) { ?>
+                <a href="" class="event event-item-<?= $event['id']; ?>"><?= $event['description']; ?></a>
+            <?php } ?>
+        </div>
+    </div>
 
     <style>
-.footerPadding {
-    padding-bottom: 500px;
-}
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #151515;
+        }
+
+        .container {
+            width: 100%;
+            display: grid;
+            grid-template-rows: 3em 3em auto;
+        }
+
+        .title {
+            background: #8C3A18;
+            text-align: center;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            place-content: center;
+            color: antiquewhite;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .title a {
+            color: antiquewhite;
+            font-size: medium;
+        }
+
+        .title span {
+            font-weight: bold;
+            font-size: large;
+        }
+
+        .days {
+            background: #151515;
+            display: grid;
+            place-content: center;
+            text-align: center;
+            grid-template-columns: 3em 10px repeat(7, 1fr);
+            position: sticky;
+            top: 3em;
+            z-index: 10;
+            border-bottom: 2px solid antiquewhite;
+        }
+
+        .day {
+            border-left: 1px solid antiquewhite;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 3em 10px repeat(7, 1fr);
+            /*grid-template-rows: repeat(10, 3em);*/
+        }
+
+        .time {
+            grid-column: 1;
+            text-align: right;
+            align-self: end;
+            font-size: 80%;
+            position: relative;
+            bottom: -1ex;
+            color: antiquewhite;
+            padding-right: 2px;
+        }
+
+        .col {
+            border-right: 1px solid antiquewhite;
+            /*grid-row: 1/span 10;*/
+            grid-column: span 1;
+        }
+
+        .col.monday {
+            grid-column: 3;
+        }
+
+        .col.tuesday {
+            grid-column: 4;
+        }
+
+        .col.wednesday {
+            grid-column: 5;
+        }
+
+        .col.thursday {
+            grid-column: 6;
+        }
+
+        .col.friday {
+            grid-column: 7;
+        }
+
+        .col.saturday {
+            grid-column: 8;
+        }
+
+        .col.sunday {
+            grid-column: 9;
+        }
+
+        .filler-col {
+            grid-row: 1/-1;
+            grid-column: 2;
+            border-right: 1px solid antiquewhite;
+        }
+
+        .row {
+            grid-column: 2/-1;
+            border-bottom: 1px solid antiquewhite;
+        }
+
+        .event {
+            border-radius: 5px;
+            padding: 5px;
+            margin-right: 10px;
+            font-weight: bold;
+            font-size: 80%;
+            text-decoration: none;
+            color: antiquewhite;
+            background-color: #8C3A18;
+            border-color: #bcc3e5;
+        }
+
+        .event:hover {
+            color: #fff;
+            background-color: #DF5F2C;
+        }
+
+        .weekend {
+            background-color: #151515;
+        }
+
+        .current {
+            font-weight: bold;
+        }
+
+        .footerPadding {
+            padding-bottom: 500px;
+        }
     </style>
 </main>
 </body>
@@ -102,7 +233,7 @@ mysqli_close($db);
             </a>
 
             <a href="https://www.facebook.com/profile.php?id=61562490741128">
-                <i class="fa fa-facebook-square" style="font-size:30px" ></i>
+                <i class="fa fa-facebook-square" style="font-size:30px"></i>
             </a>
         </div>
         <div>

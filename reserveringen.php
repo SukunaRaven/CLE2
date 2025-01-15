@@ -220,6 +220,7 @@ if (isset($_POST['submit'])) {
                         <option value="diner">20:00</option>
                     </select>
                 </div>
+                <input class="input is-link" id="time" type="time" name="time"/>
 
                 <p class="help is-danger">
                     <?= $errors['time'] ?? '' ?>
