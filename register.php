@@ -8,21 +8,16 @@ if (isset($_POST['submit'])) {
     $phonenumber = $_POST['phoneNumber'];
     $name = $_POST['name'];
     $password = $_POST['password'];
-    $surname = $_POST ['surname'];
 
     // Server-side validation
 
     $errors = [];
     if ($name === '') {
-        $errors['name'] = 'Voornaam mag leeg zijn';
+        $errors['name'] = 'Voornaam mag niet leeg zijn';
     }
 
     if ($phonenumber === '') {
         $errors['phoneNumber'] = 'Telefoonnummer mag niet leeg zijn';
-    }
-
-    if ($surname === '') {
-        $errors['surname'] = 'Achternaam mag niet leeg zijn';
     }
 
     if ($email === '') {
@@ -56,7 +51,7 @@ if (isset($_POST['submit'])) {
         $securePassword = password_hash($password, PASSWORD_DEFAULT);
 
         // store the new user in the database.
-        $query = "INSERT INTO `users`(`email`,`phonenumber`, `name`, `password`, `surname`) VALUES ('$email','$phonenumber','$name','$securePassword','$surname')";
+        $query = "INSERT INTO `users`(`email`,`phonenumber`, `name`, `password`) VALUES ('$email','$phonenumber','$name','$securePassword')";
 
         $result = mysqli_query($db, $query)
         or exit('Error ' . mysqli_error($db) . ' with query ' . $query);
@@ -126,13 +121,13 @@ if (isset($_POST['submit'])) {
                 </div>
                 <!-- surname -->
 
-                <label class="label" for="surname">Achternaam</label>
-
-                <input class="input is-link" placeholder="Achternaam" id="surname" type="text" name="surname"/>
-
-                <p class="help is-danger">
-                    <?= $errors['surname'] ?? '' ?>
-                </p>
+<!--                <label class="label" for="surname">Achternaam</label>-->
+<!---->
+<!--                <input class="input is-link" placeholder="Achternaam" id="surname" type="text" name="surname"/>-->
+<!---->
+<!--                <p class="help is-danger">-->
+<!--                    --><?php //= $errors['surname'] ?? '' ?>
+<!--                </p>-->
 
                 <!--email -->
 

@@ -157,6 +157,10 @@ if ($email == '') {
                         </div>
                     </div>
 
+                    <p>
+                        Nog geen account? <a class="has-text-primary" href="register.php">Registreer</a> hier!
+                    </p>
+
                     <div class="field is-horizontal">
                         <div class="field-label is-normal">
                             <div class="field-body">

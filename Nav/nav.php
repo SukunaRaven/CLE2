@@ -70,10 +70,6 @@
             </div>
         </div>
         <div class="buttons">
-            <a href="../register.php" class="button is-link is-outlined">
-                <strong>Registreren</strong>
-            </a>
-
             <a href="../login.php" class="button is-link is-outlined">
                 Log In
             </a>
