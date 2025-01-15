@@ -1,5 +1,4 @@
 <?php
-/** @var mysqli $db */
 require_once 'connection/connection.php';
 
 
@@ -7,8 +6,14 @@ session_start();
 
 $login = false;
 // Is user logged in?
+if (isset($_SESSION['user'])) {
+    header('location: homepage.php');
+
+    exit;
+}
 
 if (isset($_POST['submit'])) {
+    /** @var mysqli $db */
 
 // Get form data
 
@@ -35,39 +40,41 @@ if ($email == '') {
     }
 
 // If data valid
+
     if (empty($errors)) {
-
+        require_once "connection/connection.php";
         // SELECT the user from the database, based on the email address.
-        $query = "SELECT * FROM users WHERE email= '$email'";
-        //query result
-        $result = mysqli_query($db, $query);
 
-        //added logins
-        $rows = mysqli_num_rows($result);
+        $query = "SELECT * FROM users WHERE email = '$email'";
 
-        //IF 1 login is added
-        if ($rows === 1) {
-            $user = mysqli_fetch_assoc($result);
+        $result = mysqli_query($db, $query)
+        or die('Error ' . mysqli_error($db) . ' with query ' . $query);}
 
-            if (password_verify($password, $user['password'])) {
-                echo "Login successful";
-                $login = true;
 
-                $_SESSION['loggedIn'] = true;
-                $_SESSION['loggedInUser'] = [
-                    'id' => $user ['id'],
-                    'name' => $user ['name'],
-                    'email' => $user ['email'],
-                ];
-                header('location: homepage.php');
-                exit;
-            } else {
-                $errors['password'] = 'Wachtwoord is fout!';
-            }
+// check if the user exists
+    if (mysqli_num_rows($result) == 1) {
 
+        // Get user data from result
+        $row = mysqli_fetch_assoc($result);
+
+        // Check if the provided password matches the stored password in the database
+        if (password_verify($password, $row ['password'])) {
+
+
+            // Store the user in the session
+            $_SESSION['user'] = $email;
+
+            // Redirect to secure page
+            header('location: homepage.php');
+
+            exit();
         } else {
-            $errors['email'] = 'Combinatie van gebruikersnaam en wachtwoord klopt niet';
+            // Credentials not valid
+            $errors['loginfailed'] = 'Username/password incorrect';
         }
+        //error incorrect log in
+    } else {
+        $errors['loginfailed'] = 'Username/password incorrect';
     }
 }
 }

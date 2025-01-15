@@ -1,5 +1,14 @@
 <?php
 
+$login = false;
+
+session_start();
+
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit();
+}
+
 /** @var $db mysqli */
 require_once 'connection/connection.php';
 
@@ -66,10 +75,10 @@ mysqli_close($db);
                         <td><?= $number + 1 ?> </td>
                         <td> <?= $user['name'] ?> </td>
                         <td> <?= $user['email'] ?> </td>
-                        <td> <?= $user['phoneNumber'] ?></td>
+                        <td> <?= $user['phonenumber'] ?></td>
                         <td> <?= $user['admin_flag'] ?></td>
-                        <td><a href="editusers.php">edit</a></td>
-                        <td><a href="#<?= $user['id'] ?>">delete</a></td>
+                        <td><a href="editusers.php">Edit</a></td>
+                        <td><a href="deleteusers.php?id=<?= $user['id'] ?>">Delete</a></td>
 
                     </tr>
 

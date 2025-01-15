@@ -51,7 +51,8 @@ if (isset($_POST['submit'])) {
         $securePassword = password_hash($password, PASSWORD_DEFAULT);
 
         // store the new user in the database.
-        $query = "INSERT INTO `users`(`email`,`phonenumber`, `name`, `password`) VALUES ('$email','$phonenumber','$name','$securePassword')";
+        $query = "INSERT INTO `users`(`email`,`phonenumber`, `name`, `password`) VALUES 
+                 ('$email','$phonenumber','$name','$securePassword')";
 
         $result = mysqli_query($db, $query)
         or exit('Error ' . mysqli_error($db) . ' with query ' . $query);
