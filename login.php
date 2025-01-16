@@ -2,8 +2,6 @@
 require_once 'connection/connection.php';
 
 
-session_start();
-
 $login = false;
 // Is user logged in?
 if (isset($_SESSION['user'])) {
@@ -20,6 +18,8 @@ if (isset($_POST['submit'])) {
 $email = $_POST['email'];
 $password = $_POST['password'];
 
+
+
 // Server-side validation
 $errors = [];
 if ($email == '') {
@@ -33,7 +33,6 @@ if ($email == '') {
         $result = mysqli_query($db, $query)
         or die('Error ' . mysqli_error($db) . ' with query ' . $query);
     }
-
 
     if ($password == '') {
         $errors['password'] = 'Vul a.u.b wachtwoord in';
@@ -55,14 +54,15 @@ if ($email == '') {
     if (mysqli_num_rows($result) == 1) {
 
         // Get user data from result
-        $row = mysqli_fetch_assoc($result);
+        $user = mysqli_fetch_assoc($result);
 
         // Check if the provided password matches the stored password in the database
-        if (password_verify($password, $row ['password'])) {
+        if (password_verify($password, $user ['password'])) {
 
-
+            session_start();
             // Store the user in the session
             $_SESSION['user'] = $email;
+            $_SESSION['admin_flag'] = $user['admin_flag'];
 
             // Redirect to secure page
             header('location: homepage.php');

@@ -223,6 +223,21 @@ $events = getEvents($weekDays[0]['fullDate'], $weekDays[6]['fullDate']);
             padding-bottom: 500px;
         }
     </style>
+
+    <div class="has-text-centered m-3">
+        <a class="button is-warning is-outlined is-responsive" href="alle-reserveringen.php">
+            Alle reserveringen bekijken
+        </a>
+        <a class="button is-warning is-outlined is-responsive" href="reserveringen.php">
+            Reservering toevoegen
+        </a>
+        <a class="button is-warning is-outlined is-responsive" href="users.php">
+            Gebruikers
+        </a>
+        <a class="button is-warning is-outlined is-responsive" href="logout.php">
+            Log uit
+        </a>
+    </div>
 </main>
 </body>
 <footer class="has-background-info">
