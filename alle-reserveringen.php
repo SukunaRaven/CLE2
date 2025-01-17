@@ -1,12 +1,29 @@
 <?php
-$host = '127.0.0.1';  //dit staat in de kladblok van het config bestand
-$username = 'root';
-$password = '';
-$database = 'broers_db';
+require_once 'connection/connection.php';
+$login = false;
+/** @var mysqli $db */
 
-$db = mysqli_connect($host, $username, $password, $database)
-or die('Error: ' . mysqli_connect_error());
+//am I even logged in? if not, send me to the loginpage
+if (!isset($_SESSION['loggedInUser'])) {
+    header("Location: login.php");
 
+    // Is user logged in?
+}
+
+if (isset($_SESSION['admin_flag']) ) {
+    if ($_SESSION['admin_flag'] == 1) {
+        header('Location: alle-reserveringen.php');
+        exit;
+    };
+} else {
+    header('Location: homepage.php');
+    exit;
+}
+
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit();
+}
 $query = "SELECT * FROM reservations";
 
 $result = mysqli_query($db, $query)
@@ -17,7 +34,7 @@ $reservations = [];
 while ($row = mysqli_fetch_assoc($result)) {
     $reservations[] = $row;
 }
-
+//&&
 mysqli_close($db);
 
 ?>

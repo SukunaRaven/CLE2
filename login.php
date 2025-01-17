@@ -15,68 +15,72 @@ if (isset($_POST['submit'])) {
 
 // Get form data
 
-$email = $_POST['email'];
-$password = $_POST['password'];
-
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
 
 // Server-side validation
-$errors = [];
-if ($email == '') {
-    $errors['email'] = 'Vul a.u.b email in';
-} else {
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors['email'] = 'Combinatie van gebruikersnaam en wachtwoord klopt niet';
+    $errors = [];
+    if ($email == '') {
+        $errors['email'] = 'Vul a.u.b email in';
     } else {
-        $query = "SELECT * FROM users WHERE email = '$email'";
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors['email'] = 'Combinatie van gebruikersnaam en wachtwoord klopt niet';
+        } else {
+            $query = "SELECT * FROM users WHERE email = '$email'";
 
-        $result = mysqli_query($db, $query)
-        or die('Error ' . mysqli_error($db) . ' with query ' . $query);
-    }
+            $result = mysqli_query($db, $query)
+            or die('Error ' . mysqli_error($db) . ' with query ' . $query);
+        }
 
-    if ($password == '') {
-        $errors['password'] = 'Vul a.u.b wachtwoord in';
-    }
+        if ($password == '') {
+            $errors['password'] = 'Vul a.u.b wachtwoord in';
+        }
 
 // If data valid
 
-    if (empty($errors)) {
-        require_once "connection/connection.php";
-        // SELECT the user from the database, based on the email address.
+        if (empty($errors)) {
+            require_once "connection/connection.php";
+            // SELECT the user from the database, based on the email address.
 
-        $query = "SELECT * FROM users WHERE email = '$email'";
+            $query = "SELECT * FROM users WHERE email = '$email'";
 
-        $result = mysqli_query($db, $query)
-        or die('Error ' . mysqli_error($db) . ' with query ' . $query);}
+            $result = mysqli_query($db, $query)
+            or die('Error ' . mysqli_error($db) . ' with query ' . $query);
+        }
 
 
 // check if the user exists
-    if (mysqli_num_rows($result) == 1) {
+        if (mysqli_num_rows($result) == 1) {
 
-        // Get user data from result
-        $user = mysqli_fetch_assoc($result);
+            // Get user data from result
+            $user = mysqli_fetch_assoc($result);
 
-        // Check if the provided password matches the stored password in the database
-        if (password_verify($password, $user ['password'])) {
+            // Check if the provided password matches the stored password in the database
+            if (password_verify($password, $user ['password'])) {
 
-            session_start();
-            // Store the user in the session
-            $_SESSION['user'] = $email;
-            $_SESSION['admin_flag'] = $user['admin_flag'];
+                session_start();
+                // Store the user in the session
+                $_SESSION['user'] = $email;
+                $_SESSION['admin_flag'] = $user['admin_flag'];
 
-            // Redirect to secure page
-            header('location: homepage.php');
+                // Redirect to secure page
 
-            exit();
+                if (isset($user['admin_flag'])) {
+                    header('location: admin.php');
+                } else {
+                    header('location: homepage.php');
+                }
+                exit();
+            } else {
+                // Credentials not valid
+                $errors['loginfailed'] = 'Username/password incorrect';
+            }
+            //error incorrect log in
         } else {
-            // Credentials not valid
             $errors['loginfailed'] = 'Username/password incorrect';
         }
-        //error incorrect log in
-    } else {
-        $errors['loginfailed'] = 'Username/password incorrect';
     }
-}
 }
 ?>
 
