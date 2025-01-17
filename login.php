@@ -15,6 +15,7 @@ if (isset($_SESSION['user'])) {
 if (isset($_POST['submit'])) {
     /** @var mysqli $db */
 
+
 // Get form data
 
 $email = $_POST['email'];
@@ -63,6 +64,7 @@ if ($email == '') {
 
             // Store the user in the session
             $_SESSION['user'] = $email;
+            $_SESSION['user_id'] = $row['id'];
 
             // Redirect to secure page
             header('location: homepage.php');

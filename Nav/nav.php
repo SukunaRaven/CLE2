@@ -1,3 +1,9 @@
+<?php
+/** @var mysqli $db */
+require_once 'connection/connection.php';
+
+?>
+
 <nav class="navbar has-background-info" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item">
@@ -75,6 +81,7 @@
         </div>
         <div class="buttons">
             <a href="../login.php" class="button is-link is-outlined">
+<!--                --><?php //= $loginUser ?>
                 Log In
             </a>
 

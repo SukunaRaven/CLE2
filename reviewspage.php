@@ -1,30 +1,40 @@
 <?php
+/** @var mysqli $db */
+require_once "connection/connection.php";
 
+session_start();
+
+// post review
 if (isset($_POST['submit'])) {
-    /** @var mysqli $db */
-    require_once "connection/connection.php";
 
+    //get form data
     $review = $_POST['review'];
-    $user_id = $_SESSION['loggedInUser'];
-    echo $user_id;
+    $user_id = $_SESSION['user_id'];
 
-    $query = "INSERT INTO `reviews`(`review`,`user_id`) 
-              VALUES ('$review', '$user_id')";
+    $query = "INSERT INTO `reviews`(review, user_id) VALUES 
+                 ('$review', '$user_id')";
 
     $result = mysqli_query($db, $query)
     or exit('Error ' . mysqli_error($db) . ' with query ' . $query);
 
-    mysqli_close($db);
-    // If query succeeded
-    if ($result) {
-
-        // Redirect to login page
-        header('location: login.php');
-        // Exit the code
-        exit;
-    }
 
 }
+
+// show review details
+
+//left join to get data from users table
+$query = "SELECT reviews.*, users.name FROM reviews LEFT JOIN users ON reviews.user_id = users.id";
+
+$result = mysqli_query($db, $query);
+$reviews = [];
+
+
+while ($row = mysqli_fetch_assoc($result)) {
+    // Add the row to the $reviews array
+    $reviews[] = $row;
+}
+
+mysqli_close($db);
 
 
 ?>
@@ -64,30 +74,23 @@ if (isset($_POST['submit'])) {
         <section class="columns is-centered">
             <form class="column is-6" action="" method="post">
 
-                <div class="field-label is-normal">
-                    <label class="label has-text-centered" for="name">Naam</label>
-                </div>
-                <div class="field is-horizontal">
-                    <div class="field-body">
-                        <div class="field">
-                            <div class="control">
-                                <input class="input is-link" id="firstname" type="text" placeholder="Naam" name="comments"/>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
 
                 <div class="field-label is-normal">
                     <label class="label has-text-centered" for="comments">
-                        Commentaar
+                        Laat hier een review achter
                     </label>
                 </div>
                 <div class="field is-horizontal">
                     <div class="field-body">
                         <div class="field">
                             <div class="control">
-                                <textarea cols="47" rows="6" class="textarea is-link" placeholder="Schrijf hier uw review!" id="textArea" name="textarea"></textarea>
+
+                                <textarea class="is-link textarea" cols="89" rows="6" name="review"
+                                          value="<?= $review ?? '' ?>"></textarea>
+
+                                <p class="help is-danger">
+                                    <?= $errorReview ?? '' ?>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -111,7 +114,12 @@ if (isset($_POST['submit'])) {
 
 <section>
     <h1>Reviews</h1>
-<!--    <h2>--><?php //= $reviews['review'] ?><!--</h2>-->
+    <!--loop through array-->
+    <?php foreach ($reviews as $review) { ?>
+        <h2><?= $review['name'] ?></h2>
+        <h2><?= $review['review'] ?></h2>
+        <!--<h2>--><?php //= $review['user_id'] ?><!--</h2>-->
+    <?php } ?>
 </section>
 
 <footer class="has-background-info">
