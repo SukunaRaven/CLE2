@@ -1,13 +1,6 @@
 <?php
 session_start();
 
-$login = false;
-
-if (!isset($_SESSION['users'])) {
-    header('Location: login.php');
-    exit();
-}
-
 $id = $_GET['id'];
 
 require_once 'connection/connection.php';

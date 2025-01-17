@@ -51,10 +51,6 @@ session_start();
                 Contact
             </a>
 
-            <a href="../users.php" class="navbar-item is-link">
-                Users
-            </a>
-
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">
                     Meer
