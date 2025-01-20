@@ -1,7 +1,6 @@
 <?php
 require_once 'connection/connection.php';
 session_start();
-var_dump($_SESSION);
 $login = false;
 //am I even logged in? if not, send me to the loginpage
 
@@ -14,35 +13,36 @@ if (isset($_POST['submit'])) {
     $password = $_POST['password'];
 
 // Server-side validation
-$errors = [];
-if ($email == '') {
-    $errors['email'] = 'Vul a.u.b email in';
-} else {
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors['email'] = 'Combinatie van gebruikersnaam en wachtwoord klopt niet';
+    $errors = [];
+    if ($email == '') {
+        $errors['email'] = 'Vul a.u.b email in';
     } else {
-        $query = "SELECT * FROM users WHERE email = '$email'";
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors['email'] = 'Combinatie van gebruikersnaam en wachtwoord klopt niet';
+        } else {
+            $query = "SELECT * FROM users WHERE email = '$email'";
 
-        $result = mysqli_query($db, $query)
-        or die('Error ' . mysqli_error($db) . ' with query ' . $query);
-    }
+            $result = mysqli_query($db, $query)
+            or die('Error ' . mysqli_error($db) . ' with query ' . $query);
+        }
 
-session_start();
+        session_start();
 
-    if ($password == '') {
-        $errors['password'] = 'Vul a.u.b wachtwoord in';
-    }
+        if ($password == '') {
+            $errors['password'] = 'Vul a.u.b wachtwoord in';
+        }
 
 // If data valid
 
-    if (empty($errors)) {
-        require_once "connection/connection.php";
-        // SELECT the user from the database, based on the email address.
+        if (empty($errors)) {
+            require_once "connection/connection.php";
+            // SELECT the user from the database, based on the email address.
 
-        $query = "SELECT * FROM users WHERE email = '$email'";
+            $query = "SELECT * FROM users WHERE email = '$email'";
 
-        $result = mysqli_query($db, $query)
-        or die('Error ' . mysqli_error($db) . ' with query ' . $query);}
+            $result = mysqli_query($db, $query)
+            or die('Error ' . mysqli_error($db) . ' with query ' . $query);
+        }
 
 
 // check if the user exists
@@ -63,9 +63,9 @@ session_start();
 
                 // Redirect to secure page
 
-                if (isset($_SESSION['admin_flag']))  {
-                        header('Location: admin.php');
-                    } else {
+                if (isset($_SESSION['admin_flag'])) {
+                    header('Location: admin.php');
+                } else {
                     header('location: homepage.php');
                 }
                 exit();
@@ -174,7 +174,7 @@ session_start();
                 </div>
             </div>
         </div>
-        <?php if (empty($_SESSION)) :?>
+        <?php if (empty($_SESSION)) : ?>
             <div class="buttons">
                 <a href="../login.php" class="button is-primary is-outlined">
                     Log In
