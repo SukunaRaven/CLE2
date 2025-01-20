@@ -117,7 +117,6 @@ mysqli_close($db);
                 </div>
             </div>
         </div>
-        <?php session_start(); ?>
         <?php if (empty($_SESSION)) : ?>
             <div class="buttons">
                 <a href="../login.php" class="button is-primary is-outlined">
