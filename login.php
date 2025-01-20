@@ -27,6 +27,7 @@ if ($email == '') {
         or die('Error ' . mysqli_error($db) . ' with query ' . $query);
     }
 
+session_start();
 
     if ($password == '') {
         $errors['password'] = 'Vul a.u.b wachtwoord in';
@@ -58,7 +59,7 @@ if ($email == '') {
                 // Store the user in the session
                 $_SESSION['user'] = $email;
                 $_SESSION['admin_flag'] = $user['admin_flag'];
-                $_SESSION['user_id'] = $row['id'];
+                $_SESSION['user_id'] = $user['id'];
 
                 // Redirect to secure page
 

@@ -11,6 +11,7 @@ if (isset($_POST['submit'])) {
     $review = $_POST['review'];
     $user_id = $_SESSION['user_id'];
 
+
     $query = "INSERT INTO `reviews`(review, user_id) VALUES 
                  ('$review', '$user_id')";
 
