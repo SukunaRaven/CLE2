@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
 
     //get form data
     $review = $_POST['review'];
-    $user_id = $_SESSION['user_id'];
+    $user_id = mysqli_escape_string( $db,$_SESSION['user_id']);
 
 
     $query = "INSERT INTO `reviews`(review, user_id) VALUES 
