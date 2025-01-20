@@ -2,8 +2,6 @@
 require_once 'connection/connection.php';
 
 
-session_start();
-
 $login = false;
 // Is user logged in?
 if (isset($_SESSION['user'])) {
@@ -15,11 +13,10 @@ if (isset($_SESSION['user'])) {
 if (isset($_POST['submit'])) {
     /** @var mysqli $db */
 
-
 // Get form data
 
-$email = $_POST['email'];
-$password = $_POST['password'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
 // Server-side validation
 $errors = [];
@@ -53,32 +50,37 @@ if ($email == '') {
 
 
 // check if the user exists
-    if (mysqli_num_rows($result) == 1) {
+        if (mysqli_num_rows($result) == 1) {
 
-        // Get user data from result
-        $row = mysqli_fetch_assoc($result);
+            // Get user data from result
+            $user = mysqli_fetch_assoc($result);
 
-        // Check if the provided password matches the stored password in the database
-        if (password_verify($password, $row ['password'])) {
+            // Check if the provided password matches the stored password in the database
+            if (password_verify($password, $user ['password'])) {
 
+                session_start();
+                // Store the user in the session
+                $_SESSION['user'] = $email;
+                $_SESSION['admin_flag'] = $user['admin_flag'];
+                $_SESSION['user_id'] = $row['id'];
 
-            // Store the user in the session
-            $_SESSION['user'] = $email;
-            $_SESSION['user_id'] = $row['id'];
+                // Redirect to secure page
 
-            // Redirect to secure page
-            header('location: homepage.php');
-
-            exit();
+                if (isset($user['admin_flag'])) {
+                    header('location: admin.php');
+                } else {
+                    header('location: homepage.php');
+                }
+                exit();
+            } else {
+                // Credentials not valid
+                $errors['loginfailed'] = 'Username/password incorrect';
+            }
+            //error incorrect log in
         } else {
-            // Credentials not valid
             $errors['loginfailed'] = 'Username/password incorrect';
         }
-        //error incorrect log in
-    } else {
-        $errors['loginfailed'] = 'Username/password incorrect';
     }
-}
 }
 ?>
 

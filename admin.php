@@ -1,5 +1,33 @@
 <?php
 
+//am I even logged in? if not, send me to the loginpage
+if (!isset($_SESSION['loggedInUser'])) {
+    header("Location: login.php");
+
+    // Is user logged in?
+}
+
+if (isset($_SESSION['admin_flag']) ) {
+    if ($_SESSION['admin_flag'] == 1) {
+        header('Location: alle-reserveringen.php');
+        exit;
+    };
+} else {
+    header('Location: homepage.php');
+    exit;
+}
+
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit();
+}
+
+session_start();
+
+//Get email from session
+$name = $_SESSION['loggedInUser']['name'];
+
+
 require_once "includes/functions.php";
 
 //Get the current week from the GET or default to 0 (current week)
@@ -22,6 +50,7 @@ $rosterTimes = getRosterTimes();
 
 //The events from the database that are in this week
 $events = getEvents($weekDays[0]['fullDate'], $weekDays[6]['fullDate']);
+
 ?>
 
 <!doctype html>
@@ -40,9 +69,10 @@ $events = getEvents($weekDays[0]['fullDate'], $weekDays[6]['fullDate']);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
+<body>
+
 <?php include "./Nav/nav.php" ?>
 
-<body>
 <main>
     <div class="container">
         <div class="title">
@@ -223,8 +253,22 @@ $events = getEvents($weekDays[0]['fullDate'], $weekDays[6]['fullDate']);
             padding-bottom: 500px;
         }
     </style>
+
+    <div class="has-text-centered m-3">
+        <a class="button is-warning is-outlined is-responsive" href="alle-reserveringen.php">
+            Alle reserveringen bekijken
+        </a>
+        <a class="button is-warning is-outlined is-responsive" href="reserveringen.php">
+            Reservering toevoegen
+        </a>
+        <a class="button is-warning is-outlined is-responsive" href="users.php">
+            Gebruikers
+        </a>
+        <a class="button is-warning is-outlined is-responsive" href="logout.php">
+            Log uit
+        </a>
+    </div>
 </main>
-</body>
 <footer class="has-background-info">
     <div class="footerRow">
         <div><p>Follow Us!</p>
@@ -260,4 +304,6 @@ $events = getEvents($weekDays[0]['fullDate'], $weekDays[6]['fullDate']);
             <p>06 - 48 18 54 03</p></div>
     </div>
 </footer>
+</body>
+
 </html>

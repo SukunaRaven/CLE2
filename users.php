@@ -1,14 +1,26 @@
 <?php
-
 $login = false;
+//am I even logged in? if not, send me to the loginpage
+if (!isset($_SESSION['loggedInUser'])) {
+    header("Location: login.php");
 
-session_start();
+    // Is user logged in?
+}
+
+if (isset($_SESSION['admin_flag']) ) {
+    if ($_SESSION['admin_flag'] == 1) {
+        header('Location: alle-reserveringen.php');
+        exit;
+    };
+} else {
+    header('Location: homepage.php');
+    exit;
+}
 
 if (!isset($_SESSION['user'])) {
     header('Location: login.php');
     exit();
 }
-
 /** @var $db mysqli */
 require_once 'connection/connection.php';
 
