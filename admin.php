@@ -4,21 +4,15 @@ $login = false;
 //am I even logged in? if not, send me to the loginpage
 if (!isset($_SESSION['user']) ||
     $_SESSION['admin_flag'] != '1'
-   ) {
+) {
 
     header("Location: login.php");
 
     // Is user logged in?
 }
 
-
-
-
-
-
 //Get email from session
 $user = $_SESSION['user'];
-
 
 require_once "includes/functions.php";
 
@@ -138,7 +132,7 @@ $events = getEvents($weekDays[0]['fullDate'], $weekDays[6]['fullDate']);
                 </div>
             </div>
         </div>
-        <?php if (empty($_SESSION)) :?>
+        <?php if (empty($_SESSION)) : ?>
             <div class="buttons">
                 <a href="../login.php" class="button is-primary is-outlined">
                     Log In
@@ -170,7 +164,7 @@ $events = getEvents($weekDays[0]['fullDate'], $weekDays[6]['fullDate']);
         <div class="title">
             <a href="?week=<?= $selectedWeek - 1 ?>"> <i class="fa fa-angle-left"></i> Vorige week</a>
             <span><?= $monthOfWeek . ' ' . $yearOfWeek; ?></span>
-            <a href="?week=<?= $selectedWeek + 1 ?>">  Volgende week <i class="fa fa-angle-right"></i></a>
+            <a href="?week=<?= $selectedWeek + 1 ?>"> Volgende week <i class="fa fa-angle-right"></i></a>
         </div>
         <div class="days">
             <div class="filler"></div>
