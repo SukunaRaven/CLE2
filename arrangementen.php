@@ -8,8 +8,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
     >
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -40,60 +40,155 @@
             <div class="column">
                 <article class="card">
                     <h3 class="has-text-centered is-size-3 has-text-link">
-                        Valentijnsdag
+                        Brunch
                     </h3>
                     <h4 class="has-text-centered is-size-5 has-text-weight-bold">
-                        Vier Valentijnsdag bij Broers!
+                        Zondagse Brunch vanaf 20 personen
                     </h4>
                     <p>
-                        Op Valentijnsdag hebben wij iets heel bijzonders voor jou en je geliefde in petto!
-                        Kom gezellig langs en geniet van een speciale Valentijns High-Tea met heerlijke zoete en hartige
-                        lekkernijen, perfect om samen te delen.
-                        Of verras je Valentijn met ons exclusieve Valentijnsmenu, samengesteld met de fijnste
-                        ingrediënten voor een onvergetelijke culinaire ervaring.
+                        Begin de dag goed met een uitgebreid brunchbuffet.
+                        Geniet samen met vrienden, familie of collega’s van een heerlijk assortiment gerechten.
+                        Uitbreidbaar met luxe extra's.
                     </p>
-                    <p>
-                        High Tea: Proef een romantische selectie van finger sandwiches, scones met jam en clotted cream,
-                        delicate gebakjes en andere verwennerijen – alles met een vleugje liefde.
-                    </p>
-                    <p>
-                        Valentijnsmenu: Geniet van een 4-gangen menu met verfijnde smaken, speciaal voor deze dag.
-                        Perfect om samen te delen en het moment te vieren.
-                    </p>
-                    <p>
-                        Kom de liefde proeven en maak van deze dag een romantisch feest bij Eetcafé Broers!
+                    <p class="has-text-centered is-size-5 has-text-weight-bold">
+                        Prijs: €32,50 p.p.
                     </p>
                 </article>
             </div>
             <div class="column">
                 <article class="card">
                     <h3 class="has-text-centered is-size-3 has-text-link">
-                        Zondag Familiedag
+                        High Tea
                     </h3>
                     <h4 class="has-text-centered is-size-5 has-text-weight-bold">
-                        Voor groot en klein bij Broers!
+                        Luxe High Tea - €21,50 p.p.
                     </h4>
                     <p>
-                        Bij Eetcafé Broers weten we hoe belangrijk quality time met de familie is.
-                        Daarom zetten we elke zondagmiddag in het teken van gezelligheid voor het hele gezin!
-                        Van 16.00 tot 18.00 eten de kleintjes t/m 6 jaar gratis mee terwijl de volwassenen genieten van
-                        heerlijke gerechten die we met liefde uit de keuken toveren.
+                        Verwen jezelf met een ontspannen middag vol verse thee, delicate sandwiches, scones en zoete
+                        lekkernijen.
+                        Perfect voor elke gelegenheid.
+                        Bij dieetwensen passen wij de High Tea graag aan.
                     </p>
+                </article>
+            </div>
+            <div class="column">
+                <article class="card">
+                    <h3 class="has-text-centered is-size-3 has-text-link">
+                        High Wine / High Beer
+                    </h3>
+                    <h4 class="has-text-centered is-size-5 has-text-weight-bold">
+                        High Wine/Beer - €32,50 p.p.
+                    </h4>
                     <p>
-                        De perfecte gelegenheid om samen te genieten, te lachen en lekker te smullen zonder je druk te
-                        maken
-                        over het koken.
-                        Wij zorgen voor het eten, jullie voor de gezelligheid!
+                        Een unieke ervaring in drie rondes met heerlijke hapjes,
+                        afgestemd op vier zorgvuldig geselecteerde wijnen of bieren.
+                        Ideaal voor een gezellige en smakelijke avond.
                     </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="has-text-centered is-size-3 has-text-link padding3">
+            Zakelijke evenementen, Vieringen & Feesten
+        </h2>
+        <div class="columns is-justify-content-space-evenly">
+            <div class="column">
+                <article class="card">
+                    <h3 class="has-text-centered is-size-3 has-text-link">
+                        Catering
+                    </h3>
                     <p>
-                        Wanneer: Elke zondagmiddag van 16.00 – 18.00 uur
+                        Luxe hapjes voor uw evenement.
+                        Wij verzorgen smaakvolle, luxe hapjes die perfect aansluiten bij elke gelegenheid.
                     </p>
+                </article>
+            </div>
+            <div class="column">
+                <article class="card">
+                    <h3 class="has-text-centered is-size-3 has-text-link">
+                        Vrijgezellenfeest
+                    </h3>
                     <p>
-                        Waar: Eetcafé Broers
+                        Organiseer een uniek vrijgezellenfeest met een gezellige borrel, shared dining of High
+                        Wine/Beer.
+                        Wij zorgen voor een feest om nooit te vergeten.
                     </p>
+                </article>
+            </div>
+            <div class="column">
+                <article class="card">
+                    <h3 class="has-text-centered is-size-3 has-text-link">
+                        Jubileum
+                    </h3>
                     <p>
-                        Reserveer snel je tafel en maak er een heerlijke middag van met je gezin!
+                        Of het nu een huwelijksjubileum of een bedrijfsjubileum is,
+                        wij bieden de perfecte locatie en service om deze bijzondere mijlpaal te vieren.
                     </p>
+                </article>
+            </div>
+            <div class="column">
+                <article class="card">
+                    <h3 class="has-text-centered is-size-3 has-text-link">
+                        Groepsdiner
+                    </h3>
+                    <p>
+                        Gezellig dineren met groepen tot 80 personen, zonder zaalhuur.
+                        Stel een menu samen dat past bij jouw gezelschap.
+                    </p>
+                </article>
+            </div>
+        </div>
+        <div class="columns is-justify-content-space-evenly">
+            <div class="column">
+                <article class="card">
+                    <h3 class="has-text-centered is-size-3 has-text-link">
+                        Vrijdagborrel
+                    </h3>
+                    <p>
+                        Sluit de week af met een gezellige vrijdagmiddagborrel.
+                        Bestel de High Friet voor een smakelijke hap tijdens de borrel.
+                    </p>
+                </article>
+            </div>
+            <div class="column">
+                <article class="card">
+                    <h3 class="has-text-centered is-size-3 has-text-link">
+                        Verjaardag
+                    </h3>
+                    <h4 class="has-text-centered is-size-5 has-text-weight-bold">
+                        Stel je eigen menu samen: à la carte, buffet of shared dining.
+                    </h4>
+                    <p>
+                        Maak jouw verjaardag onvergetelijk met een intiem diner of een groot feest.
+                        Geniet van heerlijke gerechten, uitstekende service en een sfeervolle ambiance.
+                    </p>
+                </article>
+            </div>
+            <div class="column">
+                <article class="card">
+                    <h3 class="has-text-centered is-size-3 has-text-link">
+                        Zakelijk
+                    </h3>
+                    <h4 class="has-text-centered is-size-5 has-text-weight-bold">
+                        De ideale locatie voor zakelijke evenementen.
+                    </h4>
+                    <p>
+                        Wat wij bieden:
+                    </p>
+                    <ul>
+                        <li>Vergaderingen & Presentaties:
+                            Flexibele privéruimtes beschikbaar op maandag en dinsdag, inclusief lunch of diner.
+                        </li>
+                        <li>Zakelijke lunches & diners:
+                            Verzorgde arrangementen voor klanten, collega’s of zakenpartners, met op maat gemaakte
+                            menu’s.
+                        </li>
+                        <li>Bedrijfsfeesten:
+                            Vier zakelijke successen in een sfeervolle ambiance met uitstekende service.
+                        </li>
+                    </ul>
                 </article>
             </div>
         </div>
