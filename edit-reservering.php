@@ -43,40 +43,41 @@ if (isset($_POST['submit'])) {
 
     $dataValid = true;
 
-    if ($cat['name'] == '') {
+    if ($reservation['name'] == '') {
         $errors['name'] = "what is... nameless?";
         $dataValid = false;
     }
 
-    if ($cat['age'] == '') {
-        $errors['age'] = "why is it empty?";
+    if ($reservation['phone'] == '') {
+        $errors['phone'] = "Telefoonnummer mag niet leeg zijn";
         $dataValid = false;
-    } else if (!is_numeric($age)) {
-        $errors['age'] = "must contain ONLY numbers";
-        $dataValid = false;
-    }
-
-    if ($cat['breed'] == '') {
-        $errors['breed'] = "if you dont know, what are you doing?";
-        $dataValid = false;
-    }
-    if ($cat['ranking'] == '') {
-        $errors['ranking'] = "rank is required";
-        $dataValid = false;
-    } elseif ($cat['ranking'] != 'S' && $cat['ranking'] != 'SS') {
-        $errors['ranking'] = "S or SS required";
+    } else if (!is_numeric($phone)) {
+        $errors['phone'] = "Telefoonnummer mag alleen bestaan uit nummers";
         $dataValid = false;
     }
 
+    if ($reservation['date'] == '') {
+        $errors['date'] = "Datum mag niet leeg zijn";
+        $dataValid = false;
+    }
+    if ($reservation['time'] == '') {
+        $errors['time'] = "Tijd mag niet leeg zijn";
+        $dataValid = false;
+    }
 
-    if ($cat['description'] == '') {
-        $errors['description'] = "description is required";
+    if ($reservation['guests'] == '') {
+        $errors['guests'] = "Gasten mag niet leeg zijn";
+        $dataValid = false;
+    }
+
+    if ($reservation['email'] == '') {
+        $errors['email'] = "Email mag niet leeg zijn";
         $dataValid = false;
     }
 
 
     if ($dataValid) {
-        $editQuery = "UPDATE cats SET `name`='$name',`age`='$age',`breed`='$breed',`ranking`='$ranking',`description`='$description' WHERE id=$id";
+        $editQuery = "UPDATE reservations SET `name`='$name',`phone`='$phone',`date`='$date',`time`='$time',`guests`='$guests', `email`='$email', `comments`='$comments' WHERE id=$id";
         echo $editQuery;
 
         $result = mysqli_query($db, $editQuery) or die("Error");
@@ -121,67 +122,102 @@ mysqli_close($db);
     }
 </style>
 <header class="hero is-link">
-    <div class="hero-body">
-        <h1 class="title mt-4">Upgrade CAT</h1>
-        <p class="subtitle">EMPOWER, UPGRADE, ENHANCE </p>
-    </div>
 </header>
 <div class="is-empty mt-5"></div>
 <div class="container px-4">
     <section class="columns">
         <form class="column is-6" action="" method="post">
+            <!--Name-->
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
-                    <label class="label" for="name">Name</label>
+                    <label class="label" for="name">Naam</label>
                 </div>
                 <div class="field-body">
 
                     <input class="input" id="name" type="text" name="name"
-                           value="<?= htmlentities($cat['name']) ?>"/>
+                           value="<?= htmlentities($reservation['name']) ?>"/>
                 </div>
 
             </div>
             <p class="errorSpacing"> <?= $errors['name'] ?? '' ?> </p>
 
+            <!--Phone-->
+
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
-                    <label class="label" for="age">Age</label>
+                    <label class="label" for="phone">phone</label>
                 </div>
                 <div class="field-body">
-                    <input class="input" id="age" type="text" name="age" value="<?= htmlentities($cat['age']) ?>"/>
+                    <input class="input" id="phone" type="text" name="phone" value="<?= htmlentities($reservation['phone']) ?>"/>
                 </div>
             </div>
-            <p class="errorSpacing"> <?= $errors['age'] ?? '' ?>  </p>
+            <p class="errorSpacing"> <?= $errors['phone'] ?? '' ?>  </p>
+
+            <!--Date-->
+
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
-                    <label class="label" for="breed">Breed</label>
+                    <label class="label" for="date">Datum</label>
                 </div>
                 <div class="field-body">
-                    <input class="input" id="breed" type="text" name="breed"
-                           value="<?= htmlentities($cat['breed']) ?>"/>
+                    <input class="input" id="date" type="text" name="date"
+                           value="<?= htmlentities($reservation['date']) ?>"/>
                 </div>
             </div>
-            <p class="errorSpacing"> <?= $errors['breed'] ?? '' ?> </p>
+            <p class="errorSpacing"> <?= $errors['date'] ?? '' ?> </p>
+
+            <!--Time-->
+
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
-                    <label class="label" for="ranking">Rank</label>
+                    <label class="label" for="time">Tijd</label>
                 </div>
                 <div class="field-body">
-                    <input class="input" id="ranking" type="text" name="ranking"
-                           value="<?= htmlentities($cat['ranking']) ?>"/>
+                    <input class="input" id="time" type="text" name="time"
+                           value="<?= htmlentities($reservation['time']) ?>"/>
                 </div>
             </div>
-            <p class="errorSpacing"> <?= $errors['ranking'] ?? '' ?> </p>
+            <p class="errorSpacing"> <?= $errors['time'] ?? '' ?> </p>
+
+            <!--Guests-->
+
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
-                    <label class="label" for="description">Description</label>
+                    <label class="label" for="guests">Gasten</label>
                 </div>
                 <div class="field-body">
-                    <textarea class="textarea" id="description"
-                              name="description"><?= htmlentities($cat['description']) ?></textarea>
+                    <textarea class="textarea" id="guests"
+                              name="guests"><?= htmlentities($reservation['guests']) ?></textarea>
                 </div>
             </div>
-            <p class="errorSpacing"> <?= $errors['description'] ?? '' ?> </p>
+            <p class="errorSpacing"> <?= $errors['guests'] ?? '' ?> </p>
+
+            <!--X-->
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label" for="guests">Email</label>
+                </div>
+                <div class="field-body">
+                    <textarea class="textarea" id="email"
+                              name="email"><?= htmlentities($reservation['email']) ?></textarea>
+                </div>
+            </div>
+            <p class="errorSpacing"> <?= $errors['email'] ?? '' ?> </p>
+
+            <!--X-->
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label" for="guests">Opmerking</label>
+                </div>
+                <div class="field-body">
+                    <textarea class="textarea" id="comments"
+                              name="comments"><?= htmlentities($reservation['comments']) ?></textarea>
+                </div>
+            </div>
+            <p class="errorSpacing"> <?= $errors['comments'] ?? '' ?> </p>
+
             <div class="field is-horizontal">
                 <div class="field-label is-normal"></div>
                 <div class="field-body">
@@ -192,11 +228,8 @@ mysqli_close($db);
     </section>
 
 
-    <a class="button mt-4" href="index.php">&laquo;back to tierlist</a>
-    <div class="imgToRight">
-        <img width="300" height="200" src="images/cathammer.jpg" alt="cat with hammer">
+    <a class="button mt-4" href="alle-reserveringen.php">&laquo;Terug naar alle reserveringen</a>
 
-    </div>
 </body>
 </html>
 
