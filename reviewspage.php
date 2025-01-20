@@ -17,7 +17,8 @@ if (isset($_POST['submit'])) {
 
     $result = mysqli_query($db, $query)
     or exit('Error ' . mysqli_error($db) . ' with query ' . $query);
-
+    header("Location: reviewspage.php");
+    exit;
 
 }
 
@@ -57,7 +58,102 @@ mysqli_close($db);
 
 <body>
 
-<?php include "./Nav/nav.php" ?>
+<nav class="navbar has-background-info" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item">
+            <figure class="image is-32x32">
+                <a href="../homepage.php" target="_self"><img class="is-rounded" src="../Images/BroersLogo.png"
+                                                              alt="Logo"/></a>
+            </figure>
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="nav-bar">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+
+                    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+                    $navbarBurgers.forEach(el => {
+                        el.addEventListener('click', () => {
+
+                            const target = el.dataset.target;
+                            const $target = document.getElementById(target);
+
+                            el.classList.toggle('is-active');
+                            $target.classList.toggle('is-active');
+
+                        });
+                    });
+
+                });
+            </script>
+        </a>
+    </div>
+
+    <div class="navbar-menu" id="nav-bar">
+        <div class="navbar-end">
+            <a href="../menu.php" class="navbar-item is-link">
+                Ons Menu
+            </a>
+
+            <a href="../reserveringen.php" class="navbar-item is-link">
+                Reserveer
+            </a>
+
+            <a href="../contact.php" class="navbar-item is-link">
+                Contact
+            </a>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    Meer
+                </a>
+
+                <div class="navbar-dropdown">
+                    <a href="../aanbod.php" class="navbar-item">
+                        Ons Aanbod
+                    </a>
+                    <a href="../evenementen.php" class="navbar-item">
+                        Onze Evenementen
+                    </a>
+                    <a href="../arrangementen.php" class="navbar-item">
+                        Onze Arrangementen
+                    </a>
+                    <a href="../reviewspage.php" class="navbar-item">
+                        Reviews
+                    </a>
+                </div>
+            </div>
+        </div>
+        <?php if (empty($_SESSION)) : ?>
+            <div class="buttons">
+                <a href="../login.php" class="button is-primary is-outlined">
+                    Log In
+                </a>
+            </div>
+        <?php elseif (isset($_SESSION['admin_flag'])): ?>
+            <?php if ($_SESSION['admin_flag'] == 1): ?>
+                <div class="buttons">
+                    <a href="../admin.php" class="button is-primary is-outlined">
+                        Admin
+                    </a>
+                </div>
+            <?php endif; ?>
+        <?php else: ?>
+            <div class="buttons">
+                <a href="../logout.php" class="button is-link is-outlined">
+                    Log Out
+                </a>
+            </div>
+        <?php endif; ?>
+
+    </div>
+
+</nav>
 
 <header class="background-image is-primary is-medium">
     <section class="hero is-halfheight">
@@ -112,17 +208,41 @@ mysqli_close($db);
 
     </div>
 </section>
+<div class="pt-4">
 
+</div>
 <section>
-    <h1>Reviews</h1>
+    <div class="is-flex is-justify-content-center title is-3">
+        <h1>Reviews</h1>
+    </div>
     <!--loop through array-->
+
     <?php foreach ($reviews as $review) { ?>
-        <h2><?= $review['name'] ?></h2>
-        <h2><?= $review['review'] ?></h2>
-        <!--<h2>--><?php //= $review['user_id'] ?><!--</h2>-->
+        <div class="reviewBlock">
+            <h2 class="p-0 pb-3"><?= $review['name'] ?></h2>
+            <h2 class="p-0"><?= $review['review'] ?></h2>
+        </div>
+
     <?php } ?>
+
 </section>
 
+<style>
+    .reviewBlock {
+        display: flex;
+        color: antiquewhite;
+        text-align: justify-all;
+        flex-direction: column;
+        flex-grow: 1;
+        overflow: hidden;
+        word-wrap: break-word;
+        margin: 30px 80vh;
+        padding: 30px 20px;
+        background-color: #151515;
+        border: #DF5F2C 2px solid;
+        border-radius: 5px;
+    }
+</style>
 <footer class="has-background-info">
     <div class="footerRow">
         <div><p>Follow Us!</p>
