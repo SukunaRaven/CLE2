@@ -1,28 +1,17 @@
 <?php
+session_start();
 require_once 'connection/connection.php';
-$login = false;
 /** @var mysqli $db */
+$login = false;
 
 //am I even logged in? if not, send me to the loginpage
-if (!isset($_SESSION['loggedInUser'])) {
+if (!isset($_SESSION['user']) ||
+    $_SESSION['admin_flag'] != '1'
+) {
+
     header("Location: login.php");
 
     // Is user logged in?
-}
-
-if (isset($_SESSION['admin_flag']) ) {
-    if ($_SESSION['admin_flag'] == 1) {
-        header('Location: alle-reserveringen.php');
-        exit;
-    };
-} else {
-    header('Location: homepage.php');
-    exit;
-}
-
-if (!isset($_SESSION['user'])) {
-    header('Location: login.php');
-    exit();
 }
 $query = "SELECT * FROM reservations";
 
@@ -128,13 +117,16 @@ mysqli_close($db);
                         <td> <?= $reservation['phone'] ?></td>
                         <td> <?= $reservation['comments'] ?></td>
                         <?php foreach ($reservations as $index => $reservation) { ?>
-                        <td class="is-flex iconGap">
-                            <a href="details-reservering.php?id=<?= $reservation['id'] ?>"><i class="fa fa-calendar-o" style="color:#8C3A18"></i></i></a>
+                            <td class="is-flex iconGap">
+                                <a href="details-reservering.php?id=<?= $reservation['id'] ?>"><i
+                                            class="fa fa-calendar-o" style="color:#8C3A18"></i></i></a>
 
-                            <a href="edit-reservering.php?id=<?= $reservation['id'] ?>"><i class="fa fa-pencil" style="color:darkgray"></i></a>
+                                <a href="edit-reservering.php?id=<?= $reservation['id'] ?>"><i class="fa fa-pencil"
+                                                                                               style="color:darkgray"></i></a>
 
-                            <a href="delete-reservering.php?id=<?= $reservation['id'] ?>"><i class="fa fa-trash" style="color:firebrick"></i></a>
-                        </td>
+                                <a href="delete-reservering.php?id=<?= $reservation['id'] ?>"><i class="fa fa-trash"
+                                                                                                 style="color:firebrick"></i></a>
+                            </td>
                         <?php } ?>
                         <?php } ?>
 
@@ -148,8 +140,6 @@ mysqli_close($db);
         </section>
     </div>
 </main>
-</body>
-
 <footer class="has-background-info">
     <div class="footerRow">
         <div><p>Follow Us!</p>
@@ -185,4 +175,7 @@ mysqli_close($db);
             <p>06 - 48 18 54 03</p></div>
     </div>
 </footer>
+</body>
+
+
 </html>

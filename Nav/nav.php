@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <nav class="navbar has-background-info" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item">
@@ -76,25 +73,28 @@ session_start();
                 </div>
             </div>
         </div>
-        <?php if (isset($_SESSION['admin_flag']) && $_SESSION['admin_flag'] == 1) { ?>
+        <?php session_start(); ?>
+        <?php if (empty($_SESSION)) :?>
         <div class="buttons">
-            <a href="../admin.php" class="button is-primary is-outlined">
-                Admin
+            <a href="../login.php" class="button is-primary is-outlined">
+                Log In
             </a>
         </div>
-        <?php } elseif (!empty($_SESSION)) { ?>
+        <?php elseif (isset($_SESSION['admin_flag'])): ?>
+            <?php if ($_SESSION['admin_flag'] == 1): ?>
+                <div class="buttons">
+                    <a href="../admin.php" class="button is-primary is-outlined">
+                        Admin
+                    </a>
+                </div>
+            <?php endif; ?>
+        <?php else: ?>
             <div class="buttons">
-                <a href="../logout.php" class="button is-primary is-outlined">
-                    Log Uit
+                <a href="../logout.php" class="button is-link is-outlined">
+                    Log Out
                 </a>
             </div>
-        <?php } else { ?>
-            <div class="buttons">
-                <a href="../login.php" class="button is-link is-outlined">
-                    Log In
-                </a>
-            </div>
-        <?php } ?>
+        <?php endif; ?>
 
     </div>
 
