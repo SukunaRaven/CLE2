@@ -212,18 +212,16 @@ mysqli_close($db);
                         <td> <?= $reservation['email'] ?> </td>
                         <td> <?= $reservation['phone'] ?></td>
                         <td> <?= $reservation['comments'] ?></td>
-                        <?php foreach ($reservations as $index => $reservation) { ?>
-                            <td class="is-flex iconGap">
-                                <a href="details-reservering.php?id=<?= $reservation['id'] ?>"><i
-                                            class="fa fa-calendar-o" style="color:#8C3A18"></i></i></a>
+                        <td class="is-flex iconGap">
+                            <a href="details-reservering.php?id=<?= $reservation['id'] ?>"><i
+                                        class="fa fa-calendar-o" style="color:#8C3A18"></i></i></a>
 
-                                <a href="edit-reservering.php?id=<?= $reservation['id'] ?>"><i class="fa fa-pencil"
-                                                                                               style="color:darkgray"></i></a>
+                            <a href="edit-reservering.php?id=<?= $reservation['id'] ?>"><i class="fa fa-pencil"
+                                                                                           style="color:darkgray"></i></a>
 
-                                <a href="delete-reservering.php?id=<?= $reservation['id'] ?>"><i class="fa fa-trash"
-                                                                                                 style="color:firebrick"></i></a>
-                            </td>
-                        <?php } ?>
+                            <a href="delete-reservering.php?id=<?= $reservation['id'] ?>"><i class="fa fa-trash"
+                                                                                             style="color:firebrick"></i></a>
+                        </td>
                         <?php } ?>
 
 
@@ -236,41 +234,6 @@ mysqli_close($db);
         </section>
     </div>
 </main>
-<footer class="has-background-info">
-    <div class="footerRow">
-        <div><p>Follow Us!</p>
-            <a href="https://www.instagram.com/broers.ridderkerk">
-                <i class="fa fa-instagram" style="font-size:30px"></i>
-            </a>
-
-            <a href="https://www.facebook.com/profile.php?id=61562490741128">
-                <i class="fa fa-facebook-square" style="font-size:30px"></i>
-            </a>
-        </div>
-        <div>
-            <div class="openingstijdenOnder"><h3>Openingstijden</h3>
-                <div class="openingstijdenSamen">
-                    <div class="openingstijden"><p>Woensdag</p>
-                        <p>Donderdag</p>
-                        <p>Vrijdag</p>
-                        <p>Zaterdag</p>
-                        <p>Zondag</p></div>
-                    <div class="openingstijden"><p>11:00-23:00</p>
-                        <p>11:00-23:00</p>
-                        <p>11:00-23:00</p>
-                        <p>11:00-23:00</p>
-                        <p>12:00-22:00</p></div>
-                </div>
-            </div>
-        </div>
-        <div class="detailsFooter"><img class="broersLogo" src="Images/BroersLogo.png" alt="logo">
-            <p>Eetcafé BROERS</p>
-            <p>Koningsplein 44</p>
-            <p>2981 EA Ridderkerk</p>
-            <p>info@broersridderkerk.nl</p>
-            <p>06 - 48 18 54 03</p></div>
-    </div>
-</footer>
 </body>
 
 
