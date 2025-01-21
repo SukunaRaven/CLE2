@@ -197,5 +197,5 @@ session_start();
             <p>06 - 48 18 54 03</p></div>
     </div>
 </footer>
-
 </body>
+</html>
