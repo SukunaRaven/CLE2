@@ -1,17 +1,23 @@
 <?php
 session_start();
+$selectedTime = '';
+/** @var mysqli $db */
+require_once "connection/connection.php";
+
 if (isset($_POST['submit'])) {
-    /** @var mysqli $db */
-    require_once "connection/connection.php";
+
 
 // Get form data
     $email = $_POST['email'];
-    $phonenumber = $_POST['phonenumber'];
+    $phone = $_POST['phone'];
     $name = $_POST['name'];
     $date = $_POST['date'];
     $guests = $_POST['guests'];
     $time = $_POST ['time'];
     $comments = $_POST ['comments'];
+    $selectedTime = mysqli_real_escape_string($db, $_POST['time']);
+    $date = mysqli_escape_string($db, $_POST['date']);
+    $endTime = date('H:i', strtotime($selectedTime . ' 2hours'));
 
 // Server-side validation
 
@@ -25,12 +31,8 @@ if (isset($_POST['submit'])) {
         }
     }
 
-    if ($phonenumber === '') {
-        $errors['phonenumber'] = 'Telefoonnummer mag niet leeg zijn';
-    }
-
-    if ($date === '') {
-        $errors['date'] = 'Datum mag niet leeg zijn';
+    if ($phone === '') {
+        $errors['phone'] = 'Telefoonnummer mag niet leeg zijn';
     }
 
     if ($email === '') {
@@ -49,8 +51,8 @@ if (isset($_POST['submit'])) {
     if (empty($errors)) {
 
         // store the new user in the database.
-        $query = "INSERT INTO `reservations`(`email`,`phonenumber`, `name`, `guests`, `date`, `time`, `comments`) 
-              VALUES ('$email','$phonenumber','$name','$guests','$date','$time','$comments')";
+        $query = "INSERT INTO `reservations`(`email`,`phone`, `name`, `guests`, `date`, `comments`, `start_time`, `end_time`) 
+              VALUES ('$email','$phone','$name','$guests','$date','$comments','$selectedTime','$endTime')";
 
         $result = mysqli_query($db, $query)
         or exit('Error ' . mysqli_error($db) . ' with query ' . $query);
@@ -59,14 +61,73 @@ if (isset($_POST['submit'])) {
         // If query succeeded
         if ($result) {
 
-            // Redirect to login page
-            header('location: login.php');
+            // Redirect to home page
+            header('location: homepage.php');
             // Exit the code
             exit;
         }
     }
 }
 
+if (isset($_GET['date']) && !empty($_GET['date'])) {
+    // Haal de datum op
+    $date = $_GET['date'];
+
+    // Haal de reserveringen uit de database voor een specifieke datum
+    $query = "SELECT * FROM reservations
+                WHERE date = '$date'";
+    $result = mysqli_query($db, $query);
+    if ($result) {
+        $reservations = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $reservations[] = $row;
+        }
+    }
+    // Maak een array met tijden van 11:00 - 20:00 met stappen van 15 minuten.
+    $times = [];
+    $time = strtotime('11:00');
+    $timeToAdd = 15;
+
+    // Blijf de times array vullen totdat 20:00 bereikt wordt.
+    while ($time <= strtotime(datetime: '20:00')) {
+        // time toevoegen aan times array
+        $times[] = date('H:i', $time);
+
+        // time + een kwartier optellen
+        $time += 15 * 60;
+    }
+
+
+    // Doorloop alle reserveringen en filter alle tijden die gelijk zijn
+    // aan de tijd van een reservering t/m een uur later.
+    // Zet alle overgebleven tijden in de array $availableTimes.
+    $availableTimes = [];
+
+    // doorloop alle tijden (van 11:00 - 20:00)
+    foreach ($times as $time) {
+        $time = strtotime($time);
+        $occurs = false;
+        $reservationCounter = 1;
+        // controleer de tijd tegen ALLE reserveringen van die dag
+        foreach ($reservations as $reservation) {
+            $startTime = strtotime($reservation['start_time']);
+            $endTime = strtotime($reservation['end_time']);
+            // ALS de tijd van de begintijd tot de eindtijd van
+            // een reservering valt voeg deze tijd ($time) niet
+            // toe aan availableTimes
+            if ($time >= $startTime && $time < $endTime) {
+                $occurs = true;
+                $reservationCounter++;
+            }
+        }
+        if (!$occurs || $reservationCounter <= 6) {
+            $availableTimes[] = date('H:i', $time);
+        }
+    }
+
+} else {
+    header('Location: select-date.php');
+}
 ?>
 
 <!doctype html>
@@ -97,8 +158,8 @@ if (isset($_POST['submit'])) {
     <div class="navbar-brand">
         <a class="navbar-item">
             <figure class="image is-32x32">
-                <a href="../homepage.php" target="_self"><img class="is-rounded" src="../Images/BroersLogo.png"
-                                                              alt="Logo"/></a>
+                <a href="homepage.php" target="_self"><img class="is-rounded" src="../Images/BroersLogo.png"
+                                                           alt="Logo"/></a>
             </figure>
         </a>
 
@@ -131,15 +192,15 @@ if (isset($_POST['submit'])) {
 
     <div class="navbar-menu" id="nav-bar">
         <div class="navbar-end">
-            <a href="../menu.php" class="navbar-item is-link">
+            <a href="menu.php" class="navbar-item is-link">
                 Ons Menu
             </a>
 
-            <a href="../reserveringen.php" class="navbar-item is-link">
+            <a href="reserveringen.php" class="navbar-item is-link">
                 Reserveer
             </a>
 
-            <a href="../contact.php" class="navbar-item is-link">
+            <a href="contact.php" class="navbar-item is-link">
                 Contact
             </a>
 
@@ -149,16 +210,16 @@ if (isset($_POST['submit'])) {
                 </a>
 
                 <div class="navbar-dropdown">
-                    <a href="../aanbod.php" class="navbar-item">
+                    <a href="aanbod.php" class="navbar-item">
                         Ons Aanbod
                     </a>
-                    <a href="../evenementen.php" class="navbar-item">
+                    <a href="evenementen.php" class="navbar-item">
                         Onze Evenementen
                     </a>
-                    <a href="../arrangementen.php" class="navbar-item">
+                    <a href="arrangementen.php" class="navbar-item">
                         Onze Arrangementen
                     </a>
-                    <a href="../reviewspage.php" class="navbar-item">
+                    <a href="reviewspage.php" class="navbar-item">
                         Reviews
                     </a>
                 </div>
@@ -166,21 +227,21 @@ if (isset($_POST['submit'])) {
         </div>
         <?php if (empty($_SESSION)) : ?>
             <div class="buttons">
-                <a href="../login.php" class="button is-primary is-outlined">
+                <a href="login.php" class="button is-primary is-outlined">
                     Log In
                 </a>
             </div>
         <?php elseif (isset($_SESSION['admin_flag'])): ?>
             <?php if ($_SESSION['admin_flag'] == 1): ?>
                 <div class="buttons">
-                    <a href="../admin.php" class="button is-primary is-outlined">
+                    <a href="admin.php" class="button is-primary is-outlined">
                         Admin
                     </a>
                 </div>
             <?php endif; ?>
         <?php else: ?>
             <div class="buttons">
-                <a href="../logout.php" class="button is-link is-outlined">
+                <a href="logout.php" class="button is-link is-outlined">
                     Log Out
                 </a>
             </div>
@@ -194,7 +255,7 @@ if (isset($_POST['submit'])) {
     <section class="hero is-height">
         <div class="hero-body">
             <div class="container has-text-centered">
-                <h1 class="title is-1 shadow has-text-link">Reserveren</h1>
+                <h1 class="title is-1 shadow has-text-link">Reserveren voor <?= date('j F Y', strtotime($date)) ?></h1>
             </div>
         </div>
     </section>
@@ -204,22 +265,22 @@ if (isset($_POST['submit'])) {
 
     <div class="container content is-flex is-justify-content-center">
         <section class="columns">
-            <form class="column is-full is-half-mobile inputField" action="" method="post">
+            <form class="column is-full" action="" method="post">
                 <div class="pt-5"></div>
                 <!--email -->
                 <label class="label" for="email">E-mail</label>
-                <input class="input is-link is-three-quarters-mobile" id="email" type="text" name="email"
+                <input class="input is-link" id="email" type="text" name="email"
                        value="<?= $email ?? '' ?>"/>
                 <p class="help is-danger">
                     <?= $errors['email'] ?? '' ?>
                 </p>
-                <!-- phonenumber -->
+                <!-- phone -->
 
-                <label class="label" for="phonenumber">Telefoonnummer</label>
-                <input class="input is-link" id="phonenumber" type="text" name="phonenumber"
-                       value="<?= $phonenumber ?? '' ?>"/>
+                <label class="label" for="phone">Telefoonnummer</label>
+                <input class="input is-link" id="phone" type="text" name="phone"
+                       value="<?= $phone ?? '' ?>"/>
                 <p class="help is-danger">
-                    <?= $errors['phonenumber'] ?? '' ?>
+                    <?= $errors['phone'] ?? '' ?>
                 </p>
 
                 <!-- name -->
@@ -235,99 +296,32 @@ if (isset($_POST['submit'])) {
                 <!-- Guests -->
 
                 <label class="label" for="guests">Aantal Gasten</label>
-                <input class="input is-link" id="guests" type="text" name="guests"/>
+                <input class="input is-link" id="guests" type="text" name="guests"
+                       value="<?= $guests ?? '' ?>"/>
                 <p class="help is-danger">
                     <?= $errors['guests'] ?? '' ?>
                 </p>
 
-                <!-- Date -->
-                <div class="wrapper">
-                    <label for="datepicker">Pick a Date
-                        <input type="text" id="datepicker" autocomplete="off">
-                    </label>
-                </div>
+                <!--time -->
 
-                <p class="help is-danger">
-                    <?= $errors['date'] ?? '' ?>
-                </p>
-
-                <!-- time -->
-                <style>
-
-                    .time-picker-button {
-                        background-color: #8C3A18;
-                        color: #1C1512;
-                        max-width: 656px;
-                        max-height: 166px;
-                        cursor: pointer;
-                    }
-
-                    .special {
-                        background-color: #151515;
-                        color: #8C3A18;
-                    }
-
-
-                </style>
-                <label class="label" for="time">Tijdstip</label>
-
-                <!-- custom time picker -->
-
-
-                <div class="stack">
-                    <label for="times-lunch">Tijden:*</label>
-                    <select id="times-lunch" name="times" required>
-                        <option value="" disabled selected>Tijdstip</option>
-                        <option value="lunch">11:00</option>
-                        <option value="lunch">11:15</option>
-                        <option value="lunch">11:30</option>
-                        <option value="lunch">11:45</option>
-                        <option value="lunch">12:00</option>
-                        <option value="lunch">12:15</option>
-                        <option value="lunch">12:30</option>
-                        <option value="lunch">12:45</option>
-                        <option value="lunch">13:00</option>
-                        <option value="lunch">13:15</option>
-                        <option value="lunch">13:30</option>
-                        <option value="lunch">13:45</option>
-                        <option value="lunch">14:00</option>
-                        <option value="lunch">14:15</option>
-                        <option value="lunch">14:30</option>
-                        <option value="lunch">14:45</option>
-                        <option value="lunch">15:00</option>
-                        <option value="lunch">15:15</option>
-                        <option value="lunch">15:30</option>
-                        <option value="lunch">15:45</option>
-                        <option value="diner">16:00</option>
-                        <option value="diner">16:15</option>
-                        <option value="diner">16:30</option>
-                        <option value="diner">16:45</option>
-                        <option value="diner">17:00</option>
-                        <option value="diner">17:15</option>
-                        <option value="diner">17:30</option>
-                        <option value="diner">17:45</option>
-                        <option value="diner">18:00</option>
-                        <option value="diner">18:15</option>
-                        <option value="diner">18:30</option>
-                        <option value="diner">18:45</option>
-                        <option value="diner">19:00</option>
-                        <option value="diner">19:15</option>
-                        <option value="diner">19:30</option>
-                        <option value="diner">19:45</option>
-                        <option value="diner">20:00</option>
-                    </select>
-                </div>
-                <input class="input is-link" id="time" type="time" name="time"/>
-
+                <label class="label" for="time">Tijd</label>
+                <select id="time" name="time">
+                    <option value="">Kies een tijd</option>
+                    <?php foreach ($availableTimes as $availableTime) { ?>
+                        <option value="<?= $availableTime ?>" <?= $selectedTime == $availableTime ? 'selected' : '' ?>><?= $availableTime ?></option>
+                    <?php } ?>
+                </select>
                 <p class="help is-danger">
                     <?= $errors['time'] ?? '' ?>
                 </p>
+
+                <input type="hidden" name="date" value="<?= $date ?>"/>
 
                 <!-- Extra informatie -->
 
                 <label class="label" for="comments">Extra informatie</label>
 
-                <textarea class="is-link textarea" cols="89" rows="6" name="comments"></textarea>
+                <textarea class="is-normal textArea" cols="89" rows="6" name="comments"></textarea>
 
                 <p class="help is-danger">
                     <?= $errors['comments'] ?? '' ?>
@@ -337,73 +331,38 @@ if (isset($_POST['submit'])) {
 
                 <button class="button is-link is-outlined is-fullwidth" type="submit" name="submit">Reserveren
                 </button>
-
             </form>
+
         </section>
     </div>
 
 
 </main>
-</section>
 
 <style>
     .textArea {
-        border: #1C1512 solid 1px;
+        border: antiquewhite solid 1px;
         border-radius: 5px;
         max-width: 656.73px;
-        background-color: antiquewhite;
+        background-color: #1C1512;
         resize: none;
     }
 
-    @media (max-width: 767px) {
-        .footerRow {
-            padding: 20px 20px;
-            flex-direction: column;
-            justify-content: center;
-
-        }
-
-        .logoRows {
-            display: flex;
-            flex-direction: row;
-            gap: 10px;
-        }
-
-        .socialmediaFormat {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-        }
-
-        .inputField {
-            display: flex;
-            flex-direction: column;
-            max-width: 150vw;
-
-        }
-
-        .columns {
-            display: flex;
-            align-content: center;
-            justify-content: center;
-        }
-
+    .inputDesign {
 
     }
 </style>
 
 <footer class="has-background-info">
     <div class="footerRow">
-        <div class="socialmediaFormat"><p>Follow Us!</p>
-            <div class="logoRows">
-                <a href="https://www.instagram.com/broers.ridderkerk">
-                    <i class="fa fa-instagram" style="font-size:30px"></i>
-                </a>
+        <div><p>Follow Us!</p>
+            <a href="https://www.instagram.com/broers.ridderkerk">
+                <i class="fa fa-instagram" style="font-size:30px"></i>
+            </a>
 
-                <a href="https://www.facebook.com/profile.php?id=61562490741128">
-                    <i class="fa fa-facebook-square" style="font-size:30px"></i>
-                </a>
-            </div>
+            <a href="https://www.facebook.com/profile.php?id=61562490741128">
+                <i class="fa fa-facebook-square" style="font-size:30px"></i>
+            </a>
         </div>
         <div>
             <div class="openingstijdenOnder"><h3>Openingstijden</h3>
@@ -421,7 +380,7 @@ if (isset($_POST['submit'])) {
                 </div>
             </div>
         </div>
-        <div class="detailsFooter"><img class="broersLogo" src="Images/BroersLogo.png" alt="logo">
+        <div class="detailsFooter"><img class="broersLogo" src="../../../Images/BroersLogo.png" alt="logo">
             <p>Eetcafé BROERS</p>
             <p>Koningsplein 44</p>
             <p>2981 EA Ridderkerk</p>
