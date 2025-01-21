@@ -13,7 +13,7 @@ session_start();
             href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
     >
     <link rel="stylesheet" href="CSS/style.css">
-    <title>Broers Smaakmakers</title>
+    <title>Broers Smaakmakers - Selecteer een Datum</title>
 </head>
 
 <body>
