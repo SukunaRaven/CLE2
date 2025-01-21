@@ -189,7 +189,7 @@ session_start();
                 </div>
             </div>
         </div>
-        <div class="detailsFooter"><img class="broersLogo" src="../../../Images/BroersLogo.png" alt="logo">
+        <div class="detailsFooter"><img class="broersLogo" src="Images/BroersLogo.png" alt="logo">
             <p>Eetcafé BROERS</p>
             <p>Koningsplein 44</p>
             <p>2981 EA Ridderkerk</p>
