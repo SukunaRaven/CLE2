@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 require_once 'connection/connection.php';
@@ -61,7 +60,7 @@ if (mysqli_num_rows($result) != 1) {
     <section class="section content">
         <ul>
             <li>Datum: <?= $reservation['date'] ?> </li>
-            <li>Tijd: <?= $reservation['time'] ?> years old</li>
+            <li>Start Tijd: <?= $reservation['start_time'] ?></li>
             <li>Naam: <?= $reservation['name'] ?> </li>
             <li>Aantal gasten: <?= $reservation['guests'] ?> </li>
             <li>E-mail: <?= $reservation['email'] ?> </li>
