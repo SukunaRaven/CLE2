@@ -1,10 +1,6 @@
 <?php
-
 session_start();
-
 session_destroy();
-
-header('location: homepage.php');
-
-exit();
+header('Location: login.php');
+exit;
 
