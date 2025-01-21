@@ -48,6 +48,7 @@ mysqli_close($db);
     <link href="https://fonts.cdnfonts.com/css/open-sans" rel="stylesheet">
 </head>
 
+<body>
 <nav class="navbar has-background-info" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item">
@@ -142,10 +143,8 @@ mysqli_close($db);
         <?php endif; ?>
 
     </div>
-
 </nav>
 
-<body>
 <main>
     <section class="footerPadding">
 
