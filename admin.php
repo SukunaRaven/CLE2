@@ -35,7 +35,7 @@ $yearOfWeek = date('Y', $weekDays[0]['timestamp']);
 $rosterTimes = getRosterTimes();
 
 //The events from the database that are in this week
-$events = getEvents($weekDays[0]['fullDate'], $weekDays[6]['fullDate']);
+$reservations = getEvents($weekDays[0]['fullDate'], $weekDays[6]['fullDate']);
 
 ?>
 
@@ -188,8 +188,8 @@ $events = getEvents($weekDays[0]['fullDate'], $weekDays[6]['fullDate']);
                 <div class="time row-roster-<?= $index + 1; ?>"><?= $rosterTime; ?></div>
                 <div class="row row-roster-<?= $index + 1; ?>"></div>
             <?php } ?>
-            <?php foreach ($events as $event) { ?>
-                <a href="" class="event event-item-<?= $event['id']; ?>"><?= $event['description']; ?></a>
+            <?php foreach ($reservations as $reservation) { ?>
+                <a href="" class="event event-item-<?= $reservation['id']; ?>"><?= $reservation['name']; ?></a>
             <?php } ?>
         </div>
     </div>
