@@ -26,8 +26,6 @@ if (isset($_POST['submit'])) {
             or die('Error ' . mysqli_error($db) . ' with query ' . $query);
         }
 
-        session_start();
-
         if ($password == '') {
             $errors['password'] = 'Vul a.u.b wachtwoord in';
         }
@@ -53,8 +51,6 @@ if (isset($_POST['submit'])) {
 
             // Check if the provided password matches the stored password in the database
             if (password_verify($password, $user['password'])) {
-
-                session_start();
 
                 // Store the user in the session
                 $_SESSION['user'] = $email;
