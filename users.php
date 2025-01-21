@@ -31,7 +31,7 @@ mysqli_close($db);
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -193,7 +193,6 @@ mysqli_close($db);
         }
     </style>
 </main>
-</body>
 <footer class="has-background-info">
     <div class="footerRow">
         <div><p>Follow Us!</p>
@@ -229,4 +228,5 @@ mysqli_close($db);
             <p>06 - 48 18 54 03</p></div>
     </div>
 </footer>
+</body>
 </html>
