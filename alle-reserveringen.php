@@ -177,7 +177,7 @@ mysqli_close($db);
         <section>
 
             <div class="m-3">
-                <a class="button is-warning is-normal is-responsive" href="reserveringen.php">Reservering
+                <a class="button is-warning is-normal is-responsive" href="select-date.php">Reservering
                     toevoegen</a>
             </div>
 
