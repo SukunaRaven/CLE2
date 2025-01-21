@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
 
     //get form data
     $review = $_POST['review'];
-    $user_id = $_SESSION['user_id'];
+    $user_id = mysqli_escape_string( $db,$_SESSION['user_id']);
 
 
     $query = "INSERT INTO `reviews`(review, user_id) VALUES 
@@ -17,7 +17,8 @@ if (isset($_POST['submit'])) {
 
     $result = mysqli_query($db, $query)
     or exit('Error ' . mysqli_error($db) . ' with query ' . $query);
-
+    header("Location: reviewspage.php");
+    exit;
 
 }
 
@@ -207,17 +208,41 @@ mysqli_close($db);
 
     </div>
 </section>
+<div class="pt-4">
 
+</div>
 <section>
-    <h1>Reviews</h1>
+    <div class="is-flex is-justify-content-center title is-3">
+        <h1>Reviews</h1>
+    </div>
     <!--loop through array-->
+
     <?php foreach ($reviews as $review) { ?>
-        <h2><?= $review['name'] ?></h2>
-        <h2><?= $review['review'] ?></h2>
-        <!--<h2>--><?php //= $review['user_id'] ?><!--</h2>-->
+        <div class="reviewBlock">
+            <h2 class="p-0 pb-3"><?= $review['name'] ?></h2>
+            <h2 class="p-0"><?= $review['review'] ?></h2>
+        </div>
+
     <?php } ?>
+
 </section>
 
+<style>
+    .reviewBlock {
+        display: flex;
+        color: antiquewhite;
+        text-align: justify-all;
+        flex-direction: column;
+        flex-grow: 1;
+        overflow: hidden;
+        word-wrap: break-word;
+        margin: 30px 80vh;
+        padding: 30px 20px;
+        background-color: #151515;
+        border: #DF5F2C 2px solid;
+        border-radius: 5px;
+    }
+</style>
 <footer class="has-background-info">
     <div class="footerRow">
         <div><p>Follow Us!</p>
