@@ -206,7 +206,7 @@ mysqli_close($db);
                     <tr>
 
                         <td> <?= $reservation['date'] ?> </td>
-                        <td> <?= $reservation['time'] ?></td>
+                        <td> <?= $reservation['start_time'] ?></td>
                         <td> <?= $reservation['name'] ?> </td>
                         <td> <?= $reservation['guests'] ?> </td>
                         <td> <?= $reservation['email'] ?> </td>
