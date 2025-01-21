@@ -26,7 +26,7 @@ $errors = [''];
 if (isset($_POST['submit'])) {
 
     $reservation['date'] = $_POST['date'];
-    $reservation['time'] = $_POST['time'];
+    $reservation['start_time'] = $_POST['start_time'];
     $reservation['name'] = $_POST['name'];
     $reservation['guests'] = $_POST['guests'];
     $reservation['email'] = $_POST['email'];
@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
     $reservation['comments'] = $_POST['comments'];
 
     $date = $reservation['date'];
-    $time = $reservation['time'];
+    $start_time = $reservation['start_time'];
     $name = $reservation['name'];
     $guests = $reservation['guests'];
     $email = $reservation['email'];
@@ -60,8 +60,8 @@ if (isset($_POST['submit'])) {
         $errors['date'] = "Datum mag niet leeg zijn";
         $dataValid = false;
     }
-    if ($reservation['time'] == '') {
-        $errors['time'] = "Tijd mag niet leeg zijn";
+    if ($reservation['start_time'] == '') {
+        $errors['start_time'] = "Tijd mag niet leeg zijn";
         $dataValid = false;
     }
 
@@ -77,7 +77,7 @@ if (isset($_POST['submit'])) {
 
 
     if ($dataValid) {
-        $editQuery = "UPDATE reservations SET `name`='$name',`phone`='$phone',`date`='$date',`time`='$time',`guests`='$guests', `email`='$email', `comments`='$comments' WHERE id=$id";
+        $editQuery = "UPDATE reservations SET `name`='$name',`phone`='$phone',`date`='$date',`start_time`='$start_time',`guests`='$guests', `email`='$email', `comments`='$comments' WHERE id=$id";
         echo $editQuery;
 
         $result = mysqli_query($db, $editQuery) or die("Error");
@@ -106,8 +106,8 @@ mysqli_close($db);
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
     >
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -148,7 +148,8 @@ mysqli_close($db);
                     <label class="label" for="phone">phone</label>
                 </div>
                 <div class="field-body">
-                    <input class="input" id="phone" type="text" name="phone" value="<?= htmlentities($reservation['phone']) ?>"/>
+                    <input class="input" id="phone" type="text" name="phone"
+                           value="<?= htmlentities($reservation['phone']) ?>"/>
                 </div>
             </div>
             <p class="errorSpacing"> <?= $errors['phone'] ?? '' ?>  </p>
@@ -174,10 +175,10 @@ mysqli_close($db);
                 </div>
                 <div class="field-body">
                     <input class="input" id="time" type="text" name="time"
-                           value="<?= htmlentities($reservation['time']) ?>"/>
+                           value="<?= htmlentities($reservation['start_time']) ?>"/>
                 </div>
             </div>
-            <p class="errorSpacing"> <?= $errors['time'] ?? '' ?> </p>
+            <p class="errorSpacing"> <?= $errors['start_time'] ?? '' ?> </p>
 
             <!--Guests-->
 
