@@ -209,7 +209,7 @@ $getDynamicCSS = getDynamicCSS($rosterTimes,$reservations);
     <div class="navbar-brand">
         <a class="navbar-item">
             <figure class="image is-32x32">
-                <a href="homepage.php" target="_self"><img class="is-rounded" src="../Images/BroersLogo.png"
+                <a href="homepage.php" target="_self"><img class="is-rounded" src="Images/BroersLogo.png"
                                                            alt="Logo"/></a>
             </figure>
         </a>
