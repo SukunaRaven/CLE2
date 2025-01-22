@@ -1,14 +1,15 @@
 <?php
 session_start();
 $login = false;
-//am I even logged in? if not, send me to the loginpage
+//am I even logged in? if yes, do I have the adminflag > yes, get me through
+//else, send me to the loginpage
 if (!isset($_SESSION['user']) ||
     $_SESSION['admin_flag'] != '1'
 ) {
 
     header("Location: login.php");
 
-    // Is user logged in?
+
 }
 //$reservation['id'] = $_SESSION['id'];
 //$reservation['name'] = $_SESSION['name'];
