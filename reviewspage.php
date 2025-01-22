@@ -17,6 +17,8 @@ if (isset($_POST['submit'])) {
 
     $result = mysqli_query($db, $query)
     or exit('Error ' . mysqli_error($db) . ' with query ' . $query);
+    //if the review goes through the page refreshes so there's nothing in the post >
+    // when u refresh there won't be review duplicates
     header("Location: reviewspage.php");
     exit;
 
