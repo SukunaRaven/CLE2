@@ -216,15 +216,6 @@ if (isset($_POST['submit'])) {
                         </p>
                     </div>
                 </div>
-                <!-- surname -->
-
-                <!--                <label class="label" for="surname">Achternaam</label>-->
-                <!---->
-                <!--                <input class="input is-link" placeholder="Achternaam" id="surname" type="text" name="surname"/>-->
-                <!---->
-                <!--                <p class="help is-danger">-->
-                <!--                    --><?php //= $errors['surname'] ?? '' ?>
-                <!--                </p>-->
 
                 <!--email -->
 

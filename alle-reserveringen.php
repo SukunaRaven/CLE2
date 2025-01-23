@@ -13,7 +13,7 @@ if (!isset($_SESSION['user']) ||
 
     // Is user logged in?
 }
-$query = "SELECT * FROM reservations ORDER BY date DESC";
+$query = "SELECT * FROM reservations ORDER BY date ASC, start_time ASC";
 
 $result = mysqli_query($db, $query)
 or die('Error ' . mysqli_error($db) . ' with query ' . $query);

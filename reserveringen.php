@@ -339,19 +339,6 @@ if (isset($_GET['date']) && !empty($_GET['date'])) {
 
 </main>
 
-<style>
-    .textArea {
-        border: antiquewhite solid 1px;
-        border-radius: 5px;
-        max-width: 656.73px;
-        background-color: #1C1512;
-        resize: none;
-    }
-
-    .inputDesign {
-
-    }
-</style>
 
 <footer class="has-background-info">
     <div class="footerRow">
@@ -380,7 +367,7 @@ if (isset($_GET['date']) && !empty($_GET['date'])) {
                 </div>
             </div>
         </div>
-        <div class="detailsFooter"><img class="broersLogo" src="../../../Images/BroersLogo.png" alt="logo">
+        <div class="detailsFooter"><img class="broersLogo" src="Images/BroersLogo.png" alt="logo">
             <p>Eetcafé BROERS</p>
             <p>Koningsplein 44</p>
             <p>2981 EA Ridderkerk</p>
@@ -388,6 +375,17 @@ if (isset($_GET['date']) && !empty($_GET['date'])) {
             <p>06 - 48 18 54 03</p></div>
     </div>
 </footer>
-
 </body>
+<style>
+    .textArea {
+        border: antiquewhite solid 1px;
+        border-radius: 5px;
+        max-width: 656.73px;
+        background-color: #1C1512;
+        resize: none;
+    }
+
+
+</style>
+
 </html>
