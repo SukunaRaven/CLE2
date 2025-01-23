@@ -190,11 +190,22 @@ session_start();
             </div>
             <div class="column">
                 <p class="has-text-centered has-text-link">
-                    Sinds 9 oktober 2024 is dit eetcafé gevestigd op Koningsplein 44.
-
+                    Welkom bij Eetcafé Broers!
                 </p>
                 <p>
+                    Eetcafé Broers is jouw plek voor lekker eten, goede vibes en een relaxte sfeer. Van een snelle lunch tot een uitgebreid diner, wij zorgen voor een ervaring die je bijblijft.
 
+                    Onze keuken serveert klassiekers met een moderne twist, gemaakt van verse ingrediënten en een flinke dosis creativiteit. Geen poespas, gewoon genieten.
+                </p>
+                <p>
+                    Bij Broers ontmoet je vrienden, deel je verhalen en proef je iets nieuws. Of je nu komt voor de Vrijdagmiddagborrel, een intiem diner of een vrijgezellenfeest dat net even anders is – wij maken er iets speciaals van.
+
+                    Dit is de plek waar iedereen welkom is.
+                </p>
+                <p>
+                    Zien we je snel?
+
+                    Team Broers
                 </p>
             </div>
         </div>
