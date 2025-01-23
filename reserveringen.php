@@ -143,12 +143,7 @@ if (isset($_GET['date']) && !empty($_GET['date'])) {
     >
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.cdnfonts.com/css/imagination-station" rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/open-sans" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
-            type="text/javascript"></script>
     <title>Broers Smaakmakers</title>
 </head>
 
@@ -263,7 +258,7 @@ if (isset($_GET['date']) && !empty($_GET['date'])) {
 
 <main class="has-background-info pt-0">
 
-    <div class="container content is-flex is-justify-content-center">
+    <div class="container content is-flex is-justify-content-center contactRow">
         <section class="columns">
             <form class="column is-full" action="" method="post">
                 <div class="pt-5"></div>
@@ -321,7 +316,7 @@ if (isset($_GET['date']) && !empty($_GET['date'])) {
 
                 <label class="label" for="comments">Extra informatie</label>
 
-                <textarea class="is-normal textArea" cols="89" rows="6" name="comments"></textarea>
+                <textarea class="textarea is-link textArea" cols="89" rows="6" name="comments"></textarea>
 
                 <p class="help is-danger">
                     <?= $errors['comments'] ?? '' ?>

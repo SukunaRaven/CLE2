@@ -202,7 +202,7 @@ if (isset($_POST['submit'])) {
 
                     <!-- name -->
                     <div>
-                        <label class="label" for="name">Voornaam</label>
+                        <label class="label" for="name">Naam</label>
 
                         <div>
                             <input class="input is-link is-half-width" placeholder="Voornaam" id="name" type="text"
@@ -214,15 +214,6 @@ if (isset($_POST['submit'])) {
                             </p>
                         </div>
                     </div>
-
-                    <!-- surname -->
-                    <label class="label" for="surname">Achternaam</label>
-
-                    <input class="input is-link" placeholder="Achternaam" id="surname" type="text" name="surname"/>
-
-                    <p class="help is-danger">
-                        <?= $errors['surname'] ?? '' ?>
-                    </p>
 
                     <!--email -->
 

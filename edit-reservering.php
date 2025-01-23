@@ -23,10 +23,38 @@ $result = mysqli_query($db, $query) or die("Error");
 
 $reservation = mysqli_fetch_assoc($result);
 $errors = [''];
+
+// Maak een array met tijden van 11:00 - 20:00 met stappen van 15 minuten.
+$times = [];
+$time = strtotime('11:00');
+$timeToAdd = 15;
+
+// Blijf de times array vullen totdat 20:00 bereikt wordt.
+while ($time <= strtotime(datetime: '20:00')) {
+    // time toevoegen aan times array
+    $times[] = date('H:i', $time);
+
+    // time + een kwartier optellen
+    $time += 15 * 60;
+}
+
+// doorloop alle tijden (van 11:00 - 20:00)
+foreach ($times as $time) {
+    $time = strtotime($time);
+    $occurs = false;
+    $reservationCounter = 1;
+}
+
+$selectedTime = '';
+$availableTimes = [];
+$startTime = [];
+$startTime = strtotime($reservation['start_time']);
+$startTime = date('H:i', $startTime);
+
 if (isset($_POST['submit'])) {
 
     $reservation['date'] = $_POST['date'];
-    $reservation['start_time'] = $_POST['start_time'];
+    $reservation['start_time'] = $_POST['start_time'] ?? null;;
     $reservation['name'] = $_POST['name'];
     $reservation['guests'] = $_POST['guests'];
     $reservation['email'] = $_POST['email'];
@@ -34,7 +62,7 @@ if (isset($_POST['submit'])) {
     $reservation['comments'] = $_POST['comments'];
 
     $date = $reservation['date'];
-    $start_time = $reservation['start_time'];
+    $selectedTime = mysqli_real_escape_string($db, $_POST['start_time']);
     $name = $reservation['name'];
     $guests = $reservation['guests'];
     $email = $reservation['email'];
@@ -77,6 +105,7 @@ if (isset($_POST['submit'])) {
 
 
     if ($dataValid) {
+        $start_time = [];
         $editQuery = "UPDATE reservations SET `name`='$name',`phone`='$phone',`date`='$date',`start_time`='$start_time',`guests`='$guests', `email`='$email', `comments`='$comments' WHERE id=$id";
         echo $editQuery;
 
@@ -168,17 +197,22 @@ mysqli_close($db);
             <p class="errorSpacing"> <?= $errors['date'] ?? '' ?> </p>
 
             <!--Time-->
-
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
-                    <label class="label" for="time">Tijd</label>
+                    <label class="label" for="start_time">Tijd</label>
                 </div>
                 <div class="field-body">
-                    <input class="input" id="time" type="text" name="time"
-                           value="<?= htmlentities($reservation['start_time']) ?>"/>
+                    <select id="start_time" name="start_time">
+                        <option value="">Kies een tijd</option>
+                        <?php foreach ($availableTimes as $availableTime) { ?>
+                            <option value="<?= $availableTime ?>" <?= $selectedTime == $availableTime ? 'selected' : '' ?>><?= $availableTime ?></option>
+                        <?php } ?>
+                    </select>
                 </div>
+                <p class="help is-danger">
+                    <?= $errors['time'] ?? '' ?>
+                </p>
             </div>
-            <p class="errorSpacing"> <?= $errors['start_time'] ?? '' ?> </p>
 
             <!--Guests-->
 
