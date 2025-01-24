@@ -4,6 +4,10 @@ Taakverdeling
 3.	Amber en Madya doen Database
 4.	Lisa en Raven doen de style
 
+Pauzes
+1. Je mag korte pauzes inlassen om even je hoofd leeg te maken als je het nodig heb
+2. Communiceer dit wel even met het team.
+
 Waar onze documenten staan
 1.	Github
 2.	Teams
